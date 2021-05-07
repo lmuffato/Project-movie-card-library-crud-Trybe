@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { number, shape } from 'prop-types';
+
 import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
@@ -57,5 +59,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: shape({
+    params: shape({
+      id: number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;

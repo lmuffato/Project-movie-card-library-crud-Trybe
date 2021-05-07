@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
 import { Redirect } from 'react-router';
+import { number, shape } from 'prop-types';
 
 import { Loading, MovieForm } from '../components';
+
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -52,5 +55,13 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: shape({
+    params: shape({
+      id: number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default EditMovie;

@@ -26,7 +26,7 @@ class MovieList extends Component {
   }
 
   structureList(movies) {
-    return movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+    return movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
   }
 
   render() {

@@ -11,6 +11,7 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
+    console.log(updatedMovie);
   }
 
   render() {

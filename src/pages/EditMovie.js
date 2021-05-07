@@ -11,6 +11,7 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
+    console.log(`handelSubmit: ${updatedMovie} //// movieAPI: ${movieAPI}`);
   }
 
   render() {

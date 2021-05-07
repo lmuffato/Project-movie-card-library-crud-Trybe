@@ -17,7 +17,11 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <div id="teste">
+          <spam>{`movieAPI: ${movieAPI}; Loading: ${Loading} ; Title:${title}`}</spam>
+        </div>
       </div>
+
     );
   }
 }

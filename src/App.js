@@ -1,12 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Link, Route, BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
+// import { Link, Route, BrowserRouter, Router } from 'react-dom';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>Movie Card Library CRUD</div>
-    </Router>
+      <nav>
+        <ul>
+          <Router />
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/users">Users</Link></li>
+          <Route />
+        </ul>
+      </nav>
+    </BrowserRouter>
   );
 }
 

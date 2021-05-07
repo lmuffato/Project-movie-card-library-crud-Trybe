@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -28,6 +28,11 @@ class MovieDetails extends Component {
     this.updateState(movie);
   }
 
+  deleteMovie = async (id) => {
+    await movieAPI.deleteMovie(id);
+    this.setState({ loading: true });
+  }
+
   render() {
     const { loading } = this.state;
     if (loading) {
@@ -48,6 +53,14 @@ class MovieDetails extends Component {
         <div>
           <Link to="/">VOLTAR</Link>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <p>
+            <Link
+              to="/"
+              onClick={ () => this.deleteMovie(id) }
+            >
+              DELETAR
+            </Link>
+          </p>
         </div>
       </div>
     );

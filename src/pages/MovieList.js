@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
 
+import '../components/styles/MovieList.css';
+
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -32,9 +34,12 @@ class MovieList extends Component {
     const { loading, movies } = this.state;
 
     return (
-      <div data-testid="movie-list">
-        <h1>MovieList</h1>
-        {loading ? <Loading /> : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+      <div data-testid="movie-list" className="movieList">
+        {
+          loading
+            ? <Loading />
+            : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+        }
       </div>
     );
   }

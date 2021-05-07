@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
@@ -9,9 +9,12 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.handleDelete = this.handleDelete.bind(this);
+
     this.state = {
       movie: {},
       loading: true,
+      redirect: false,
     };
   }
 
@@ -29,13 +32,26 @@ class MovieDetails extends Component {
       });
   }
 
+  handleDelete() {
+    const { movie } = this.state;
+    const { id } = movie;
+
+    movieAPI.deleteMovie(id)
+      .then(() => {
+        this.setState({
+          redirect: true,
+        });
+      });
+  }
+
   // Source: https://github.com/tryber/sd-08-project-movie-cards-library-crud/tree/c152ee7259a1d37fcfc7714ec4b820f5f9513e72
   render() {
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    const { loading } = this.state;
+    const { loading, redirect } = this.state;
 
     if (loading) return <Loading />;
+    if (redirect) return <Redirect to="/" />;
 
     return (
       <div data-testid="movie-details">
@@ -47,6 +63,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link onClick={ this.handleDelete } to="/">DELETAR</Link>
       </div>
     );
   }

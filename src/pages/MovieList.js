@@ -14,7 +14,8 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovies();
+    movieAPI.getMovies()
+      .then();
   }
 
   render() {

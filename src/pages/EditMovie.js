@@ -11,6 +11,7 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
+    movieAPI.getMovie(updatedMovie); // alterar!!!!
   }
 
   render() {

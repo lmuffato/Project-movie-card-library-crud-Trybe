@@ -10,10 +10,16 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     };
+    console.log('Contructor')
+  }
+
+  componentDidMount() {
+    console.log('DidMount')
   }
 
   render() {
     const { movies } = this.state;
+    console.log('Render')
 
     // Render Loading here if the request is still happening
 

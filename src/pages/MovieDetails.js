@@ -23,6 +23,10 @@ class MovieDetails extends Component {
     this.getMovie();
   }
 
+  async handleDelete(id) {
+    await movieAPI.deleteMovie(id);
+  }
+
   async getMovie() {
     const { match } = this.props;
     const { params } = match;
@@ -49,6 +53,7 @@ class MovieDetails extends Component {
 
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ () => this.handleDelete(id) }>DELETAR</Link>
       </div>
     );
   }

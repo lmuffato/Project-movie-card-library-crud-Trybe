@@ -1,0 +1,15 @@
+.movie-card {
+  border: 1px black solid;
+  width: 20rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+}
+
+.movie-card img {
+  width: 100%;
+}
+
+.movie-card-body {
+  display: flex;
+  flex-direction: column;
+}

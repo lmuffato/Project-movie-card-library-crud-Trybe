@@ -3,3 +3,16 @@ body {
   box-sizing: border-box;
 }
 
+.movieCard-parent {
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  background-color: rgb(187, 186, 186);
+  margin: 5px;
+}
+
+.movieList-parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

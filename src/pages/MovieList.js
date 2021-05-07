@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 
-import * as movieAPI from '../services/movieAPI';
+// import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
@@ -19,6 +19,7 @@ class MovieList extends Component {
 
     return (
       <div data-testid="movie-list">
+        <h1>Movie List</h1>
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );

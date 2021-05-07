@@ -13,7 +13,7 @@
     "serialize-javascript": "3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER='microsoft-edge-dev' react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose=true",
     "eject": "react-scripts eject",

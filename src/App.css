@@ -3,3 +3,19 @@ body {
   box-sizing: border-box;
 }
 
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  max-width: 50%;
+}
+
+.movie-card img {
+  width: 300px;
+}
+
+.movie-card p {
+  font-size: 0.8rem;
+}

@@ -37,7 +37,7 @@ describe('1 - Renderize `BrowserRouter` no componente `App` usando rotas', () =>
     }
   });
 
-  test.skip('Será validado se a rota `/movies/new` renderiza a página NewMovie', () => {
+  test('Será validado se a rota `/movies/new` renderiza a página NewMovie', () => {
     const { unmount, getByTestId } = renderPath('/movies/new');
     expect.anything(getByTestId('new-movie'));
     unmount();

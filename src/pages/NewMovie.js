@@ -8,14 +8,7 @@ class NewMovie extends Component {
     super(props);
 
     this.state = {
-      id: 0,
-      title: '',
-      subtitle: '',
-      storyline: '',
-      rating: 0,
-      imagePath: '',
-      bookmarked: '',
-      genre: '',
+
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +21,8 @@ class NewMovie extends Component {
   render() {
     return (
       <div data-testid="new-movie">
-        <MovieForm movie={ [...this.state] } onSubmit={ this.handleSubmit } />
+        <h1>NewMovie</h1>
+        <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );
   }

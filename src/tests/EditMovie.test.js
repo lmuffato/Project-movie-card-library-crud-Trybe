@@ -28,7 +28,7 @@ const genres = {
 
 describe('5 - Realize uma requisição para buscar o filme que será editado em `EditMovie`', () => {
 
-  it.skip('Será validado se `EditMovie` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
+  it('Será validado se `EditMovie` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
      cleanup();
       const { getByText } = renderPath(`/movies/${movie.id}/edit`);
@@ -36,7 +36,7 @@ describe('5 - Realize uma requisição para buscar o filme que será editado em 
     }
   });
 
-  it.skip('Será validado se `EditMovie` contém um formulário preenchido com o título, subtítulo, sinopse, caminho da imagem e gênero do filme selecionado', async () => {
+  it('Será validado se `EditMovie` contém um formulário preenchido com o título, subtítulo, sinopse, caminho da imagem e gênero do filme selecionado', async () => {
     for (const movie of readMovies()) {
       const { getByDisplayValue, getAllByDisplayValue } = renderPath(`/movies/${movie.id}/edit`);
       await waitFor(() => movieAPI.getMovie(movie.id - 1));
@@ -49,7 +49,7 @@ describe('5 - Realize uma requisição para buscar o filme que será editado em 
     }
   });
 
-  it.skip('Será validado se, ao clicar no botão de submit, uma requisição para API é feita e o filme selecionado é atualizado. Após a conclusão da atualização a pessoa usuária deve ser redirecionada para a página inicial', async () => {
+  it('Será validado se, ao clicar no botão de submit, uma requisição para API é feita e o filme selecionado é atualizado. Após a conclusão da atualização a pessoa usuária deve ser redirecionada para a página inicial', async () => {
     for (const movie of readMovies()) {
       cleanup();
       const { container, getByLabelText, getByRole } = renderPath(`/movies/${movie.id}/edit`);

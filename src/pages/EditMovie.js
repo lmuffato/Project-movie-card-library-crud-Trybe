@@ -21,14 +21,14 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.loadMovie();
+  }
+
   handleSubmit(updatedMovie) {
     this.setState({ shouldRedirect: true }, () => {
       movieAPI.updateMovie(updatedMovie).then();
     });
-  }
-
-  componentDidMount() {
-    this.loadMovie();
   }
 
   loadMovie() {

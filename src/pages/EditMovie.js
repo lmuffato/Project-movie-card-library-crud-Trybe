@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { MovieForm } from '../components';
+// import { MovieForm } from '../components';
 // import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -14,18 +14,19 @@ class EditMovie extends Component {
   // }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      // Redirect
-    }
+    // const { status, shouldRedirect, movie } = this.state;
+    // if (shouldRedirect) {
+    // Redirect
+    // }
 
-    if (status === 'loading') {
-      // render Loading
-    }
+    // if (status === 'loading') {
+    // render Loading
+    // }
 
     return (
       <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        {/* <MovieForm movie={ movie } onSubmit={ this.handleSubmit } /> */}
+        <h1>Edit movie</h1>
       </div>
     );
   }

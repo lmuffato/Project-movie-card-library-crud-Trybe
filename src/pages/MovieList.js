@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import Loading from '../components/Loading';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -9,20 +10,39 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      loading: false,
     };
   }
 
-  render() {
-    const { movies } = this.state;
-
-    // Render Loading here if the request is still happening
-
-    return (
-      <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-      </div>
-    );
+  componentDidMount() {
+    this.fecthMovies();
   }
+
+ fecthMovies = () => {
+   this.setState({
+     loading: true,
+   }, async () => {
+     const fecthMovies = await movieAPI.getMovies();
+     this.setState((paststate) => ({
+       movies: [...paststate.movies, ...fecthMovies],
+       loading: false,
+     }));
+   });
+ }
+
+ conditional = () => {
+   const { loading, movies } = this.state;
+   if (loading) return <Loading />;
+   return movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+ }
+
+ render() {
+   return (
+     <div data-testid="movie-list">
+       {this.conditional()}
+     </div>
+   );
+ }
 }
 
 export default MovieList;

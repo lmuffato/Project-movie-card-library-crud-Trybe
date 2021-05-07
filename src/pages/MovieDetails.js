@@ -18,6 +18,7 @@ class MovieDetails extends Component {
     };
 
     this.loadMovie = this.loadMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
@@ -35,11 +36,20 @@ class MovieDetails extends Component {
     });
   }
 
+  deleteMovie() {
+    const { movie } = this.state;
+    movieAPI.deleteMovie(movie.id).then();
+  }
+
   render() {
     const { movie, loading } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    const movieDetailsElement = (
+    if (loading) {
+      return <Loading message="Carregando..." />;
+    }
+
+    return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{ `Title: ${title}` }</p>
@@ -49,11 +59,8 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/" className="btn btn-primary">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` } className="btn btn-link">EDITAR</Link>
+        <Link to="/" className="btn btn-danger" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
-    );
-
-    return (
-      loading ? <Loading message="Carregando..." /> : movieDetailsElement
     );
   }
 }

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { shape, number } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import Details from '../components/Details';
 
 class MovieDetails extends Component {
   constructor() {
@@ -30,27 +32,19 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    const { movie:
-    {
-      title,
-      storyline,
-      imagePath,
-      genre,
-      rating,
-      subtitle,
-    }, loading } = this.state;
+    const { match: { params: { id } } } = this.props;
+    const { movie, loading } = this.state;
 
-    return loading ? <Loading />
-      : (<div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-         </div>);
+    return (
+      <div data-testid="movie-details">
+        {loading ? <Loading />
+          : <>
+            <Details movie={ movie } />
+            <Link to="/">VOLTAR</Link>
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+            </>}
+      </div>
+    );
   }
 }
 

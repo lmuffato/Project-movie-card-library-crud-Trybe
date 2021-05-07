@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Col, Row, Card } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/MovieCard.css';
@@ -28,5 +29,18 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired,
+};
 
 export default MovieCard;

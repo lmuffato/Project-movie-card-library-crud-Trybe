@@ -1,9 +1,14 @@
 import React from 'react';
+// import { Route } from 'react-router';
 
-function App() {
-  return (
-    <div>Movie Card Library CRUD</div>
-  );
+class App extends React.Component() {
+  render() {
+    return (
+      // <Route>
+      // </Route>
+      <div>Movie Card Library CRUD</div>
+    );
+  }
 }
 
 export default App;

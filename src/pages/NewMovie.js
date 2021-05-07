@@ -20,4 +20,5 @@ class NewMovie extends Component {
     );
   }
 }
+
 export default NewMovie;

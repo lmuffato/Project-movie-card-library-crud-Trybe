@@ -4,38 +4,37 @@
 }
 
 .title {
-  margin: 0;
   background-color: #c0c1c1;
-  text-align: center;
+  border: solid 2px black;
+  color: #7e1616;
   font-size: 75px;
   font-weight: 900;
-  color: #7e1616;
-  border: solid 2px black
+  margin: 0;
+  text-align: center;
 }
 
 .main-content {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .content {
-  padding: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
+  padding: 50px;
 }
 
 .movie-card {
-  margin: 15px;
-  padding: 15px;
+  align-items: center;
+  background-color: #fffead;
+  border: solid 5px #fcc252;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 15px;
   max-width: 350px;
-  border: solid 5px #fcc252;
-  background-color: #fffead;
+  padding: 15px;
 }
 
 .movie-card:hover {
@@ -53,30 +52,30 @@
 }
 
 .movie-card-body {
-  width: 300px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #fffead;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
 }
 
 .movie-card-title {
+  background-color: #fffead;
   font-size: 23px;
   font-weight: 800;
-  background-color: #fffead;
 }
 
 .movie-card-rate {
+  background-color: #fffead;
   font-size: 18px;
   font-weight: 400;
-  background-color: #fffead;
 }
 
 .movie-card-sinopse {
+  background-color: #fffead;
   display: none;
   font-size: 17px;
   font-weight: 400;
-  background-color: #fffead;
 }
 
 .movie-card:hover > .movie-card-sinopse {
@@ -86,15 +85,15 @@
 
 .button {
   background-color: inherit;
-  padding: 2px;
-  color: #7e1616;
-  font-weight: 600;
-  width: 130px;
-  text-align: center;
-  font-size: 16px;
-  text-decoration: none;
   border: solid 2px #7e1616;
   border-radius: 6px;
+  color: #7e1616;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  width: 130px;
 }
 
 .button:hover {

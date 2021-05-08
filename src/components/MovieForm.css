@@ -1,49 +1,49 @@
 .form {
-  margin: 15px;
-  padding: 15px;
+  align-items: center;
+  background-color: #fffead;
+  border: solid 5px #fcc252;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 15px;
   max-width: 850px;
-  border: solid 5px #fcc252;
-  background-color: #fffead;
+  padding: 15px;
 }
 
 .text-input-label {
-  padding: 10px;
-  display: flex;
   background-color: #fffead;
+  display: flex;
   font-size: 20px;
   font-weight: 500;
+  padding: 10px;
 }
 
 .text-input-input {
+  background-color: #fffead;
   border: solid 2px #fcc252;
   border-radius: 5px;
-  margin-left: 5px;
   display: flex;
-  background-color: #fffead;
   font-size: 18px;
   font-weight: 300;
+  margin-left: 5px;
 }
 
 .textarea-input-label {
-  padding: 10px;
+  background-color: #fffead;
   display: flex;
   flex-direction: column;
-  background-color: #fffead;
   font-size: 20px;
   font-weight: 500;
+  padding: 10px;
 }
 
 .textarea-input-input {
+  background-color: #fffead;
   border: solid 2px #fcc252;
   border-radius: 10px;
-  width: 350px;
-  height: 150px;
-  margin-left: 5px;
   display: flex;
-  background-color: #fffead;
   font-size: 18px;
   font-weight: 300;
+  height: 150px;
+  margin-left: 5px;
+  width: 350px;
 }

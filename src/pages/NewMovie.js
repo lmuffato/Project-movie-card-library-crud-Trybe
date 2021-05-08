@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MovieForm from '../components/MovieForm';
+// import MovieForm from '../components/MovieForm';
 // import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
@@ -17,7 +17,6 @@ class NewMovie extends Component {
     return (
       <div data-testid="new-movie">
         {/* <MovieForm onSubmit={ this.handleSubmit } /> */}
-        Sorvete
       </div>
     );
   }

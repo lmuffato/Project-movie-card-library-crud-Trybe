@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { MovieForm } from '../components';
+// import { MovieForm } from '../components';
 // import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -14,7 +14,7 @@ class EditMovie extends Component {
   // }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { status, shouldRedirect } = this.state;
     if (shouldRedirect) {
       // Redirect
     }

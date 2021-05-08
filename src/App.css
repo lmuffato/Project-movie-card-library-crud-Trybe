@@ -4,23 +4,24 @@ body {
 }
 
 .titulo {
-  text-align: center;
-  margin-bottom: 30px;
   color: blue;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.linkAdicionar{
-  margin-left: 450px;
+.linkAdicionar {
   color: white;
+  margin-left: 450px;
 }
+
 .cartao {
   background-color: whitesmoke;
-  max-width: 500px;
   border: 2px solid gray;
   box-shadow: 0 4px 4px -2px #989898;
   margin-bottom: 30px;
-  padding: 5px;
   margin-left: 450px;
+  max-width: 500px;
+  padding: 5px;
 }
 
 .linkCards1 {
@@ -28,8 +29,8 @@ body {
 }
 
 .linkCards {
-  margin-left: 15px;
   color: white;
+  margin-left: 15px;
 }
 
 img {

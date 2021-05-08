@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func, objectOf, string, number, bool } from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class MovieForm extends React.Component {
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
           Título
+          {' '}
         </label>
       </div>
     );
@@ -163,5 +164,14 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: objectOf({ string, number, bool }),
+  onSubmit: func.isRequired,
+};
+
+MovieForm.defaultProps = {
+  movie: {},
+};
 
 export default MovieForm;

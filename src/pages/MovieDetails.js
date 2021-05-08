@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { shape, number } from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -11,6 +10,7 @@ class MovieDetails extends Component {
     super();
 
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
       movie: {},
@@ -31,18 +31,20 @@ class MovieDetails extends Component {
     });
   }
 
+  deleteMovie = async () => {
+    const { movie: { id } } = this.state;
+    await movieAPI.deleteMovie(id);
+  }
+
   render() {
-    const { match: { params: { id } } } = this.props;
     const { movie, loading } = this.state;
 
     return (
       <div data-testid="movie-details">
-        {loading ? <Loading />
-          : <>
-            <Details movie={ movie } />
-            <Link to="/">VOLTAR</Link>
-            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-            </>}
+        {
+          loading ? <Loading />
+            : <Details movie={ movie } id={ movie.id } onClick={ this.deleteMovie } />
+        }
       </div>
     );
   }

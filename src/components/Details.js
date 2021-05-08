@@ -1,5 +1,6 @@
 import React from 'react';
-import { string, number, shape, objectOf } from 'prop-types';
+import { Link } from 'react-router-dom';
+import { string, number, shape, objectOf, func } from 'prop-types';
 
 const Details = ({
   movie: {
@@ -9,6 +10,8 @@ const Details = ({
     genre,
     rating,
     subtitle },
+  id,
+  onClick,
 }) => (
   <div>
     <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -17,6 +20,10 @@ const Details = ({
     <p>{ `Storyline: ${storyline}` }</p>
     <p>{ `Genre: ${genre}` }</p>
     <p>{ `Rating: ${rating}` }</p>
+
+    <Link to="/">VOLTAR</Link>
+    <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+    <Link onClick={ onClick } to="/">DELETAR</Link>
   </div>
 );
 
@@ -29,6 +36,8 @@ Details.propTypes = {
     rating: number.isRequired,
     subtitle: string.isRequired,
   })).isRequired,
+  id: number.isRequired,
+  onClick: func.isRequired,
 };
 
 export default Details;

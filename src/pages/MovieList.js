@@ -38,6 +38,7 @@ class MovieList extends Component {
               title={ movie.title }
               storyline={ movie.storyline }
               image={ movie.imagePath }
+              id={ movie.id }
             />
           ))}
       </div>

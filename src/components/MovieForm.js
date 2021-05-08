@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -122,7 +123,7 @@ class MovieForm extends React.Component {
   renderRatingInput() {
     const { rating } = this.state;
     return (
-      <div className="col-md-6">
+      <div className="col-md-12">
         <label htmlFor="movie_rating" className="form-label">
           Avaliação
           <input
@@ -143,7 +144,7 @@ class MovieForm extends React.Component {
 
   renderSubmitButton() {
     return (
-      <div className="col-md-6 mt-3 align-self-center">
+      <div className="mt-3 w-auto">
         <button
           type="button"
           className="btn btn-primary"
@@ -151,6 +152,19 @@ class MovieForm extends React.Component {
         >
           Submit
         </button>
+      </div>
+    );
+  }
+
+  renderReturnButton() {
+    return (
+      <div className="mt-3 w-auto">
+        <Link
+          to="/"
+          className="btn btn-danger"
+        >
+          Cancelar
+        </Link>
       </div>
     );
   }
@@ -166,6 +180,7 @@ class MovieForm extends React.Component {
           {this.renderGenreSelection()}
           {this.renderRatingInput()}
           {this.renderSubmitButton()}
+          {this.renderReturnButton()}
         </form>
       </div>
     );

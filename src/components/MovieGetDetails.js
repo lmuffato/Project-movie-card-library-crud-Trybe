@@ -7,13 +7,17 @@ export default class MovieGetDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle } = movies;
     return (
       <div>
-        <div>
-          <img alt="Movie Cover" src={ `../${imagePath}` } />
-          <p>{ `Title: ${title}` }</p>
-          <p>{ `Subtitle: ${subtitle}` }</p>
-          <p>{ `Storyline: ${storyline}` }</p>
-          <p>{ `Genre: ${genre}` }</p>
-          <p>{ `Rating: ${rating}` }</p>
+        <div className="movie-card">
+          <img alt="Movie Cover" className="movie-card-image" src={ `../${imagePath}` } />
+          <div className="movie-card-body">
+            <p className="movie-card-title">{ `Title: ${title}` }</p>
+            <p className="movie-card-subtitle">{ `Subtitle: ${subtitle}` }</p>
+            <p className="movie-card-storyline">{ `Storyline: ${storyline}` }</p>
+            <p>{ `Genre: ${genre}` }</p>
+          </div>
+          <div className="movie-card-rating">
+            <p>{ `Rating: ${rating}` }</p>
+          </div>
         </div>
       </div>
     );

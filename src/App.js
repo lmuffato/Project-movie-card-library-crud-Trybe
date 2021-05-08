@@ -5,12 +5,11 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
-//  import Data from './services/movieData';
 
 function App() {
   return (
     <Router>
-      <div>Movie Card Library CRUD</div>
+      <div className="center">Movie Card Library CRUD</div>
       <Switch>
         <Route exact path="/" render={ () => <MovieList /> } />
         <Route exact path="/movies/new" render={ () => <NewMovie /> } />

@@ -31,10 +31,12 @@ class MovieList extends Component {
 
     return (
       <div>
-        <Link to="/movies/new">
-          ADICIONAR CARTÃO
-        </Link>
-        <div data-testid="movie-list">
+        <div className="center">
+          <Link to="/movies/new">
+            ADICIONAR CARTÃO
+          </Link>
+        </div>
+        <div data-testid="movie-list" className="movie-list">
           { movies.length > 0 ? <Loading show={ false } /> : <Loading show /> }
           { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
         </div>

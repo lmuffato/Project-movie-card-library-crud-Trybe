@@ -17,6 +17,8 @@ class MovieForm extends React.Component {
     this.setState({ [field]: newValue });
   }
 
+  // Essa solução de alterar um valor não controlado inicialmente, alterando o value para { prop || '' }, eu encontrei no link abaixo:
+  // https://stackoverflow.com/a/47012342
   renderTitleInput() {
     const { title } = this.state;
 
@@ -28,7 +30,7 @@ class MovieForm extends React.Component {
             id="movie_title"
             type="text"
             className="validate"
-            value={ title }
+            value={ title || '' }
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
           Título
@@ -47,7 +49,7 @@ class MovieForm extends React.Component {
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
             type="text"
-            value={ subtitle }
+            value={ subtitle || '' }
             onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
           />
           Subtítulo
@@ -66,7 +68,7 @@ class MovieForm extends React.Component {
             placeholder="Insira o caminho da imagem"
             id="movie_image"
             type="text"
-            value={ imagePath }
+            value={ imagePath || '' }
             onChange={ (event) => this.updateMovie('imagePath', event.target.value) }
           />
           Imagem
@@ -83,7 +85,7 @@ class MovieForm extends React.Component {
         <label htmlFor="movie_storyline">
           <textarea
             id="movie_storyline"
-            value={ storyline }
+            value={ storyline || '' }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
           />
           Sinopse
@@ -100,7 +102,7 @@ class MovieForm extends React.Component {
           Gênero
           <select
             id="movie_genre"
-            value={ genre }
+            value={ genre || '' }
             onChange={ (event) => this.updateMovie('genre', event.target.value) }
           >
             <option value="action">Ação</option>
@@ -125,7 +127,7 @@ class MovieForm extends React.Component {
             step={ 0.1 }
             min={ 0 }
             max={ 5 }
-            value={ rating }
+            value={ rating || '' }
             onChange={ (event) => this.updateMovie('rating', event.target.value) }
           />
           Avaliação

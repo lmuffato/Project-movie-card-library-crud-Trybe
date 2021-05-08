@@ -3,3 +3,25 @@ body {
   box-sizing: border-box;
 }
 
+@media screen and ( min-width : 768px ) {
+
+  .container-movies {
+    margin: 0 32px;
+  }
+
+  .container-movies .box-movies {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card {
+    cursor: pointer;
+    max-width: 300px;
+    transition: 1s;
+  }
+
+  .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 8px;
+    transform: translate(16px, 0);
+  }
+}

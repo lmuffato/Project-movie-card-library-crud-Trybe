@@ -10,13 +10,17 @@ class EditMovie extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getMovie = this.getMovie(this);
+    this.getMovie = this.getMovie.bind(this);
 
     this.state = {
       movie: '',
       shouldRedirect: false,
       status: '',
     };
+  }
+
+  componentDidMount() {
+    this.getMovie();
   }
 
   handleSubmit(updatedMovie) {

@@ -11,18 +11,11 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
-      home: false,
     };
   }
 
   componentDidMount() {
     this.fetchMovie();
-  }
-
-  handleClick = () => {
-    this.setState({
-      home: true,
-    });
   }
 
   async fetchMovie() {
@@ -35,18 +28,21 @@ class MovieDetails extends Component {
     });
   }
 
+  async deleteMovie() {
+    const { match } = this.props;
+    const { params } = match;
+    const response = await movieAPI.deleteMovie(params.id);
+    return console.log(response);
+  }
+
   render() {
-    const { loading, movie, home } = this.state;
+    const { loading, movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     const loadingElement = <Loading />;
 
     if (loading) {
       return loadingElement;
-    }
-
-    if (home) {
-      return <Link to="/" />;
     }
 
     return (
@@ -62,6 +58,9 @@ class MovieDetails extends Component {
         </Link>
         <Link to="/">
           VOLTAR
+        </Link>
+        <Link to="/" onClick={ () => this.deleteMovie() }>
+          DELETAR
         </Link>
       </div>
     );

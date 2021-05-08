@@ -1,5 +1,47 @@
 body {
-  background-color: whitesmoke;
+  background-color: #363636;
   box-sizing: border-box;
 }
 
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  color: blue;
+}
+
+.linkAdicionar{
+  margin-left: 450px;
+  color: white;
+}
+.cartao {
+  background-color: whitesmoke;
+  max-width: 500px;
+  border: 2px solid gray;
+  box-shadow: 0 4px 4px -2px #989898;
+  margin-bottom: 30px;
+  padding: 5px;
+  margin-left: 450px;
+}
+
+.linkCards1 {
+  color: white;
+}
+
+.linkCards {
+  margin-left: 15px;
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+label {
+  color: white;
+}
+
+.carregar {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}

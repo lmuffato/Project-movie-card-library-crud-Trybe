@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages';
+import './App.css';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>Movie Card Library CRUD</div>
+        <div className="titulo">Movie Card Library CRUD</div>
         <Switch>
           <Route exact path="/" component={ MovieList } />
           <Route path="/movies/new" component={ NewMovie } />

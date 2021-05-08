@@ -23,6 +23,7 @@ class MovieList extends Component {
       movies: response,
       loading: false,
     });
+    console.log(response);
   }
 
   render() {

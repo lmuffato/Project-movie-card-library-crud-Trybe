@@ -12,7 +12,6 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     };
-    console.log('Contructor');
   }
 
   componentDidMount() {

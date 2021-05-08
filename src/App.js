@@ -12,8 +12,8 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={ MovieList } />
+        <Route path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id/edit" component={ EditMovie } />
-        <Route exact path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id" component={ MovieDetails } />
         {/* // https://ultimatecourses.com/blog/react-router-not-found-component  aprendi sobre rota NotFound */}
         <Route component={ NotFound } />

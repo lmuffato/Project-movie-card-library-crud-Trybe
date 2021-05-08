@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+// import * as movieAPI from '../services/movieAPI';
+// import { Loading } from '../components';
 
 class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    // linha abaixo tinha title tmb tirado para poder rodar npm start
+    const { storyline, imagePath, genre, rating, subtitle } = {};
 
     return (
       <div data-testid="movie-details">

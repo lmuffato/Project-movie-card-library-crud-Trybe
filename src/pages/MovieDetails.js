@@ -11,11 +11,18 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
+      home: false,
     };
   }
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  handleClick = () => {
+    this.setState({
+      home: true,
+    });
   }
 
   async fetchMovie() {
@@ -29,13 +36,17 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { loading, movie } = this.state;
+    const { loading, movie, home } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     const loadingElement = <Loading />;
 
     if (loading) {
       return loadingElement;
+    }
+
+    if (home) {
+      return <Link to="/" />;
     }
 
     return (
@@ -47,16 +58,11 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>
-          <button type="button">
-            EDITAR
-          </button>
+          EDITAR
         </Link>
         <Link to="/">
-          <button type="button">
-            VOLTAR
-          </button>
+          VOLTAR
         </Link>
-
       </div>
     );
   }

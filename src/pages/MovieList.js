@@ -14,7 +14,8 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovies().then((resolve) => this.handleMovies(resolve));
+    movieAPI.getMovies()
+      .then((resolve) => this.handleMovies(resolve));
   }
 
   handleMovies = (param) => {
@@ -35,10 +36,9 @@ class MovieList extends Component {
 
   render() {
     // Render Loading here if the request is still happening
-
+    console.log(this.props);
     return (
       <div data-testid="movie-list">
-        {/* {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)} */}
         {this.handleReturn()}
       </div>
     );

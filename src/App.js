@@ -5,11 +5,12 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div>Movie Card Library CRUD</div>
+      <h1 className="title">Movie Card Library CRUD</h1>
       <Switch>
         <Route exact path="/" render={ (props) => <MovieList { ...props } /> } />
         <Route path="/movies/new" render={ (props) => <NewMovie { ...props } /> } />

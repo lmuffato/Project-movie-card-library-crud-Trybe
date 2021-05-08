@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './MovieForm.css';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -22,16 +23,16 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_title">
+        <label htmlFor="movie_title" className="text-input-label">
+          Título:
           <input
             placeholder="Insira o título"
             id="movie_title"
             type="text"
-            className="validate"
+            className="validate text-input-input"
             value={ title }
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
-          Título
         </label>
       </div>
     );
@@ -42,15 +43,16 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">
+        <label htmlFor="movie_subtitle" className="text-input-label">
+          Subtítulo:
           <input
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
             type="text"
             value={ subtitle }
             onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
+            className="text-input-input"
           />
-          Subtítulo
         </label>
       </div>
     );
@@ -61,15 +63,16 @@ class MovieForm extends React.Component {
 
     return (
       <div className="row">
-        <label htmlFor="movie_image">
+        <label htmlFor="movie_image" className="text-input-label">
+          Imagem:
           <input
             placeholder="Insira o caminho da imagem"
             id="movie_image"
             type="text"
             value={ imagePath }
             onChange={ (event) => this.updateMovie('imagePath', event.target.value) }
+            className="text-input-input"
           />
-          Imagem
         </label>
       </div>
     );
@@ -80,13 +83,15 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_storyline">
+        <label htmlFor="movie_storyline" className="textarea-input-label">
+          Sinopse:
+          <br />
           <textarea
             id="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
+            className="textarea-input-input"
           />
-          Sinopse
         </label>
       </div>
     );
@@ -96,17 +101,18 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
     return (
       <div>
-        <label htmlFor="movie_genre">
+        <label htmlFor="movie_genre" className="text-input-label">
           Gênero
           <select
             id="movie_genre"
             value={ genre }
             onChange={ (event) => this.updateMovie('genre', event.target.value) }
+            className="text-input-input"
           >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-            <option value="fantasy">Fantasia</option>
+            <option value="action" className="text-input-input">Ação</option>
+            <option value="comedy" className="text-input-input">Comédia</option>
+            <option value="thriller" className="text-input-input">Suspense</option>
+            <option value="fantasy" className="text-input-input">Fantasia</option>
           </select>
         </label>
       </div>
@@ -117,7 +123,8 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
     return (
       <div>
-        <label htmlFor="movie_rating">
+        <label htmlFor="movie_rating" className="text-input-label">
+          Avaliação:
           <input
             placeholder="Dê a avaliação do filme"
             id="movie_rating"
@@ -127,8 +134,8 @@ class MovieForm extends React.Component {
             max={ 5 }
             value={ rating }
             onChange={ (event) => this.updateMovie('rating', event.target.value) }
+            className="text-input-input"
           />
-          Avaliação
         </label>
       </div>
     );
@@ -140,6 +147,7 @@ class MovieForm extends React.Component {
         <button
           type="button"
           onClick={ this.handleSubmit }
+          className="button"
         >
           Submit
         </button>
@@ -150,7 +158,7 @@ class MovieForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="form">
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}

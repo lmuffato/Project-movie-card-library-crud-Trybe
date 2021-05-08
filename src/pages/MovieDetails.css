@@ -1,0 +1,73 @@
+.movie-card-detail {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 850px;
+  border: solid 5px #fcc252;
+  background-color: #fffead;
+}
+
+.movie-card-detail-title {
+  background-color: #fffead;
+  margin: 0;
+  padding-top: 15px;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.movie-card-detail-subtitle {
+  background-color: #fffead;
+  margin: 0;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.movie-detail-img {
+  max-width: 800px;
+}
+
+.movie-card-detail-storyline {
+  max-width: 600px;
+  background-color: #fffead;
+  margin: 10;
+  padding: 20px 20px 0px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.movie-card-detail-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 580px;
+  background-color: #fffead;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.movie-card-detail-genre {
+  background-color: #fffead;
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.movie-card-detail-rating {
+  background-color: #fffead;
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: justify;
+}
+.btn-container {
+  background-color: #fffead;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}

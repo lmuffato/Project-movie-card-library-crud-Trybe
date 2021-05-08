@@ -17,7 +17,7 @@ function App() {
         <Route path="/movies/:id" component={ MovieDetails } />
         <Route component={ NotFound } />
       </Switch>
-      <div>Movie Card Library CRUD</div>
+      {/* <div>Movie Card Library CRUD</div> */}
     </Router>
 
   );

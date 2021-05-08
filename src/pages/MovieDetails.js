@@ -54,7 +54,7 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details" className="movieDetails">
         <Card>
-          <Card.Img src={ `http://localhost:3000/${imagePath}` } alt="Movie Cover" />
+          <Card.Img src={ `../${imagePath}` } alt="Movie Cover" />
           <Card.Body>
             <Card.Title>
               { title }

@@ -11,11 +11,17 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: false,
+      id: '',
     };
   }
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  removeMovie = () => {
+    const { id } = this.state;
+    movieAPI.deleteMovie(id);
   }
 
   fetchMovie() {
@@ -36,16 +42,12 @@ class MovieDetails extends Component {
     );
   }
 
-  delete(id) {
-    movieAPI.deleteMovie(id);
-  }
-
   render() {
     const { loading, movie, id } = this.state;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    if (loading) {
+    if (loading === true) {
       return (
         <Loading />
       );
@@ -59,15 +61,9 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <button type="button">
-          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        </button>
-        <button type="button">
-          <Link to="/">VOLTAR</Link>
-        </button>
-        <button type="button" onClick={ this.delete(id) }>
-          <Link to="/">DELETAR</Link>
-        </button>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.removeMovie }>DELETAR</Link>
       </div>
     );
   }

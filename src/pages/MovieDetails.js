@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     super();
 
     this.getMovie = this.getMovie.bind(this);
+    this.removeMovie = this.removeMovie.bind(this);
 
     this.state = {
       movies: '',
@@ -30,9 +31,13 @@ class MovieDetails extends Component {
     this.setState({ movies: obj });
   }
 
+  removeMovie() {
+    const { movies } = this.state;
+    const { deleteMovie } = movieAPI;
+    deleteMovie(movies.id);
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { movies } = this.state;
 
     return (
@@ -44,6 +49,9 @@ class MovieDetails extends Component {
         </Link>
         <Link to={ `/movies/${movies.id}/edit` }>
           EDITAR
+        </Link>
+        <Link to="/" onClick={ this.removeMovie }>
+          DELETAR
         </Link>
       </div>
     );

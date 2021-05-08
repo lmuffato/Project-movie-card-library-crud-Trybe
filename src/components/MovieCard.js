@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import MovieDetails from '../pages/MovieDetails';
 
 class MovieCard extends React.Component {
   render() {
@@ -11,8 +10,6 @@ class MovieCard extends React.Component {
       <div data-testid="movie-card">
         <h3>{ title }</h3>
         <p>{ storyline }</p>
-        {/* <Link to={ id } component={ MovieDetails } /> */}
-        {/* <Link to={ MovieDetails } /> */}
         <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );

@@ -3,6 +3,14 @@ body {
   box-sizing: border-box;
 }
 
+.form-label {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
 @media screen and ( min-width : 768px ) {
 
   .container-movies {

@@ -53,7 +53,7 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details" className="movieDetails">
-        <Card>
+        <Card className="cardDetail">
           <Card.Img src={ `../${imagePath}` } alt="Movie Cover" />
           <Card.Body>
             <Card.Title>
@@ -77,6 +77,15 @@ class MovieDetails extends Component {
             <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
           </Card.Footer>
         </Card>
+        <Link
+          to="/"
+          onClick={ async () => {
+            await movieAPI.deleteMovie(id);
+          } }
+        >
+          DELETAR
+
+        </Link>
       </div>
     );
   }

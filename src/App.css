@@ -72,6 +72,18 @@
   background-color: #fffead;
 }
 
+.movie-card-sinopse {
+  display: none;
+  font-size: 17px;
+  font-weight: 400;
+  background-color: #fffead;
+}
+
+.movie-card:hover > .movie-card-sinopse {
+  display: block;
+  transition-duration: 0.2s;
+}
+
 .button {
   background-color: inherit;
   padding: 2px;

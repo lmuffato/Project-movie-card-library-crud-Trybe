@@ -22,8 +22,8 @@ class MovieList extends Component {
       this.setState({
         movies: response,
         loading: false,
-      })
-    })
+      });
+    });
   }
 
   render() {
@@ -33,7 +33,8 @@ class MovieList extends Component {
 
     return (
       <div data-testid="movie-list">
-        { loading ? <Loading /> : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
+        { loading ? <Loading /> : movies
+          .map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
     );
   }

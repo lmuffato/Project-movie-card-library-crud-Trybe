@@ -19,14 +19,24 @@ class movieDetails extends Component {
   }
 
   mudaEstado = async () => {
-    const { match: { params: { id } } } = this.props;
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
     const response = await movieAPI.getMovie(id);
     this.setState(() => ({
       movie: response,
       loading: false,
       meuid: id,
     }));
-  }
+  };
+
+  deleteMovie = async () => {
+    const { deleteMovie } = movieAPI;
+    const { meuid } = this.state;
+    await deleteMovie(meuid);
+  };
 
   movieDetails = () => {
     const { movie, meuid } = this.state;
@@ -41,15 +51,21 @@ class movieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={ `/movies/${meuid}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-      </div>);
-  }
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+      </div>
+    );
+  };
 
   render() {
     const { loading } = this.state;
 
     return (
       <div>
-        {loading === true ? <Loading loadingTxt="Carregando..." /> : this.movieDetails()}
+        {loading === true ? (
+          <Loading loadingTxt="Carregando..." />
+        ) : (
+          this.movieDetails()
+        )}
       </div>
     );
   }

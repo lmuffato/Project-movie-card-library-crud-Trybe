@@ -14,13 +14,13 @@ class MovieList extends Component {
 
   async componentDidMount() {
     const response = await movieAPI.getMovies();
-    setState(response);
-  }
-
-  setState(response) {
-    this.setState({
+    this.newMethod().setState({
       movies: response,
     });
+  }
+
+  newMethod() {
+    return this;
   }
 
   render() {

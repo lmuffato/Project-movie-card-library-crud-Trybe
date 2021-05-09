@@ -16,7 +16,6 @@ class movieDetails extends Component {
 
   componentDidMount() {
     this.mudaEstado();
-    console.log(this.props);
   }
 
   mudaEstado = async () => {
@@ -47,7 +46,6 @@ class movieDetails extends Component {
 
   render() {
     const { loading } = this.state;
-    // if (loading === true) return <Loading />;
 
     return (
       <div>

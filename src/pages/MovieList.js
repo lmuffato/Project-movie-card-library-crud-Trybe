@@ -25,7 +25,6 @@ class MovieList extends Component {
           loading: false,
           movies: [...request],
         });
-        console.log(request);
       });
   }
 

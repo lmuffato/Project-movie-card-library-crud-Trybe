@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -5,6 +6,8 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  _isMounted = false;
+
   constructor() {
     super();
     this.state = {
@@ -15,7 +18,12 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.fetchMovie();
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   fetchMovie = async () => {
@@ -23,11 +31,20 @@ class MovieDetails extends Component {
     const { match: { params: { id } } } = this.props;
     try {
       const movie = await getMovie(id);
-      this.setState({ movie, id, isLoaded: true });
+      if (this._isMounted) {
+        this.setState({ movie, id, isLoaded: true });
+      }
     } catch (e) {
       console.log(e);
     }
   };
+
+  removeMovie = () => {
+    const { deleteMovie } = movieAPI;
+    const { id } = this.state;
+
+    deleteMovie(id);
+  }
 
   render() {
     const { movie, isLoaded, id } = this.state;
@@ -49,6 +66,13 @@ class MovieDetails extends Component {
                   <div className="btn-links-details">
                     <Link className="link" to={ `/movies/${id}/edit` }>EDITAR</Link>
                     <Link className="link" to="/">VOLTAR</Link>
+                    <Link
+                      className="link"
+                      to="/"
+                      onClick={ this.removeMovie }
+                    >
+                      DELETAR
+                    </Link>
                   </div>
                 </div>
               </>

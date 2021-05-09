@@ -34,6 +34,7 @@ class MovieList extends Component {
 
   render() {
     const { movies, isLoaded } = this.state;
+    console.log(movies);
 
     return (
       <section className="home-section">

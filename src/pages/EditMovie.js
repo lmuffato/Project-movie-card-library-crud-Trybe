@@ -24,9 +24,7 @@ class EditMovie extends Component {
 
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
-    this.setState({
-      shouldRedirect: true,
-    });
+    this.setState({ shouldRedirect: true });
   }
 
   async fetchMovie() {
@@ -60,7 +58,7 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
   }).isRequired,
 };

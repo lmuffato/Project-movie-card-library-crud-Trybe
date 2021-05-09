@@ -43,7 +43,6 @@ class MovieDetails extends Component {
         </div>
         <Link to="/">VOLTAR</Link>
         <Link to={ { pathname: `/movies/${id}/edit` } }>EDITAR</Link>
-        <br />
         <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
       </div>
     );

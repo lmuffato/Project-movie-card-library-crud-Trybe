@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
-
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
+import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor(props) {
+    super (props);
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.getMovie = this.getMovie.bind(this);
+    this.showMovie = this.showMovie.bind(this);
 
+    this.state = {
+      movie: undefined,
+    };
+  }
+
+  async getMovie(id) {
+    this.setState({ movie: await movieAPI.getMovie(id) });
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.getMovie(id);
+  }
+
+  showMovie(movie) {
+    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { id } = this.props.match.params;
     return (
       <div data-testid="movie-details">
         { title }
@@ -18,8 +35,22 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <Link to="/">VOLTAR</Link>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
       </div>
-    );
+    )
+  }
+
+  render() {
+    // Change the condition to check the state
+    // if (true) return <Loading />;
+
+    const { movie } = this.state;
+    return (
+      <div>
+        { movie ? this.showMovie(movie) : <Loading /> }
+      </div>
+    )
   }
 }
 

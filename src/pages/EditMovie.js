@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { MovieForm } from '../components';
+// eslint-disable-next-line
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {

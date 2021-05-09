@@ -74,6 +74,19 @@ body {
   padding: 3px 9px;
 }
 
+.link-btn {
+  text-decoration: none;
+  margin: 2px;
+  color: green;
+  padding: 7px 20px;
+  background-color: #aaa;
+  border: solid 1px #888;
+}
+
+.link-btn:hover {
+  background-color: #ccc;
+}
+
 .movie-card-rating {
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);

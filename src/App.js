@@ -7,6 +7,7 @@ import NewMovie from './pages/NewMovie';
 import NotFound from './pages/NotFound';
 import EditMovie from './pages/EditMovie';
 
+// adicionei as rotas
 function App() {
   return (
     <BrowserRouter>

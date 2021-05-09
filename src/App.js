@@ -11,13 +11,13 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/" render={ () => <MovieList /> } />
+        <Route exact path="/" render={ () => <MovieList /> } />
         <Route exact path="/movies/new" component={ NewMovie } />
         <Route exact path="/movies/:id" component={ MovieDetails } />
         <Route exact path="/movies/:id/edit" component={ EditMovie } />
         <Route path="*" component={ NotFound } />
       </Switch>
-      <Link to={ { pathname: "/movies/new" } }>ADICIONAR CARTÃO</Link>
+      <Link to={ { pathname: '/movies/new' } }>ADICIONAR CARTÃO</Link>
     </Router>
   );
 }

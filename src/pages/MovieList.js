@@ -15,6 +15,10 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
+    this.fetchMovieApi();
+  }
+
+  fetchMovieApi = () => {
     this.setState({
       loading: true,
     }, async () => {

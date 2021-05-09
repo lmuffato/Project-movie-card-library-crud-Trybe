@@ -31,10 +31,15 @@ class MovieList extends Component {
 
     return (
       <div>
-        <div data-testid="movie-list">
+        <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
         </div>
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <Link
+          to="/movies/new"
+          className="button  is-success details"
+        >
+          ADICIONAR CARTÃO
+        </Link>
       </div>
     );
   }

@@ -40,10 +40,16 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
+        <Link
+          to={ `/movies/${id}/edit` }
+          className="button is-success details"
+        >
+          EDITAR
+        </Link>
+        <Link to="/" className="button  is-link details">VOLTAR</Link>
         <Link
           to="/"
+          className="button is-danger details"
           onClick={ async () => { await movieAPI.deleteMovie(id); } }
         >
           DELETAR

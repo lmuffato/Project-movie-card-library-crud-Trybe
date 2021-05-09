@@ -12,6 +12,7 @@ class MovieDetails extends Component {
       loading: true,
     };
   }
+
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     movieAPI.getMovie(id)
@@ -40,8 +41,9 @@ class MovieDetails extends Component {
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
         </div>
-        <Link to='/'>VOLTAR</Link>
-        <Link to={ { pathname: `/movies/${id}/edit` } }>EDITAR</Link><br />
+        <Link to="/">VOLTAR</Link>
+        <Link to={ { pathname: `/movies/${id}/edit` } }>EDITAR</Link>
+        <br />
         <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
       </div>
     );

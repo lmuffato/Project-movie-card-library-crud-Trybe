@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// eslint-disable-next-line
 import Loading from '../components/Loading';
 import { MovieForm } from '../components';
 import { Redirect } from 'react-router-dom';

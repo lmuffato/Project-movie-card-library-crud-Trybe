@@ -9,14 +9,22 @@ class MovieDetails extends Component {
 
     this.getMovie = this.getMovie.bind(this);
     this.showMovie = this.showMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
       movie: undefined,
+      loading: true,
     };
   }
 
   async getMovie(id) {
-    this.setState({ movie: await movieAPI.getMovie(id) });
+    this.setState({ movie: await movieAPI.getMovie(id), loading: false });
+  }
+
+  async deleteMovie() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id);
+    this.setState({ shouldRedirect: true });
   }
 
   componentDidMount() {
@@ -38,19 +46,18 @@ class MovieDetails extends Component {
         <div className="edit-return">
           <Link className="link-btn" to="/">VOLTAR</Link>
           <Link className="link-btn" to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link className="link-btn" to="/" onClick={ this.deleteMovie } >DELETAR</Link>
         </div>
       </div>
     )
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+    const { movie, loading } = this.state;
 
-    const { movie } = this.state;
     return (
       <div>
-        { movie ? this.showMovie(movie) : <Loading /> }
+        { loading ? <Loading /> : this.showMovie(movie) }
       </div>
     )
   }

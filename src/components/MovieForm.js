@@ -66,7 +66,7 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <Form.Group className="row">
+      <Form.Group>
         <Form.Label htmlFor="movie_image">
           Imagem
           <Form.Control
@@ -109,6 +109,7 @@ class MovieForm extends React.Component {
         <Form.Label htmlFor="movie_genre">
           Gênero
           <Form.Control
+            className="form-select"
             as="select"
             id="movie_genre"
             name="genre"

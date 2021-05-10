@@ -27,6 +27,10 @@ class MovieDetails extends Component {
       });
   }
 
+  deleteMovie = () => {
+
+  }
+
   componentDidMount = () => {
     this.fetchApi();
   }
@@ -54,6 +58,9 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/" onClick={async () => movieAPI.deleteMovie(id)}>
+          DELETAR
+        </Link>
       </div>
     );
   }

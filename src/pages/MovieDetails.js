@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import Delet from './deletMovie';
 
 class MovieDetails extends Component {
   constructor() {
@@ -49,6 +50,10 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <BrowserRouter>
+          <Route path="/" render={ () => <Delet id={ id } /> } />
+        </BrowserRouter>
+        <Link to="/">DELETAR</Link>
       </div>
     );
   }

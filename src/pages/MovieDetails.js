@@ -64,3 +64,5 @@ MovieDetails.propTypes = {
 }.isRequired;
 
 export default MovieDetails;
+
+// Ideia de usar o destructuring para match.params --> https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/65

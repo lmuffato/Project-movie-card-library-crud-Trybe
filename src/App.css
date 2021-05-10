@@ -1,8 +1,24 @@
-body {
-  background-color: whitesmoke;
+:root {
+  --background: #1F2229;
+  --background2: #2E303C;
+  --background-button: #373945;
+  --background-button2: #4B4D59;
+  --yellow: #FAE800;
+  --gray: #BEC2C6;
+  --white: #FBFBFB;
+}
+
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
   display: flex;
   flex-direction: row;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -15,10 +31,37 @@ body {
 }
 
 .page-title {
-  color: #f8f9fa;
-  font-size: 28px;
-  font-weight: 500;
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: 600;
   text-align: center;
+  flex-direction: row;
+}
+
+.add-card {
+  align-self: center;
+  background-color: var(--background-button);
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--white);
+  display: flex;
+  font-size: 1.125rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+  width: 15.5rem;
+  max-width: 20rem;
+  padding: 1.1875rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.add-card:hover {
+  background-color: var(--background-button2);
+}
+
+a:active {
+  background-color: var(--yellow);
 }
 
 .movie-list {
@@ -28,12 +71,13 @@ body {
 }
 
 .movie-card {
-  background-color: white;
+  background-color: var(--background2);
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  color: white;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 525px;
   margin: 5px;
   overflow: hidden;
   width: 300px;
@@ -49,15 +93,33 @@ body {
   padding: 20px;
 }
 
+.movie-card a {
+  background-color: var(--background2);
+  color: var(--gray);
+  font-size: 1rem;
+  max-width: 300px;
+  padding: 1.1775rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.movie-card a:active {
+  color: var(--yellow)
+}
+
+.movie-card a:hover {
+  background-color: var(--background-button2);
+}
+
 .movie-card-title {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
   color: #6c757d;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   margin: 0 0 8px;
 }
@@ -68,10 +130,10 @@ body {
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: var(--background-button);
   border-radius: 25px;
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   padding: 3px 9px;
 }
@@ -91,3 +153,9 @@ body {
   padding: 2px;
 }
 
+/* CSS (estilização de botões, links, paleta de cores, etc) retirados e/ou inspirados nas fontes abaixo: 
+--> Meu PR do Projeto Movie Cards: 
+----> https://github.com/tryber/sd-010-a-project-movie-cards-library/pull/17
+--> Template do desafio complementar do Ignite ReactJS da Rocketseat: 
+----> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao
+*/

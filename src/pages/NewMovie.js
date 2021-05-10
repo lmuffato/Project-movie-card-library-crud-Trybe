@@ -22,7 +22,7 @@ class NewMovie extends Component {
 
   render() {
     const { redirect } = this.state;
-    if (redirect === true) return (<Redirect path="/" />);
+    if (redirect === true) return (<Redirect to="/" />);
 
     return (
       <div data-testid="new-movie">

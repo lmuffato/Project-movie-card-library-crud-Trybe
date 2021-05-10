@@ -5,8 +5,8 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       loading: true,
       imagePath: '',
@@ -16,13 +16,14 @@ class MovieDetails extends Component {
       genre: '',
       rating: 0,
     };
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
     const { match: { params } } = this.props;
     const { id } = params;
-    movieAPI.getMovie(id)
-      .then((movie) => {
+    movieAPI.getMovie(id).then(
+      (movie) => {
         const { title, storyline, imagePath, genre, rating, subtitle } = movie;
         this.setState({
           loading: false,
@@ -33,12 +34,19 @@ class MovieDetails extends Component {
           subtitle,
           storyline,
         });
-      })
+      },
+    )
       .catch((error) => console.log(error));
   }
 
+  async deleteMovie() {
+    const { match: { params } } = this.props;
+    const { id } = params;
+    await movieAPI.deleteMovie(id);
+  }
+
   render() {
-    const { loading, title, storyline, imagePath, genre, rating, subtitle } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, loading } = this.state;
     if (loading) {
       return <Loading />;
     }
@@ -46,14 +54,15 @@ class MovieDetails extends Component {
     const { id } = params;
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h1>{title}</h1>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        <img src={ `../${imagePath}` } alt="Movie Cover" />
+        <h3>{`Title: ${title}`}</h3>
+        <p>{`Subtitle: ${subtitle}`}</p>
+        <p>{`Storyline: ${storyline}`}</p>
+        <p>{`Genre: ${genre}`}</p>
+        <p>{`Rating: ${rating}`}</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }

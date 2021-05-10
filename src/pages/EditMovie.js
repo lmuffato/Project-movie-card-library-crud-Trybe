@@ -9,7 +9,7 @@ class EditMovie extends Component {
     super(props);
     this.state = {
       status: 'loading',
-      shouldRedirect: false,
+      redirect: false,
       movie: {
         title: '',
         subtitle: '',
@@ -30,7 +30,7 @@ class EditMovie extends Component {
   async handleSubmit(updatedMovie) {
     const { updateMovie } = movieAPI;
     await updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true });
+    this.setState({ redirect: true });
   }
 
   async getMovie() {
@@ -45,8 +45,8 @@ class EditMovie extends Component {
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
+    const { status, redirect, movie } = this.state;
+    if (redirect) {
       return <Redirect to="/" />;
     }
     if (status === 'loading') {

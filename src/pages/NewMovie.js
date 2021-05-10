@@ -7,7 +7,7 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,15 +16,17 @@ class NewMovie extends Component {
     const { createMovie } = movieAPI;
     try {
       await createMovie(newMovie);
-      this.setState({ redirect: true });
+      this.setState({
+        shouldRedirect: true,
+      });
     } catch (error) {
       console.log(error);
     }
   }
 
   render() {
-    const { redirect } = this.state;
-    if (redirect) {
+    const { shouldRedirect } = this.state;
+    if (shouldRedirect) {
       return <Redirect to="/" />;
     }
     return (

@@ -11,8 +11,10 @@ class MovieDetails extends Component {
     super(props);
 
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
+      loading: true,
       movie: '',
     };
   }
@@ -25,33 +27,41 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const { id } = match.params;
     const movie = await movieAPI.getMovie(id);
-    this.setState({ movie });
+    this.setState({ movie, loading: false });
+  }
+
+  async deleteMovie() {
+    const { match } = this.props;
+    const { id } = match.params;
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie } = this.state;
+    const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    const resume = () => (
-      <div>
-        <DetailedMovie
-          title={ title }
-          subtitle={ subtitle }
-          imagePath={ imagePath }
-          genre={ genre }
-          rating={ rating }
-          storyline={ storyline }
-        />
-        <Link to="/">VOLTAR</Link>
-        <br />
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-      </div>
-    );
-
     return (
       <div data-testid="movie-details">
-        { movie === '' ? <Loading /> : resume() }
+        { loading
+          ? <Loading />
+          : (
+            <div>
+              <DetailedMovie
+                title={ title }
+                subtitle={ subtitle }
+                imagePath={ imagePath }
+                genre={ genre }
+                rating={ rating }
+                storyline={ storyline }
+              />
+              <Link to="/">VOLTAR</Link>
+              <br />
+              <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+              <br />
+              <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+            </div>
+          )}
       </div>
     );
   }

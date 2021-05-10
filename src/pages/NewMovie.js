@@ -10,12 +10,14 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
+    movieAPI.createMovie(newMovie);
   }
 
   render() {
+    const emptyMovie = { title: '', subtitle: '', imagePath: '', storyline: '', genre: '', rating: 0}
     return (
       <div data-testid="new-movie">
-        <MovieForm onSubmit={ this.handleSubmit } />
+        <MovieForm onSubmit={ this.handleSubmit } movie={ emptyMovie } />
       </div>
     );
   }

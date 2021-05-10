@@ -43,7 +43,7 @@ describe('1 - Renderize `BrowserRouter` no componente `App` usando rotas', () =>
     unmount();
   });
 
-  test.skip('Será validado se a rota `/movies/:id/edit` renderiza a página EditMovie', async () => {
+  test('Será validado se a rota `/movies/:id/edit` renderiza a página EditMovie', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath(`/movies/${movie.id}/edit`);
       await waitFor(() => movieAPI.getMovies());
@@ -51,7 +51,7 @@ describe('1 - Renderize `BrowserRouter` no componente `App` usando rotas', () =>
       unmount();
     }
   });
-  test.skip('Será validado se qualquer rota não declarada renderiza a página NotFound', () => {
+  test('Será validado se qualquer rota não declarada renderiza a página NotFound', () => {
     const { unmount, getByTestId } = renderPath(`/${Math.random()}`);
     expect.anything(getByTestId('404-error'));
     unmount();

@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie: { id, title, subtitle } } = this.props;
+    const { movie: { id, title, storyline } } = this.props;
     return (
       <div data-testid="movie-card">
         <h2>
           { title }
         </h2>
         <p>
-          { subtitle }
+          { storyline }
         </p>
 
-        <Link to={ `/movies/:${id}` }>VER DETALHES</Link>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }

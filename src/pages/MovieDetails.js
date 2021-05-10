@@ -31,6 +31,10 @@ class MovieDetails extends Component {
     });
   }
 
+  // deleteMovie = (id) => {
+  //   movieAPI.deleteMovie(id);
+  // }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -46,16 +50,30 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <button type="button">
-          <Link to={ `/movies/${id}/edit` }>
-            EDITAR
-          </Link>
-        </button>
-        <button type="button">
-          <Link to="/">
-            VOLTAR
-          </Link>
-        </button>
+        <p>
+          <button type="button">
+            <Link to={ `/movies/${id}/edit` }>
+              EDITAR
+            </Link>
+          </button>
+        </p>
+        {/* <p>
+          <button type="button">
+            <Link
+              to="/"
+              onClick={ this.deleteMovie(id) }
+            >
+              DELETAR
+            </Link>
+          </button>
+        </p> */}
+        <p>
+          <button type="button">
+            <Link to="/">
+              VOLTAR
+            </Link>
+          </button>
+        </p>
       </div>
     );
   }

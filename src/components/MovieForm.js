@@ -172,6 +172,7 @@ MovieForm.propTypes = {
     storyline: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     imagePath: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
   }).isRequired,
 };
 

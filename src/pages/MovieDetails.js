@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
@@ -13,6 +13,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       isLoading: false,
+      shouldRedirect: false,
     };
   }
 
@@ -24,10 +25,19 @@ class MovieDetails extends Component {
     const { match: { params: { id } } } = this.props;
     this.setState({ isLoading: true }, async () => {
       const movie = await movieAPI.getMovie(id);
-      console.log(id, movie, 'o id e o movie que tá voltando da api fake');
       this.setState({ isLoading: false, movie });
     });
   };
+
+  callDelete = async () => {
+    const { deleteMovie } = movieAPI;
+    const { movie: { id } } = this.state;
+    console.log(id, 'id do filme a ser deletado');
+    this.setState({ isLoading: true }, async () => {
+      await deleteMovie(id);
+      this.setState({ shouldRedirect: true });
+    });
+  }
 
   render() {
     // Change the condition to check the state
@@ -35,10 +45,14 @@ class MovieDetails extends Component {
 
     const {
       isLoading,
+      shouldRedirect,
       movie: { title, storyline, imagePath, genre, rating, subtitle },
     } = this.state;
     const classImg = 'movie-card-image';
     const { match: { params: { id } } } = this.props;
+    if (shouldRedirect) {
+      return <Redirect to="/" />;
+    }
     return (
       isLoading
         ? <Loading />
@@ -53,6 +67,7 @@ class MovieDetails extends Component {
             <section className="movie-card-rating">
               <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
               <Link to="/">VOLTAR</Link>
+              <Link onClick={ this.callDelete }>DELETAR</Link>
             </section>
           </section>
         )

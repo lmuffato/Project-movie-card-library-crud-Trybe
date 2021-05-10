@@ -37,17 +37,25 @@ class MovieDetails extends Component {
     const { id, imagePath, subtitle, storyline, genre, rating, title } = movie;
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Título: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <button type="submit" onClick={ (event) => this.handleDelete(event, id) }>
-          <Link to="/">DELETAR</Link>
-        </button>
+        <div className="container-detail">
+          <img alt="Movie Cover" src={ `../${imagePath}` } className="img-detail" />
+          <p className="movie-detail-title">{ `Título: ${title}` }</p>
+          <p className="movie-detail-subtitle">{ `Subtitle: ${subtitle}` }</p>
+          <p className="movie-detail-storyline">{ `Storyline: ${storyline}` }</p>
+          <p className="movie-detail-genre">{ `Genre: ${genre}` }</p>
+          <p className="movie-detail-rating">{ `Rating: ${rating}` }</p>
+        </div>
+        <div className="container">
+          <Link to="/" className="btn-back">VOLTAR</Link>
+          <Link to={ `/movies/${id}/edit` } className="btn-edit">EDITAR</Link>
+          <button
+            type="submit"
+            onClick={ (event) => this.handleDelete(event, id) }
+            className="btn-delete"
+          >
+            <Link to="/">DELETAR</Link>
+          </button>
+        </div>
       </div>
     );
   }

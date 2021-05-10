@@ -1,3 +1,4 @@
+// import { createEvent } from '@testing-library/dom';
 import React, { Component } from 'react';
 
 import MovieForm from '../components/MovieForm';
@@ -10,6 +11,7 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
+    movieAPI.createMovie(newMovie);
   }
 
   render() {

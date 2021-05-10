@@ -39,13 +39,15 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const { id } = match.params;
     return (
-      <div data-testid="movie-details">
-        { title }
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+      <div className="movie-card movie-card-edit">
+        <div data-testid="movie-details" className="movie-card-body">
+          <p className="movie-card-title">{ title }</p>
+          <img alt="Movie Cover" className="movie-card-image" src={ `../${imagePath}` } />
+          <p className="movie-card-subtitle">{ `Subtitle: ${subtitle}` }</p>
+          <p className="movie-card-storyline">{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p className="rating">{ `Rating: ${rating}` }</p>
+        </div>
         <div className="edit-return">
           <Link className="link-btn" to="/">VOLTAR</Link>
           <Link className="link-btn" to={ `/movies/${id}/edit` }>EDITAR</Link>

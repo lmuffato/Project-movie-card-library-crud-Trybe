@@ -37,6 +37,43 @@ body {
   width: 300px;
 }
 
+.edit-form {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.edit-body {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  margin: 5px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.form-label {
+  margin: 5px;
+}
+
+.text-input {
+  margin: 5px;
+  width: 80%;
+}
+
+.text-area-input {
+  height: 100px;
+  margin: 5px;
+  width: 87%;
+}
+
+.select-input {
+  margin: 10px;
+  margin-left: 60px;
+  width: 40%;
+}
 
 .movie-card-image {
   width: 100%;
@@ -79,12 +116,17 @@ body {
   border: solid 1px #888;
   color: green;
   margin: 2px;
-  padding: 7px 20px;
+  margin-left: 8px;
+  padding: 7px 13px;
   text-decoration: none;
 }
 
 .link-btn:hover {
   background-color: #ccc;
+}
+
+.movie-card-edit {
+  padding-bottom: 20px;
 }
 
 .movie-card-rating {

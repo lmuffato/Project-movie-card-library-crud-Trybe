@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <BrowserRouter>
+      <div>Movie Card Library CRUD</div>
+      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       <Switch>
         <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />
@@ -16,7 +18,6 @@ function App() {
         <Route exact path="/movies/:id/edit" component={ EditMovie } />
         <Route component={ NotFound } />
       </Switch>
-      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
     </BrowserRouter>
   );
 }

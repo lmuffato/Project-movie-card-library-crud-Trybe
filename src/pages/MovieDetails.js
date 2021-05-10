@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor(props) {
+    super(props);
+    this.state = {
+      movie: {},
+      loading: true,
+    };
+    this.handleLoading = this.handleLoading.bind(this);
+  }
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+  componentDidMount() {
+    this.handleMovies();
+  }
 
+  handleMovies = async () => {
+    const { match } = this.props;
+    const { id } = match.params;
+    this.setState({ loading: true }, () => {
+      movieAPI.getMovie(id).then((data) => {
+        this.setState({ movie: data, loading: false });
+      });
+    });
+  };
+
+  handleLoading(movie) {
+    const { imagePath, subtitle, storyline, genre, rating } = movie;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -20,6 +39,16 @@ class MovieDetails extends Component {
       </div>
     );
   }
+
+  render() {
+    const { loading, movie } = this.state;
+
+    return loading ? <Loading /> : this.handleLoading(movie);
+  }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.object,
+}.isRequired;
 
 export default MovieDetails;

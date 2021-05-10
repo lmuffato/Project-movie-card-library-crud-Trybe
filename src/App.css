@@ -3,3 +3,18 @@ body {
   box-sizing: border-box;
 }
 
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movieCard {
+  box-shadow: 0.1px 0.1px 2px gray;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.movieCardImg {
+  width: 300px;
+}

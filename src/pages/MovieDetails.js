@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import movies from '../services/movieData';
+import Proptypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loading: true,
       imagePath: '',
@@ -18,35 +18,32 @@ class MovieDetails extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { match } = this.props;
-    const { params } = match;
+  componentDidMount() {
+    const { match: { params } } = this.props;
     const { id } = params;
-    const response = await movieAPI.getMovie(id);
-    const { title, storyline, imagePath, genre, rating, subtitle } = response;
-    this.newMethod().setState({
-      loading: false,
-      imagePath,
-      title,
-      genre,
-      rating,
-      subtitle,
-      storyline,
-    });
-  }
-
-  newMethod() {
-    return this;
+    movieAPI.getMovie(id)
+      .then((movie) => {
+        const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+        this.setState({
+          loading: false,
+          imagePath,
+          title,
+          genre,
+          rating,
+          subtitle,
+          storyline,
+        });
+      })
+      .catch((error) => console.log(error));
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
     const { loading, title, storyline, imagePath, genre, rating, subtitle } = this.state;
-    if(loading) return <Loading />;
+    if (loading) {
+      return <Loading />;
+    }
+    const { match: { params } } = this.props;
+    const { id } = params;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -61,5 +58,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: Proptypes.shape({
+    params: Proptypes.shape({
+      id: Proptypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;

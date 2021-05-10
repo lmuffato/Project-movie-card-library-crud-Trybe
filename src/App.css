@@ -9,21 +9,22 @@ body {
   background-color: var(--dark-grey);
   box-sizing: border-box;
   font-size: large;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .search-bar-form {
   padding-top: 10px;
+  color: var(--white);
   text-align: center;
-  color: var(--white)
 }
 
 .movie-page-header {
   align-items: center;
   background-color: var(--dark-red);
+  color: var(--dark-grey);
   display: flex;
   height: 100px;
   justify-content: center;
-  color: var(--dark-grey);
   margin-bottom: 2.5rem;
 }
 
@@ -31,14 +32,14 @@ body {
   color: #f8f9fa;
   font-size: 1.5vw;
   font-weight: 500;
-  text-align: left;
   padding-left: 5px;
+  text-align: left;
 }
 
 .movie-list {
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
+  flex-flow: row wrap;
   justify-content: center;
   padding: 48px 30px;
 }

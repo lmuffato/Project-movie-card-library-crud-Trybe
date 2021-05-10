@@ -26,18 +26,42 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const linkStyle = {
+      textDecoration: 'none',
+      color: 'white',
+      margin: '0 10px',
+    };
     return (
-      <div>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h4>{title}</h4>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <div className="edit-buttons">
-          <Link to={ `/movies/${match.params.id}/edit` }>EDITAR</Link>
-          <Link onClick={ this.handleDeleteMovie } to="/">DELETAR</Link>
-          <Link to="/">VOLTAR</Link>
+      <div className="movie-card-details">
+        <div className="movie-card-body-details">
+          <img
+            className="movie-card-image-details "
+            alt="Movie Cover"
+            src={ `../${imagePath}` }
+          />
+          <h1 className="movie-card-title-details ">{`Title: ${title}`}</h1>
+          <p className="movie-card-subtitle-details">{`Subtitle: ${subtitle}`}</p>
+          <p className="movie-card-storyline-details">{`Storyline: ${storyline}`}</p>
+          <p className="genre-details">{`Genre: ${genre}`}</p>
+          <p className="movie-card-rating-details">{`Rating: ${rating}`}</p>
+          <div>
+            <Link
+              style={ linkStyle }
+              to={ `/movies/${match.params.id}/edit` }
+            >
+              EDITAR
+
+            </Link>
+            <Link
+              style={ linkStyle }
+              onClick={ this.handleDeleteMovie }
+              to="/"
+            >
+              DELETAR
+
+            </Link>
+            <Link style={ linkStyle } to="/">VOLTAR</Link>
+          </div>
         </div>
       </div>
     );

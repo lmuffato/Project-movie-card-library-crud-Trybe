@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
+    const linkStyle = {
+      textDecoration: 'none',
+      color: 'white',
+      textAlign: 'center',
+      marginLeft: '15px',
+    };
     const { movie } = this.props;
     const { title, storyline, imagePath, id } = movie;
     return (
@@ -15,7 +21,7 @@ class MovieCard extends React.Component {
             <p className="movie-card-storyline">{storyline}</p>
           </div>
           <div>
-            <Link to={ `/movies/${id}` }>VER DETALHES</Link>
+            <Link style={ linkStyle } to={ `/movies/${id}` }>VER DETALHES</Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,4 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+}

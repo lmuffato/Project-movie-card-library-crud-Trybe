@@ -83,6 +83,7 @@ class MovieForm extends React.Component {
         <p>Sinopse:</p>
         <label htmlFor="movie_storyline">
           <textarea
+            className="movie_storyline"
             id="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }

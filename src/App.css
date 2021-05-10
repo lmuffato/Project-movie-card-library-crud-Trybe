@@ -1,14 +1,18 @@
 :root {
+
   --red: #e50914;
+
   --dark-red: #b12025;
+
   --dark-grey: #292929;
-  --white: #fff;
+
+  --white: white;
 }
 
 body {
   background-color: var(--dark-grey);
-  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
+  font-family: Montserrat , sans-serif;
   font-size: large;
 }
 
@@ -20,14 +24,6 @@ body {
   height: 100px;
   justify-content: center;
   margin-bottom: 2.5rem;
-}
-
-.movie-card p {
-  color: #f8f9fa;
-  font-size: 1.5vw;
-  font-weight: 500;
-  padding-left: 5px;
-  text-align: left;
 }
 
 .movie-list {
@@ -60,12 +56,12 @@ body {
 }
 
 .movie-card h1 {
-  padding-top: 10px;
   color: var(--dark-red);
   font-size: 2vw;
-  text-align: center;
   font-weight: 500;
   margin: 0 0 12px;
+  padding-top: 10px;
+  text-align: center;
 }
 
 .movie-card p {
@@ -80,6 +76,21 @@ body {
   font-size: small;
   padding: 10px;
   text-align: right;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #8a0b10;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 81, 0);
+  text-decoration: none;
+}
+
+.movie-details a {
+  padding: 10px;
   text-decoration: none;
 }
 
@@ -104,34 +115,26 @@ body {
 
 .submit-button {
   background-color: var(--dark-grey);
-  margin-top: 10px;
   border: none;
   border-radius: 0.2rem;
   color: white;
+  margin-top: 10px;
   padding: 0.4rem 5rem;
 }
 
-.inputs-container{
+.inputs-container {
   display: grid;
   place-items: center;
 }
 
-.inputs{
+.inputs {
+  align-items: center;
   background-color: var(--dark-red);
   border-radius: 0.5rem;
-  align-items: center;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   width: 20vw;
-}
-
-#movie_storyline {
-  background-color: rgb(206, 206, 206);
-}
-
-#movie_genre {
-  background-color: rgb(206, 206, 206);
 }
 
 .inputs p {
@@ -139,13 +142,23 @@ body {
   margin-bottom: 2px;
 }
 
-.inputs input:hover {
-  border-color: var(--red);
-}
-
 .inputs input {
   background-color: rgb(206, 206, 206);
   border-radius: 0.2rem;
+}
+
+.inputs textarea {
+  background-color: #cecece;
+  border-radius: 0.2rem;
+}
+
+.inputs select {
+  background-color: #cecece;
+  border-radius: 0.2rem;
+}
+
+.inputs input:hover {
+  border-color: var(--red);
 }
 
 .inputs input:focus-visible {
@@ -155,8 +168,8 @@ body {
 .movie-details {
   align-items: center;
   display: flex;
-  margin-top: 20px;
   flex-flow: column;
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -169,27 +182,12 @@ body {
   color: var(--dark-red);
 }
 
-a:visited {
-  color: #8a0b10;
-  text-decoration: none;
-}
-
-a:hover{
-  color: rgb(255, 81, 0);
-  text-decoration: none;
-}
-
 .movie-details p {
   color: rgb(202, 202, 202);
 }
 
-.movie-details a {
-  padding: 10px;
-  text-decoration: none;
-}
-
 .movie-details a:link {
-  color: #B12025;
+  color: #b12025;
   text-decoration: none;
 }
 
@@ -204,25 +202,25 @@ a:hover{
 }
 
 .add-card {
-  color: #B12025;
-  padding-left: 44vw;
+  color: #b12025;
+  padding-left: 43vw;
   text-decoration: none;
 }
 
 .movie-details-card {
-  background-color: rgb(80, 80, 80);
-  margin-top: 15px;
   align-items: center;
+  background-color: rgb(80, 80, 80);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  margin-top: 15px;
   padding: 10px 15px;
   width: 80vw;
 }
 
 .loading-mensage {
   color: #919191;
+  font-size: 2vw;
   margin-top: 50px;
   text-align: center;
-  font-size: 2vw;
 }

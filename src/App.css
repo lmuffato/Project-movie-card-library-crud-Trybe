@@ -1,8 +1,157 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap') ;
+
+* {
   box-sizing: border-box;
-}
-body {
-  background-color: whitesmoke;
-  box-sizing: border-box;
+  font-family: Bebas Neue , cursive;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  background-color: rgb(86, 77, 77);
+  font-size: 18px;
+}
+
+.movie-card-header {
+  align-items: center;
+  background-color: #db0000;
+  color: white;
+  display: flex;
+  font-size: 36px;
+  height: 100px;
+  justify-content: flex-start;
+  letter-spacing: -0.5px;
+}
+
+.movie-card-header h1 {
+  margin-left: 10px;
+}
+
+.page-title {
+  color: #f8f9fa;
+  font-size: 48px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 48px 30px;
+}
+
+.movie-card {
+  background-color: black;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  margin: 5px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.movie-card-image {
+  width: 100%;
+}
+
+.movie-card-body {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.movie-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.movie-card-subtitle {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.movie-card-storyline {
+  color: white;
+  font-size: 16px;
+  max-height: 50px;
+  text-align: justify;
+}
+
+.rating {
+  background-color: rgb(219, 0, 0);
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 3px 9px;
+}
+
+.movie-card-rating {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  padding: 12px 20px;
+}
+
+.search-bar, .add-movie {
+  color: white;
+  margin: 10px;
+}
+
+.search-bar-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-bar-input {
+  margin-left: 5px;
+}
+
+.add-movie-form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.add-movie-form label {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.add-movie-input {
+  margin: 10px;
+  width: 300px;
+}
+
+.add-rating {
+  max-width: 50px;
+}
+
+textarea {
+  max-height: 100px;
+  max-width: 300px;
+}
+
+.add-select {
+  max-width: 100px;
+}
+
+.add-movie-button {
+  background-color: black;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+  color: rgb(219, 0, 0);
+  padding: 5px 10px;
+  width: 100px;
+}

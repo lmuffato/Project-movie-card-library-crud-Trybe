@@ -32,14 +32,17 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
 
     return (
-      <section className="movie-list" data-testid="movie-list">
-        {
-          isLoading
-            ? <Loading />
-            : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-        }
+      <section className="movie-galery">
+        <section className="movie-list" data-testid="movie-list">
+          {
+            isLoading
+              ? <Loading />
+              : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+          }
+        </section>
         <Link to="movies/new">ADICIONAR CARTÃO</Link>
       </section>
+
     );
   }
 }

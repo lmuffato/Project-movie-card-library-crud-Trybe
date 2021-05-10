@@ -32,10 +32,7 @@ class MovieDetails extends Component {
   callDelete = async () => {
     const { deleteMovie } = movieAPI;
     const { movie: { id } } = this.state;
-    this.setState({ isLoading: true }, async () => {
-      await deleteMovie(id);
-      this.setState({ shouldRedirect: true });
-    });
+    await deleteMovie(id);
   }
 
   render() {

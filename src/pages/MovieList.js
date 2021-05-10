@@ -37,7 +37,7 @@ class MovieList extends Component {
 
     // Render Loading here if the request is still happening
     const renderList = stateLoading ? <Loading /> : movies.map((movie) => {
-      const { title, subtitle, storyline, rating, imagePath } = movie;
+      const { title, subtitle, storyline, rating, imagePath, id } = movie;
       return (
         <MovieCard
           key={ title }
@@ -46,6 +46,7 @@ class MovieList extends Component {
           storyline={ storyline }
           rating={ rating }
           imagePath={ imagePath }
+          id={ id }
         />
       );
     });

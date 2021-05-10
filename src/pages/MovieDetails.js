@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link, BrowserRouter, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import Delet from './deletMovie';
 
 class MovieDetails extends Component {
   constructor() {
@@ -16,6 +15,10 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.FecthMovie();
+  }
+
+  callDelet = (id) => {
+    movieAPI.deleteMovie(id);
   }
 
   FecthMovie = () => {
@@ -42,18 +45,17 @@ class MovieDetails extends Component {
     if (loading) return <Loading />;
     return (
       <div>
-        <h1>{title}</h1>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        <div>
+          <h1>{title}</h1>
+          <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
+        </div>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-        <BrowserRouter>
-          <Route path="/" render={ () => <Delet id={ id } /> } />
-        </BrowserRouter>
-        <Link to="/">DELETAR</Link>
+        <Link to="/" onClick={ () => this.callDelet(id) }>DELETAR</Link>
       </div>
     );
   }

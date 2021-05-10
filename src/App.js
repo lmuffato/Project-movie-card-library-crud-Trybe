@@ -5,6 +5,7 @@ import EditMovie from './pages/EditMovie';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import NotFound from './pages/NotFound';
+import Delet from './pages/deletMovie';
 
 function App() {
   return (

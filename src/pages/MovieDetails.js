@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -6,8 +5,6 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  _isMounted = false;
-
   constructor() {
     super();
     this.state = {
@@ -18,12 +15,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this._isMounted = true;
     this.fetchMovie();
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
   }
 
   fetchMovie = async () => {
@@ -31,9 +23,7 @@ class MovieDetails extends Component {
     const { match: { params: { id } } } = this.props;
     try {
       const movie = await getMovie(id);
-      if (this._isMounted) {
-        this.setState({ movie, id, isLoaded: true });
-      }
+      this.setState({ movie, id, isLoaded: true });
     } catch (e) {
       console.log(e);
     }

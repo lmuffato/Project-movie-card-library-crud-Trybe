@@ -25,22 +25,20 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <Form.Group>
-          <Form.Label htmlFor="movie_title">
-            Título
-            <Form.Control
-              placeholder="Insira o título"
-              id="movie_title"
-              name="title"
-              type="text"
-              className="validate"
-              value={ title }
-              onChange={ this.updateMovie }
-            />
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group>
+        <Form.Label htmlFor="movie_title">
+          Título
+          <Form.Control
+            placeholder="Insira o título"
+            id="movie_title"
+            name="title"
+            type="text"
+            className="validate"
+            value={ title }
+            onChange={ this.updateMovie }
+          />
+        </Form.Label>
+      </Form.Group>
     );
   }
 
@@ -48,21 +46,19 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
-        <Form.Group>
-          <Form.Label htmlFor="movie_subtitle">
-            Subtítulo
-            <Form.Control
-              placeholder="Insira o subtítulo"
-              id="movie_subtitle"
-              name="subtitle"
-              type="text"
-              value={ subtitle }
-              onChange={ this.updateMovie }
-            />
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group>
+        <Form.Label htmlFor="movie_subtitle">
+          Subtítulo
+          <Form.Control
+            placeholder="Insira o subtítulo"
+            id="movie_subtitle"
+            name="subtitle"
+            type="text"
+            value={ subtitle }
+            onChange={ this.updateMovie }
+          />
+        </Form.Label>
+      </Form.Group>
     );
   }
 
@@ -70,21 +66,19 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
-        <Form.Group>
-          <Form.Label htmlFor="movie_image">
-            Imagem
-            <Form.Control
-              placeholder="Insira o caminho da imagem"
-              id="movie_image"
-              name="imagePath"
-              type="text"
-              value={ imagePath }
-              onChange={ this.updateMovie }
-            />
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group className="row">
+        <Form.Label htmlFor="movie_image">
+          Imagem
+          <Form.Control
+            placeholder="Insira o caminho da imagem"
+            id="movie_image"
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            onChange={ this.updateMovie }
+          />
+        </Form.Label>
+      </Form.Group>
     );
   }
 
@@ -92,76 +86,70 @@ class MovieForm extends React.Component {
     const { storyline } = this.state;
 
     return (
-      <div>
-        <Form.Group>
-          <Form.Label htmlFor="movie_storyline">
-            Sinopse
-            <Form.Control
-              as="textarea"
-              rows={ 3 }
-              id="movie_storyline"
-              name="storyline"
-              value={ storyline }
-              onChange={ this.updateMovie }
-            />
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group>
+        <Form.Label htmlFor="movie_storyline">
+          Sinopse
+          <Form.Control
+            as="textarea"
+            rows={ 3 }
+            id="movie_storyline"
+            name="storyline"
+            value={ storyline }
+            onChange={ this.updateMovie }
+          />
+        </Form.Label>
+      </Form.Group>
     );
   }
 
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div>
-        <Form.Group>
-          <Form.Label htmlFor="movie_genre">
-            Gênero
-            <Form.Control
-              as="select"
-              id="movie_genre"
-              name="genre"
-              defaultValue={ genre }
-              onChange={ this.updateMovie }
-            >
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-              <option value="fantasy">Fantasia</option>
-            </Form.Control>
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group>
+        <Form.Label htmlFor="movie_genre">
+          Gênero
+          <Form.Control
+            as="select"
+            id="movie_genre"
+            name="genre"
+            defaultValue={ genre }
+            onChange={ this.updateMovie }
+          >
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+            <option value="fantasy">Fantasia</option>
+          </Form.Control>
+        </Form.Label>
+      </Form.Group>
     );
   }
 
   renderRatingInput() {
     const { rating } = this.state;
     return (
-      <div>
-        <Form.Group>
-          <Form.Label htmlFor="movie_rating">
-            Avaliação
-            <Form.Control
-              placeholder="Dê a avaliação do filme"
-              id="movie_rating"
-              name="rating"
-              type="number"
-              step={ 0.1 }
-              min={ 0 }
-              max={ 5 }
-              value={ rating }
-              onChange={ this.updateMovie }
-            />
-          </Form.Label>
-        </Form.Group>
-      </div>
+      <Form.Group>
+        <Form.Label htmlFor="movie_rating">
+          Avaliação
+          <Form.Control
+            placeholder="Dê a avaliação do filme"
+            id="movie_rating"
+            name="rating"
+            type="number"
+            step={ 0.1 }
+            min={ 0 }
+            max={ 5 }
+            value={ rating }
+            onChange={ this.updateMovie }
+          />
+        </Form.Label>
+      </Form.Group>
     );
   }
 
   renderSubmitButton() {
     return (
-      <div>
+      <div className="button-container">
         <Button
           variant="primary"
           type="button"

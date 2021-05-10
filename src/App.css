@@ -4,6 +4,10 @@ body {
   font-size: 16px;
 }
 
+.home-section {
+  min-height: 100%;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
@@ -34,7 +38,7 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: auto;
   margin: 5px;
   overflow: hidden;
   width: 450px;
@@ -53,7 +57,7 @@ body {
 .title {
   color: white;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0 0 12px;
   margin-top: -50px;
   padding: 0 20px;
@@ -88,6 +92,23 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.movie-details-link {
+  background-color: #343a40;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.movie-details-link:visited {
+  text-decoration: none;
+}
+
+.movie-details-link:hover {
+  color: #2f6ac2;
+}
+
 
 .movie-details-container {
   align-items: center;
@@ -148,10 +169,79 @@ body {
   text-decoration: none;
 }
 
-.link:nth-child( 1 ) {
+.link:hover {
+  color: white;
+}
+
+.link.edit {
   background-color: #343a40;
 }
 
-.link:nth-child( 2 ) {
-  background-color: #24507c;
+.link.to-back {
+  background-color: #66d491;
+}
+
+.link.remove {
+  background-color: #eb2727;
+}
+
+.link.edit:hover, .link.to-back:hover, .link.remove:hover {
+  opacity: 0.7;
+}
+
+.add-movie-container {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.add-movie-link {
+  align-items: center;
+  background-color: #42cf35;
+  color: white;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-decoration: none;
+  width: 450px;
+}
+
+.add-movie-link:visited {
+  text-decoration: none;
+}
+
+.add-movie-link:hover {
+  color: white;
+  opacity: 0.7;
+}
+
+.edit-form-container {
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 80px);
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.edit-form {
+  background-color: #343a4050;
+  padding: 10px;
+  width: 400px;
+}
+
+.form-label {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button-container button {
+  width: 100px;
 }

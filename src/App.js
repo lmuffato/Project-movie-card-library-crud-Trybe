@@ -9,8 +9,8 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
-import './App.css';
 import './bootstrap/bootstrap.min.css';
+import './App.css';
 
 class App extends Component {
   render() {

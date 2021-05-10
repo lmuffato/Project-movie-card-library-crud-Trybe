@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -6,8 +5,6 @@ import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
-  _isMounted = false;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -19,12 +16,10 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this._isMounted = true;
     this.fetchMovie();
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
   }
 
   handleSubmit = (updatedMovie) => {
@@ -42,12 +37,10 @@ class EditMovie extends Component {
     const { getMovie } = movieAPI;
     try {
       const movie = await getMovie(id);
-      if (this._isMounted) {
-        this.setState({
-          movie,
-          isLoaded: true,
-        });
-      }
+      this.setState({
+        movie,
+        isLoaded: true,
+      });
     } catch (e) {
       console.log(e);
     }

@@ -27,31 +27,38 @@ class MovieDetails extends Component {
     this.setState({ didNotMount: false });
   }
 
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    const { movie, didNotMount } = this.state;
+  myCard() {
+    const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
+    return (
+      <div>
+        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <h1>{ `Title: ${title}` }</h1>
+        <p>{ `Subtitle: ${subtitle}` }</p>
+        <p>{ `Storyline: ${storyline}` }</p>
+        <p>{ `Genre: ${genre}` }</p>
+        <p>{ `Rating: ${rating}` }</p>
+        <hr />
+        <button type="button">
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        </button>
+        <button type="button"><Link to="/">VOLTAR</Link></button>
+      </div>
+    );
+  }
+
+  render() {
+    const { didNotMount } = this.state;
 
     return (
       <div data-testid="movie-details">
         {
           didNotMount === true
             ? <Loading />
-            : <div>
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <h1>{ `Title: ${title}` }</h1>
-              <p>{ `Subtitle: ${subtitle}` }</p>
-              <p>{ `Storyline: ${storyline}` }</p>
-              <p>{ `Genre: ${genre}` }</p>
-              <p>{ `Rating: ${rating}` }</p>
-              <hr />
-              <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
-              <button type="button"><Link to="/">VOLTAR</Link></button>
-            </div>
+            : this.myCard()
         }
       </div>
     );

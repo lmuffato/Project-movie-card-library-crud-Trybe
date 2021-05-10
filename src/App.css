@@ -4,17 +4,17 @@ body {
 }
 
 .movieCard {
-  width: 250px;
   border: solid 1px black;
+  width: 250px;
 }
 
 .movie-card-image {
   width: 250px;
 }
 
-.movieList{
+.movieList {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
 }

@@ -2,21 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function MovieSinglePage({ movie }) {
+import './styles.css';
+
+export default function MovieSinglePage({ movie, deleteCard }) {
   const { id, imagePath, title, subtitle, storyline, genre, rating } = movie;
   return (
-    <>
+    <div className="movie-single-page">
       <img alt="Movie Cover" src={ `../${imagePath}` } />
       <strong>{title}</strong>
-      <p>{subtitle}</p>
+      <span className="subtitle">{subtitle}</span>
       <p>{storyline}</p>
-      <p>{genre}</p>
-      <p>{rating}</p>
-      <div className="buttons">
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+      <div className="labels">
+        <span className="genre">{genre}</span>
+        <span className="rating">{rating}</span>
       </div>
-    </>
+      <div className="buttons">
+        <Link to="/" className="back-btn">VOLTAR</Link>
+        <span className="modify">
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <button type="button" onClick={ deleteCard }>
+            <Link to="/">
+              DELETAR
+            </Link>
+          </button>
+        </span>
+      </div>
+    </div>
   );
 }
 

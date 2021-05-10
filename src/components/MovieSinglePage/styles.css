@@ -1,0 +1,87 @@
+.movie-single-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-single-page img {
+  border-radius: 15px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.movie-single-page strong {
+  font-size: 42px;
+  margin-top: 15px;
+}
+
+.movie-single-page .subtitle {
+  color: var(--text-secondary);
+  font-size: 19px;
+}
+
+.movie-single-page .genre {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--primary);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.movie-single-page .rating {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  width: fit-content;
+}
+
+.movie-single-page .labels span + span {
+  margin-left: 10px;
+}
+
+.movie-single-page .buttons {
+  align-items: center;
+  background: var(--background-secondary);
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 15px 25px;
+  position: fixed;
+  width: 100%;
+}
+
+.movie-single-page .buttons a {
+  background: var(--background-secondary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.movie-single-page .buttons button {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  margin-left: 15px;
+  padding: 10px 15px;
+}
+
+.movie-single-page .buttons button a {
+  border: none;
+  padding: 0;
+}
+
+.movie-single-page .buttons .back-btn {
+  background: var(--primary);
+}

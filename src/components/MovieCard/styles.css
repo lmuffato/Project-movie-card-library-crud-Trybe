@@ -1,0 +1,58 @@
+.movie-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 200px;
+  position: relative;
+}
+
+.movie-card img {
+  border-radius: 15px 0 0 15px;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.movie-card .info {
+  background: linear-gradient(90deg, transparent 0%, var(--background-secondary) 35%);
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.movie-card .info .container {
+  margin-left: 30%;
+}
+
+.movie-card .info strong {
+  display: block;
+  font-size: 24px;
+}
+
+.movie-card .info span {
+  color: var(--text-secondary);
+}
+
+.movie-card .info p {
+  flex: 1;
+  font-size: 14px;
+}
+
+.movie-card .info footer {
+  border-top: 1px solid var(--primary);
+}
+
+.movie-card .info footer a {
+  color: var(--primary);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

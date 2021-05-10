@@ -1,0 +1,21 @@
+.movie-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.add-card {
+  background-color: var(--primary);
+  border-radius: 99px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 15px 25px;
+  position: fixed;
+  right: 25px;
+  text-decoration: none;
+  top: 41px;
+  transform: translateY(-50%);
+  z-index: 1;
+}

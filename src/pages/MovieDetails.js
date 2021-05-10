@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -60,12 +59,7 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details" className="movie-page">
-        <MovieSinglePage movie={ movie } />
-        <button type="button" onClick={ this.deleteCard }>
-          <Link to="/">
-            DELETAR
-          </Link>
-        </button>
+        <MovieSinglePage movie={ movie } deleteCard={ this.deleteCard } />
       </div>
     );
   }

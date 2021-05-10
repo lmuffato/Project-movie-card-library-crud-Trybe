@@ -1,13 +1,125 @@
+:root {
+  --background-primary: #121330;
+  --background-secondary: #1a1936;
+  --primary: #ff3465;
+  --text: #fcfcfd;
+  --text-secondary: #45445d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  background-color: var(--background-primary);
+  color: var(--text);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 25px;
+  padding-top: 102px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.header a {
+  background-color: var(--background-primary);
+  box-shadow: 0 0 35px -20px var(--primary);
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  padding: 25px 0;
+  position: fixed;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+@keyframes spinLoading {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingComponent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.spin {
+  animation: spinLoading .4s infinite linear;
+  border-radius: 50%;
+  border-top: 3px solid var(--primary);
+  border-right: 3px solid var(--primary);
+  height: 60px;
+  width: 60px;
+}
+
+.loadingComponent div {
+  font-size: 0;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+form label {
+  color: var(--text-secondary);
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+form input, form textarea, form select {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-secondary);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+  outline-color: var(--primary);
+  outline-style: solid;
+}
+
+form input::placeholder {
+  color: var(--text-secondary);
+}
+
+form button {
+  background: var(--primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  padding: 15px 0;
+  text-transform: uppercase;
+  width: 100%;
 }

@@ -12,6 +12,8 @@ function App() {
       <div>Movie Card Library CRUD</div>
       <BrowserRouter>
         <Switch>
+          {/* utilização do Switch e do exact path
+          para resolver o problema do carregando... aparecendo várias vezes */}
           <Route exact path="/" component={ MovieList } />
           <Route exact path="/movies/:id" component={ MovieDetails } />
           <Route exact path="/movies/new" component={ NewMovie } />

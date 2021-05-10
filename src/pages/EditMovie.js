@@ -9,7 +9,7 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      status: '',
       movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,20 +27,20 @@ class EditMovie extends Component {
   handleMovieEdit = async () => {
     const { match } = this.props;
     const { id } = match.params;
-    this.setState({ loading: true }, () => {
+    this.setState({ status: 'loading' }, () => {
       movieAPI.getMovie(id).then((data) => {
-        this.setState({ movie: data, loading: false, shouldRedirect: false });
+        this.setState({ movie: data, status: '', shouldRedirect: false });
       });
     });
   }
 
   render() {
-    const { loading, shouldRedirect, movie } = this.state;
+    const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />;
     }
 
-    if (loading) {
+    if (status === 'loading') {
       return <Loading />;
     }
 

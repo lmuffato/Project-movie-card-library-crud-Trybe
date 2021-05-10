@@ -48,17 +48,19 @@ class MovieDetails extends Component {
     const { id } = match.params;
 
     return (
-      <div data-testid="movie-details">
+      <div className="movie-details" data-testid="movie-details">
         <img alt="Movie Cover" src={ this.checkImageURL(imagePath) } />
-        <h1>{ title }</h1>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <div className="links">
-          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-          <Link to="/" onClick={ () => this.removeMovie(id) }>DELETAR</Link>
-          <Link to="/">VOLTAR</Link>
+        <div className="movie-details-card">
+          <h1>{ title }</h1>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p className="rating">{ `Rating: ${rating}` }</p>
+          <div className="links">
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+            <Link to="/" onClick={ () => this.removeMovie(id) }>DELETAR</Link>
+            <Link to="/">VOLTAR</Link>
+          </div>
         </div>
       </div>);
   }

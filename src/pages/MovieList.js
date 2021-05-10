@@ -35,8 +35,8 @@ class MovieList extends Component {
 
     return (
       <main>
-        <Link to="/movies/new"> ADICIONAR CARTÃO</Link>
-        <div data-testid="movie-list">
+        <Link className="add-card" to="/movies/new"> ADICIONAR CARTÃO</Link>
+        <div className="movie-list" data-testid="movie-list">
           { (loading) ? <Loading /> : this.structureList(movies) }
         </div>
       </main>

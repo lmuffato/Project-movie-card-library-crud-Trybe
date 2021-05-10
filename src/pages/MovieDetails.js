@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+
+// referencias Giovanni Maldonado, Renzo Sevilha
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -11,11 +13,17 @@ class MovieDetails extends Component {
     this.state = {
       movies: {},
       loading: true,
+      shouldRedirect: false,
     };
   }
 
   componentDidMount() {
     this.fetchApi();
+  }
+
+  async removeMovie(id) {
+    const request = await movieAPI.deleteMovie(id);
+    return (request.status === 'OK') && this.setState({ shouldRedirect: true });
   }
 
   async fetchApi() {
@@ -43,6 +51,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <div>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link to="/" onClick={ () => this.removeMovie(id) }>DELETAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
       </div>
@@ -50,7 +59,12 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movies, loading } = this.state;
+    const { movies, loading, shouldRedirect } = this.state;
+
+    if (shouldRedirect) {
+      return <Redirect to="/" component={ MovieList } />;
+    }
+
     return (
       <div>
         { (loading) ? <Loading /> : this.structureDetails(movies) }

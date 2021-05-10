@@ -15,11 +15,9 @@ function App() {
           <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </div>
         <Switch>
-          {/* utilização do Switch e do exact path
-          para resolver o problema do carregando... aparecendo várias vezes */}
           <Route exact path="/" component={ MovieList } />
-          <Route exact path="/movies/:id" component={ MovieDetails } />
           <Route path="/movies/new" component={ NewMovie } />
+          <Route exact path="/movies/:id" component={ MovieDetails } />
           <Route path="/movies/:id/edit" component={ EditMovie } />
           <Route component={ NotFound } />
         </Switch>

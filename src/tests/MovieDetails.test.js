@@ -21,7 +21,7 @@ const renderPath = (path) => {
 
 describe('4 - Faça uma requisição para buscar o filme que deverá ser renderizado dentro de `Movie Details`', () => {
 
-  it.skip('Será validado se `MovieDetails` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
+  it('Será validado se `MovieDetails` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
       cleanup();
       const { getByText } = renderPath(`/movies/${movie.id}`);
@@ -29,7 +29,7 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
     }
   });
 
-  it.skip('Será validado se `MovieDetails` exibe o título, o subtítulo, a sinopse, a imagem e o gênero do filme', async () => {
+  it('Será validado se `MovieDetails` exibe o título, o subtítulo, a sinopse, a imagem e o gênero do filme', async () => {
     for (const movie of readMovies()) {
       const { unmount } = renderPath(`/movies/${movie.id}`);
       await waitFor(() => movieAPI.getMovie(movie.id));
@@ -45,7 +45,7 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
     }
   });
 
-  it.skip('Será validado se `MovieDetails` contém um botão com o texto "VOLTAR" que redireciona para a página inicial', async () => {
+  it('Será validado se `MovieDetails` contém um botão com o texto "VOLTAR" que redireciona para a página inicial', async () => {
     for (const movie of readMovies()) {
       const { unmount, findByText } = renderPath(`/movies/${movie.id}`);
       await waitFor(() => movieAPI.getMovie(movie.id));
@@ -55,7 +55,7 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
     }
   });
 
-  it.skip('Será validado se `MovieDetails` contém um botão com o texto "EDITAR" que redireciona para a página de edição de filme', async () => {
+  it('Será validado se `MovieDetails` contém um botão com o texto "EDITAR" que redireciona para a página de edição de filme', async () => {
     for (const movie of readMovies()) {
       const { unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));

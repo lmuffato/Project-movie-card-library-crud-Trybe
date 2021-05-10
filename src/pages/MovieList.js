@@ -20,6 +20,7 @@ class MovieList extends Component {
     this.showFilms();
   }
 
+  // Source: https://github.com/tryber/sd-08-project-movie-cards-library-crud/tree/ailsonjr-project-movie-card-library-crud
   async showFilms() {
     const response = await movieAPI.getMovies();
     this.setState({ movies: response, loading: false });

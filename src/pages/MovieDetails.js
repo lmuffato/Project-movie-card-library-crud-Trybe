@@ -33,7 +33,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-    
     const { loading } = this.state;
     const loadingDetails = () => {
       if (loading === 'loading') {

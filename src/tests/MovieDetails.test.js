@@ -66,31 +66,31 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
   });
 });
 
-// describe('7 - Adicione um link para deletar um cartão em `MovieDetails`', () => {
+describe('7 - Adicione um link para deletar um cartão em `MovieDetails`', () => {
 
-//   it('Será validado se `MovieDetails` contém um link com o texto "DELETAR"', async () => {
-//     for (const movie of readMovies()) {
-//       const { unmount, findByText } = renderPath(`/movies/${movie.id}`);
-//       await waitFor(() => movieAPI.getMovie(movie.id));
-//       const deleteButton = await findByText('DELETAR');
-//       expect(deleteButton.href).toBe('http://localhost/');
-//       unmount();
-//     }
-//   });
+  it('Será validado se `MovieDetails` contém um link com o texto "DELETAR"', async () => {
+    for (const movie of readMovies()) {
+      const { unmount, findByText } = renderPath(`/movies/${movie.id}`);
+      await waitFor(() => movieAPI.getMovie(movie.id));
+      const deleteButton = await findByText('DELETAR');
+      expect(deleteButton.href).toBe('http://localhost/');
+      unmount();
+    }
+  });
 
-//   it('Será validado se o link "DELETAR" faz uma requisição para a API para excluir o filme em questão', async () => {
-//     const movieCardLength = 4;
-//     resetStorage();
-//     const deletedMovie = readMovies()[2];
-//     renderPath('/movies/3');
-//     const deleteButton = await screen.findByText('DELETAR');
-//     fireEvent.click(deleteButton);
-//     await waitFor(() => movieAPI.getMovies());
-//     expect(window.location.pathname).toBe('/');
-//     cleanup();
-//     renderPath('/');
-//     await waitFor(() => movieAPI.getMovies());
-//     expect(screen.getAllByTestId('movie-card').length).toBe(movieCardLength);
-//     expect(screen.queryByText(deletedMovie.title)).toBeNull();
-//   });
-// });
+  it('Será validado se o link "DELETAR" faz uma requisição para a API para excluir o filme em questão', async () => {
+    const movieCardLength = 4;
+    resetStorage();
+    const deletedMovie = readMovies()[2];
+    renderPath('/movies/3');
+    const deleteButton = await screen.findByText('DELETAR');
+    fireEvent.click(deleteButton);
+    await waitFor(() => movieAPI.getMovies());
+    expect(window.location.pathname).toBe('/');
+    cleanup();
+    renderPath('/');
+    await waitFor(() => movieAPI.getMovies());
+    expect(screen.getAllByTestId('movie-card').length).toBe(movieCardLength);
+    expect(screen.queryByText(deletedMovie.title)).toBeNull();
+  });
+});

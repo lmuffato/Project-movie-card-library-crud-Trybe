@@ -1,16 +1,25 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie };
+    this.state = { ...props.movie, clicked: false };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {
     const { onSubmit } = this.props;
-    onSubmit(this.state);
+    this.setState(
+      { clicked: false },
+      async () => {
+        await onSubmit(this.state);
+        this.setState({
+          clicked: true,
+        });
+      },
+    );
   }
 
   updateMovie(field, newValue) {
@@ -148,20 +157,50 @@ class MovieForm extends React.Component {
   }
 
   render() {
+    const { clicked } = this.state;
+    if (clicked === false) {
+      return (
+        <div>
+          <form>
+            {this.renderTitleInput()}
+            {this.renderSubtitleInput()}
+            {this.renderImagePathInput()}
+            {this.renderStorylineInput()}
+            {this.renderGenreSelection()}
+            {this.renderRatingInput()}
+            {this.renderSubmitButton()}
+          </form>
+        </div>
+      );
+    }
     return (
-      <div>
-        <form>
-          {this.renderTitleInput()}
-          {this.renderSubtitleInput()}
-          {this.renderImagePathInput()}
-          {this.renderStorylineInput()}
-          {this.renderGenreSelection()}
-          {this.renderRatingInput()}
-          {this.renderSubmitButton()}
-        </form>
-      </div>
+      <Redirect to={ { pathname: '/' } } />
     );
   }
 }
+
+MovieForm.defaultProps = {
+  onSubmit: () => {},
+  movie: PropTypes.shape({
+    id: 0,
+    title: '',
+    subtitle: '',
+    storyline: '',
+    rating: 0,
+    imagePath: '',
+  }),
+};
+
+MovieForm.propTypes = {
+  onSubmit: PropTypes.func,
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+  }),
+};
 
 export default MovieForm;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
@@ -14,7 +13,14 @@ class NewMovie extends Component {
   }
 
   render() {
-    const emptyMovie = { title: '', subtitle: '', imagePath: '', storyline: '', genre: '', rating: 0}
+    const emptyMovie = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      genre: '',
+      rating: 0,
+    };
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } movie={ emptyMovie } />

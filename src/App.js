@@ -11,16 +11,18 @@ function App() {
     <>
       <div>Movie Card Library CRUD</div>
       <BrowserRouter>
+        <div>
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        </div>
         <Switch>
           {/* utilização do Switch e do exact path
           para resolver o problema do carregando... aparecendo várias vezes */}
           <Route exact path="/" component={ MovieList } />
           <Route exact path="/movies/:id" component={ MovieDetails } />
-          <Route exact path="/movies/new" component={ NewMovie } />
-          <Route exatc path="/movies/:id/edit" component={ EditMovie } />
-          <Route exact path="" component={ NotFound } />
+          <Route path="/movies/new" component={ NewMovie } />
+          <Route path="/movies/:id/edit" component={ EditMovie } />
+          <Route component={ NotFound } />
         </Switch>
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </BrowserRouter>
     </>
   );

@@ -8,9 +8,7 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      movie: '',
-      loading: true,
-      id: '',
+      movie: [],
     };
   }
 
@@ -19,10 +17,9 @@ class MovieDetails extends Component {
   }
 
   fetchMovie = async () => {
-    const { match } = this.props;
-    const movieId = match.params.id;
-    const movies = await movieAPI.getMovie(movieId);
-    this.setState(() => ({ movie: movies, loading: false, id: movieId }));
+    const { match: { params: { id } } } = this.props;
+    const movie = await movieAPI.getMovie(id);
+    this.setState({ movie });
   }
 
   deleteMovieCard = async () => {
@@ -34,10 +31,10 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { loading, movie, id } = this.state;
-    if (loading) return <Loading />;
+    const { movie } = this.state;
+    if (Object.keys(movie).length === 0) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
       <div data-testid="movie-details">

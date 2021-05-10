@@ -4,14 +4,20 @@ import PropTypes from 'prop-types';
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
+/**
+ * Consultei o repositório do Renzo Sevilha para resolver essa classe.
+ * Link: https://github.com/tryber/sd-010-a-project-movie-card-library-crud/blob/renzosev-project-movie-card-library-crud/src/pages/EditMovie.js
+ */
 class EditMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+
     this.state = {
       status: 'loading',
-      shouldRedirect: false,
+      redirect: false,
       movie: {},
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,13 +25,15 @@ class EditMovie extends Component {
     this.fetchMovie();
   }
 
+  // Source: https://github.com/tryber/sd-010-a-project-movie-card-library-crud/blob/renzosev-project-movie-card-library-crud/src/pages/EditMovie.js
   handleSubmit(updatedMovie) {
-    this.setState({ shouldRedirect: false }, async () => {
+    this.setState({ redirect: false }, async () => {
       await movieAPI.updateMovie(updatedMovie);
-      this.setState({ shouldRedirect: true });
+      this.setState({ redirect: true });
     });
   }
 
+  // Source: https://github.com/tryber/sd-010-a-project-movie-card-library-crud/blob/renzosev-project-movie-card-library-crud/src/pages/EditMovie.js
   async fetchMovie() {
     const { match: { params: { id } } } = this.props;
 
@@ -35,15 +43,11 @@ class EditMovie extends Component {
     });
   }
 
+  // Source: https://github.com/tryber/sd-010-a-project-movie-card-library-crud/blob/renzosev-project-movie-card-library-crud/src/pages/EditMovie.js
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
-
-    if (status === 'loading') {
-      return <Loading />;
-    }
+    const { status, redirect, movie } = this.state;
+    if (redirect) return <Redirect to="/" />;
+    if (status === 'loading') return <Loading />;
 
     return (
       <div data-testid="edit-movie">
@@ -60,4 +64,5 @@ EditMovie.propTypes = {
     }),
   }),
 }.isRequired;
+
 export default EditMovie;

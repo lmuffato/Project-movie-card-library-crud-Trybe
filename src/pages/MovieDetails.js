@@ -32,6 +32,7 @@ class MovieDetails extends Component {
       });
   }
 
+  // Source: https://github.com/tryber/sd-08-project-movie-cards-library-crud/tree/c152ee7259a1d37fcfc7714ec4b820f5f9513e72
   handleDelete() {
     const { movie } = this.state;
     const { id } = movie;

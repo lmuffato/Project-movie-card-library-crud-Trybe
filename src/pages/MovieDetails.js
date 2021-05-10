@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
+
 import { Loading } from '../components';
 import MovieSinglePage from '../components/MovieSinglePage';
 
@@ -17,6 +19,7 @@ class MovieDetails extends Component {
     this.request = false;
 
     this.requestMovieInfo = this.requestMovieInfo.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +44,13 @@ class MovieDetails extends Component {
     }
   }
 
+  deleteCard() {
+    const { deleteMovie } = movieAPI;
+    const { match } = this.props;
+    const { id } = match.params;
+    deleteMovie(id);
+  }
+
   render() {
     const { movie, isLoading } = this.state;
 
@@ -51,6 +61,11 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details" className="movie-page">
         <MovieSinglePage movie={ movie } />
+        <button type="button" onClick={ this.deleteCard }>
+          <Link to="/">
+            DELETAR
+          </Link>
+        </button>
       </div>
     );
   }

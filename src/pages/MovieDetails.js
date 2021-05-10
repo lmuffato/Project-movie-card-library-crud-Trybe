@@ -45,9 +45,17 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <ul>
-          <li><Link to="/">VOLTAR</Link></li>
-          <li><Link to={ `/movies/${id}/edit` }>EDITAR</Link></li>
-          <Link to="/" innerRef={ movieAPI.deleteMovie(id) }>DELETAR</Link>
+          <li>
+            <Link to="/">VOLTAR</Link>
+          </li>
+          <li>
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          </li>
+          <li>
+            <Link to="/" onClick={ async () => movieAPI.deleteMovie(id) }>
+              DELETAR
+            </Link>
+          </li>
         </ul>
       </div>
     );

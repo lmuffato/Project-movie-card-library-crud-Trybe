@@ -61,6 +61,8 @@ class EditMovie extends Component {
   }
 }
 
+// Uso do Redirect
+// Link: https://qastack.com.br/programming/34735580/how-to-do-a-redirect-to-another-route-with-react-router#:~:text=23-,Como%20fazer%20um%20redirecionamento%20para%20outra%20rota%20com%20react%2Drouter,como%20a%20rota%20de%20login.
 EditMovie.propTypes = {
   id: PropTypes.object,
 }.isRequired;

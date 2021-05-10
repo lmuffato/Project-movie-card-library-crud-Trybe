@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -163,5 +163,22 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    imagePath: PropTypes.string,
+  }),
+  onSubmit: PropTypes.func.isRequired,
+};
+
+// Source: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
+
+MovieForm.defaultProps = {
+  movie: undefined,
+};
 
 export default MovieForm;

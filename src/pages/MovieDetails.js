@@ -32,7 +32,6 @@ class MovieDetails extends Component {
   callDelete = async () => {
     const { deleteMovie } = movieAPI;
     const { movie: { id } } = this.state;
-    console.log(id, 'id do filme a ser deletado');
     this.setState({ isLoading: true }, async () => {
       await deleteMovie(id);
       this.setState({ shouldRedirect: true });
@@ -67,7 +66,7 @@ class MovieDetails extends Component {
             <section className="movie-card-rating">
               <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
               <Link to="/">VOLTAR</Link>
-              <Link onClick={ this.callDelete }>DELETAR</Link>
+              <Link to="/" onClick={ this.callDelete }>DELETAR</Link>
             </section>
           </section>
         )

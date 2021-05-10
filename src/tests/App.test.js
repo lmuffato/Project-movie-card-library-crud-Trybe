@@ -51,6 +51,7 @@ describe('1 - Renderize `BrowserRouter` no componente `App` usando rotas', () =>
       unmount();
     }
   });
+  
   test('Será validado se qualquer rota não declarada renderiza a página NotFound', () => {
     const { unmount, getByTestId } = renderPath(`/${Math.random()}`);
     expect.anything(getByTestId('404-error'));

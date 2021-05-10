@@ -31,6 +31,10 @@ class MovieDetails extends Component {
     });
   }
 
+  delete = (id) => {
+    movieAPI.deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -49,6 +53,7 @@ class MovieDetails extends Component {
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         </button>
         <button type="button">
+          {/* <Link to="/" onClick={ this.delete(id) }>DELETAR</Link> */}
           <Link to="/">VOLTAR</Link>
         </button>
       </div>

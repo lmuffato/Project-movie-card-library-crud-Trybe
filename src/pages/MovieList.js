@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
@@ -19,7 +20,6 @@ class MovieList extends Component {
   async gettingMovies() {
     const { getMovies } = movieAPI;
     const moviesGotten = await getMovies();
-    console.log(moviesGotten);
     this.setState({
       movies: moviesGotten,
     });
@@ -34,6 +34,7 @@ class MovieList extends Component {
           ? <Loading />
           : movies
             .map((movie) => (<MovieCard key={ movie.title } movie={ movie } />))}
+        <Link to="/movies/new">ADICIONAR CARTÃO </Link>
       </div>
     );
   }

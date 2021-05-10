@@ -11,6 +11,7 @@ import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './Loading.css';
 
 class App extends Component {
   render() {

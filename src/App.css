@@ -45,17 +45,18 @@ body {
 }
 
 .movie-card-image {
+  flex: 1 1 auto;
   width: 100%;
 }
 
 .movie-card-body {
-  flex: 1 1 auto;
+  height: 100px;
   padding: 20px;
   position: relative;
 }
 
 .title {
-  color: white;
+  color: rgb(0, 217, 255);
   font-size: 24px;
   font-weight: 400;
   margin: 0 0 12px;
@@ -93,12 +94,25 @@ body {
   padding: 12px 20px;
 }
 
+.movie-link-container {
+  height: 30px;
+  position: relative;
+  transform: scaleY(0);
+  transform-origin: 0 100%;
+  transition: transform 0.3s ease-out;
+  width: 100%;
+}
+
 .movie-details-link {
+  align-items: center;
   background-color: #343a40;
   color: white;
   display: flex;
+  height: 100%;
   justify-content: center;
+  position: absolute;
   text-decoration: none;
+  width: 100%;
 }
 
 .movie-details-link:visited {
@@ -123,7 +137,7 @@ body {
   display: flex;
   flex-flow: column wrap;
   height: 530px;
-  width: 50%;
+  width: 45%;
 }
 
 .movie-details img {
@@ -244,4 +258,13 @@ body {
 
 .button-container button {
   width: 100px;
+}
+
+.loading {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: calc(100vh - 110px);
+  justify-content: center;
+  width: 100%;
 }

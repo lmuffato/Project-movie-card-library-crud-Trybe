@@ -11,6 +11,7 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     };
+    this.fetchMovies = this.fetchMovies.bind(this);
   }
 
   componentDidMount() {
@@ -30,8 +31,6 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
     return (
       <div data-testid="movie-list">
-        movies.length
-        ?
         <Loading />
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>

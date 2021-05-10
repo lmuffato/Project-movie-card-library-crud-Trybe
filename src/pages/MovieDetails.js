@@ -26,15 +26,15 @@ class MovieDetails extends Component {
   movieInfo(movie) {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     return (
-      <div>
+      <div className="container-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h1>{ `Title: ${title}` }</h1>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
+        <h1 className="title">{ `Title: ${title}` }</h1>
+        <p className="sub">{ `Subtitle: ${subtitle}` }</p>
+        <p className="storyline">{ `Storyline: ${storyline}` }</p>
+        <p className="genre">{ `Genre: ${genre}` }</p>
+        <p className="rating">{ `Rating: ${rating}` }</p>
+        <Link to={ `/movies/${id}/edit` } className="edit-btn">EDITAR</Link>
+        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) } className="del-btn">DELETAR</Link>
       </div>
     );
   }
@@ -48,7 +48,7 @@ class MovieDetails extends Component {
             ? <Loading />
             : this.movieInfo(movie)
         }
-        <Link to="/">VOLTAR</Link>
+        <Link to="/" className="back-btn">VOLTAR</Link>
       </div>
     );
   }

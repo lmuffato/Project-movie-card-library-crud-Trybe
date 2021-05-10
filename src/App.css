@@ -1,5 +1,166 @@
-body {
-  background-color: whitesmoke;
-  box-sizing: border-box;
+#root {
+  background: linear-gradient(to bottom, rgb(175, 175, 175), rgb(212, 212, 212));
+  min-height: 100vh;
 }
 
+.header {
+  height: 80px;
+  background: linear-gradient(to bottom, rgb(39, 39, 39), rgb(46, 46, 46));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header div {
+  font-size: 40px;
+  color: antiquewhite;
+}
+
+.add-btn {
+  color: white;
+  outline: none;
+  text-decoration: none;
+  background: linear-gradient(to top, rgb(144, 0, 0), rgb(212, 3, 3));
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 0 8px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.add-btn:hover {
+  background: linear-gradient(to top, rgb(185, 11, 11), rgb(245, 46, 46));
+}
+
+.container-movie-card  {
+  width: 400px;
+  height: 600px;
+  background: linear-gradient(to top, rgb(29, 29, 29), rgb(42, 42, 42));
+  box-shadow: 0 0 15px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  color: rgb(214, 214, 214);
+  border-radius: 15px;
+  padding: 0 30px;
+}
+
+.container-movie-card img {
+ width: 250px;
+ height: 250px;
+ border-radius: 20px;
+}
+
+.container-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  color: white;
+  outline: none;
+  text-decoration: none;
+  background: linear-gradient(to top, rgb(0, 95, 0), rgb(0, 180, 0));
+  padding: 15px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  border: 1px solid black;
+  color: rgb(65, 65, 65);
+}
+
+.story {
+  line-height: 30px;
+}
+
+.loading {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.container-details {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.title, .sub, .storyline, .genre, .rating {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  margin-left: 50px;
+  text-shadow: 0 0 15px black;
+}
+
+.title { 
+  top: 130px;
+  font-size: 70px;
+}
+
+.sub { 
+  top: 250px;
+  font-size: 40px;
+}
+
+.storyline {
+  top: 350px;
+  font-size: 40px;
+  line-height: 70px;
+  width: 40%;
+}
+
+.genre { 
+  bottom: 200px;
+  font-size: 40px;
+}
+
+.rating { 
+  color: rgb(158, 40, 40);
+  font-size: 25px;
+  border-bottom: 2px solid rgb(158, 40, 40);
+}
+
+.edit-btn , .del-btn , .back-btn{
+  position: absolute;
+  bottom: 70px;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  font-size: 28px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.edit-btn{
+  left: 50%;
+  padding: 20px;
+  background: linear-gradient(to top, rgb(121, 110, 11),rgb(179, 167, 9));
+}
+
+.del-btn { 
+  left: 80%;
+  padding: 20px;
+  background: linear-gradient(to top, rgb(141, 14, 3), rgb(206, 44, 23));
+}
+
+.back-btn {
+  left: 15%;
+  bottom: -110px;
+  padding: 20px;
+  background: linear-gradient(to top, rgb(0, 0, 116), rgb(1, 1, 158));
+}
+
+.edit-btn:hover , .del-btn:hover , .back-btn:hover {
+  border-bottom: 5px solid white;
+}

@@ -22,7 +22,7 @@ class MovieList extends Component {
   render() {
     const { movies, loading } = this.state;
     return (
-      <div data-testid="movie-list">
+      <div data-testid="movie-list" className="container-movies">
         {
           loading
             ? <Loading />

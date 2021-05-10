@@ -1,25 +1,71 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Proptypes from 'prop-types';
+import { getMovie } from '../services/movieAPI';
 
 // import * as movieAPI from '../services/movieAPI';
 // import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor() {
+    super();
 
-    // const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.state = {
+      movie: [],
+      loading: 'loading',
+    };
+  }
+
+  componentDidMount() {
+    this.fatchApiId();
+  }
+
+  fatchApiId = () => {
+    const { match: { params: { id } } } = this.props;
+
+    getMovie(id).then((data) => {
+      const returnObject = data;
+      this.setState({
+        movie: returnObject,
+        loading: '',
+      });
+    });
+  }
+
+  render() {
+    
+    const { loading } = this.state;
+    const loadingDetails = () => {
+      if (loading === 'loading') {
+        return <p>Carregando...</p>;
+      }
+    };
+
+    const { movie: { storyline, imagePath, genre, rating, subtitle } } = this.state;
+    const { movie: { title, id } } = this.state;
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        <p>{`Title: ${title}`}</p>
+        <p>{`Subtitle: ${subtitle}`}</p>
+        <p>{`Storyline: ${storyline}`}</p>
+        <p>{`Genre: ${genre}`}</p>
+        <p>{`Rating: ${rating}`}</p>
+        {loadingDetails()}
+        <button type="submit">
+          <Link to="/">VOLTAR</Link>
+        </button>
+        <button type="submit">
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        </button>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: Proptypes.objectOf(Proptypes.object).isRequired,
+};
 
 export default MovieDetails;

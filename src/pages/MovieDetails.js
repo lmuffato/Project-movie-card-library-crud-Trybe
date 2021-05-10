@@ -1,25 +1,87 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
+const INITIAL_STATE = {
+  title: '',
+  imagePath: '',
+  subtitle: '',
+  storyline: '',
+  genre: '',
+  rating: 0,
+};
 class MovieDetails extends Component {
+  constructor() {
+    super();
+
+    this.getMovie = this.getMovie.bind(this);
+
+    this.state = INITIAL_STATE;
+  }
+
+  componentDidMount() {
+    this.getMovie();
+  }
+
+  getUrlId() {
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    return id;
+  }
+
+  async getMovie() {
+    const { getMovie } = movieAPI;
+    const id = this.getUrlId();
+    const data = await getMovie(id);
+    this.setState({
+      imagePath: data.imagePath,
+      title: data.title,
+      subtitle: data.subtitle,
+      storyline: data.storyline,
+      genre: data.genre,
+      rating: data.rating,
+    });
+  }
+
   render() {
-    // Change the condition to check the state
-    if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
-
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
+    if (imagePath.length === 0) {
+      return <Loading />;
+    }
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+      <div className="movie-card" data-testid="movie-details">
+        <img className="movie-card-image" alt="Movie Cover" src={ `../${imagePath}` } />
+        <div className="movie-card-body">
+          <p className="movie-card-title">{`Título: ${title}`}</p>
+          <p className="movie-card-subtitle">{ `Subtitulo: ${subtitle}` }</p>
+          <p className="movie-card-storyline">{ `Sinopse: ${storyline}` }</p>
+          <p>{ `Gênero: ${genre}` }</p>
+          <div className="movie-card-rating">
+            <p className="rating">{ `Avaliação: ${rating}` }</p>
+          </div>
+          <Link to={ `/movies/${this.getUrlId()}/edit` }>
+            EDITAR
+          </Link>
+          <br />
+          <Link to="/">
+            VOLTAR
+          </Link>
+        </div>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;

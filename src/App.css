@@ -82,9 +82,9 @@ body {
   padding: 12px 20px;
 }
 
-.movie-galery {  
-  display: flex;
+.movie-galery {
   align-items: center;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }

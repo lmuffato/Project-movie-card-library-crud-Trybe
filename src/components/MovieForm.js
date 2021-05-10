@@ -1,15 +1,15 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
-  constructor(props) {
+  constructor(props) { // nativo
     super(props);
-    // this.state = { ...props.movie };
+    this.state = { ...props.movie }; // nativo - recebe um filme como props e armazena no state
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-    // const { onSubmit } = this.props;
+  handleSubmit() { // nativo - recebe o filme do state?
+    const { onSubmit } = this.props;
     onSubmit(this.state);
   }
 
@@ -165,3 +165,15 @@ class MovieForm extends React.Component {
 }
 
 export default MovieForm;
+
+MovieForm.propTypes = {
+  movie: PropTypes.objectOf(PropTypes.any),
+  onSubmit: PropTypes.func.isRequired,
+};
+
+// defaultProps:
+// https://medium.com/@henrique.weiand/react-defaultprops-proptypes-plano-de-aula-vi-2ac0f990cdd9
+
+MovieForm.defaultProps = {
+  movie: {},
+};

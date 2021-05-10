@@ -6,7 +6,7 @@ class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
     return (
-      <div 
+      <div
         data-testid="movie-card"
         className="box has-background-dark has-text-white p-3"
       >

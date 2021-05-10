@@ -96,7 +96,7 @@ class MovieForm extends React.Component {
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div className="select">
+      <div className="select is-multiple">
         <label htmlFor="movie_genre">
           Gênero
           <select

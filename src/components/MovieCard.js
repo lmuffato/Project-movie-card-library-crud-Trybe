@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
@@ -15,12 +16,23 @@ class MovieCard extends React.Component {
           <p className="movie-card-storyline">{storyline}</p>
           <Link className="link-btn" to={ `/movies/${id}` }>VER DETALHES</Link>
         </div>
-          <div className="movie-card-rating" data-testid="rating">
+        <div className="movie-card-rating" data-testid="rating">
           <span className="rating">{rating}</span>
         </div>
       </div>
     );
   }
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    id: PropTypes.number,
+  }),
+}.isRequired;
 
 export default MovieCard;

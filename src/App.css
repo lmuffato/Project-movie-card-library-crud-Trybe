@@ -75,12 +75,12 @@ body {
 }
 
 .link-btn {
-  text-decoration: none;
-  margin: 2px;
-  color: green;
-  padding: 7px 20px;
   background-color: #aaa;
   border: solid 1px #888;
+  color: green;
+  margin: 2px;
+  padding: 7px 20px;
+  text-decoration: none;
 }
 
 .link-btn:hover {

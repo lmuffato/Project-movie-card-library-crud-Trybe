@@ -5,11 +5,14 @@ import EditMovie from './pages/EditMovie';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import NotFound from './pages/NotFound';
+import './bulma.min.css';
 
 function App() {
   return (
-    <div>
-      Movie Card Library CRUD
+    <div className="container">
+      <div className="level-item has-text-centered mb-5">
+        <h1 className="title">Movie Card Library CRUD</h1>
+      </div>
       <BrowserRouter>
         <Switch>
           <Route

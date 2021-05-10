@@ -41,7 +41,7 @@ class MovieList extends Component {
    return (
      <div data-testid="movie-list">
        {this.conditional()}
-       <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+       <Link className="button is-dark" to="/movies/new">ADICIONAR CARTÃO</Link>
      </div>
    );
  }

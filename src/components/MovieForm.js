@@ -83,6 +83,7 @@ class MovieForm extends React.Component {
         <label htmlFor="movie_storyline">
           <textarea
             id="movie_storyline"
+            type="textarea"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
           />
@@ -95,7 +96,7 @@ class MovieForm extends React.Component {
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div>
+      <div className="select">
         <label htmlFor="movie_genre">
           Gênero
           <select
@@ -139,6 +140,7 @@ class MovieForm extends React.Component {
       <div>
         <button
           type="button"
+          className="button is-dark"
           onClick={ this.handleSubmit }
         >
           Submit

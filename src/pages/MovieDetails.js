@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import '../bulma.min.css';
 
 class MovieDetails extends Component {
   constructor() {
@@ -45,17 +46,25 @@ class MovieDetails extends Component {
     if (loading) return <Loading />;
     return (
       <div>
-        <div>
-          <h1>{title}</h1>
+        <div className="box">
+          <h1 className="title">{title}</h1>
           <img alt="Movie Cover" src={ `../${imagePath}` } />
           <p>{ `Subtitle: ${subtitle}` }</p>
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
         </div>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ () => this.callDelet(id) }>DELETAR</Link>
+        <div className="level-item has-text-centered">
+          <Link className="button is-dark" to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link className="button is-dark" to="/">VOLTAR</Link>
+          <Link
+            className="button is-dark"
+            to="/"
+            onClick={ () => this.callDelet(id) }
+          >
+            DELETAR
+          </Link>
+        </div>
       </div>
     );
   }

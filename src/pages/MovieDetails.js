@@ -10,12 +10,12 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: {},
-      loading: false
-    }
+      loading: false,
+    };
   }
 
   fetchApi = () => {
-    const { id } = this.props.match.params;
+    const { match: { params: { id } } } = this.props;
     this.setState(
       { loading: true },
       async () => {
@@ -23,8 +23,9 @@ class MovieDetails extends Component {
         this.setState({
           movie,
           loading: false,
-        })
-      });
+        });
+      },
+    );
   }
 
   deleteMovie = () => {
@@ -34,13 +35,14 @@ class MovieDetails extends Component {
   componentDidMount = () => {
     this.fetchApi();
   }
-  
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { id } = this.props.match.params;
+    const { match: { params: { id } } } = this.props;
     const { loading } = this.state;
-    const { movie: { title, storyline, imagePath, genre, rating, subtitle } } = this.state;
+    const { movie: { title, storyline, imagePath,
+      genre, rating, subtitle } } = this.state;
 
     if (loading) {
       return (
@@ -57,8 +59,8 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link to="/" onClick={async () => movieAPI.deleteMovie(id)}>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ async () => movieAPI.deleteMovie(id) }>
           DELETAR
         </Link>
       </div>

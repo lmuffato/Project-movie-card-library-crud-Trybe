@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 class MovieCard extends React.Component {
   render() {
     const { movie: {
-        id,
-        title,
-        storyline,
-      } 
+      id,
+      title,
+      storyline,
+    },
     } = this.props;
     return (
       <div data-testid="movie-card">
         <h1>{ title }</h1>
         <p>{ storyline }</p>
-        <Link to={`/movies/${id}`}>VER DETALHES</Link>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }

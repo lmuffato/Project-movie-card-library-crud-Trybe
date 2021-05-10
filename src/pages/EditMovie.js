@@ -10,7 +10,7 @@ class EditMovie extends Component {
     this.state = {
       movie: {},
       status: 'running',
-      shouldRedirect: false
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,22 +22,24 @@ class EditMovie extends Component {
         await movieAPI.updateMovie(updatedMovie);
         this.setState({
           status: 'running',
-          shouldRedirect: true
-        })
-      });
+          shouldRedirect: true,
+        });
+      },
+    );
   }
 
   fetchAPI = () => {
-    const { id } = this.props.match.params;
+    const { match: { params: { id } } } = this.props;
     this.setState(
       { status: 'loading' },
       async () => {
         const movie = await movieAPI.getMovie(id);
         this.setState({
           status: 'running',
-          movie
-        })
-      })
+          movie,
+        });
+      },
+    );
   }
 
   componentDidMount = () => {
@@ -47,11 +49,11 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/"/>
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
-      return(
+      return (
         <Loading />
       );
     }

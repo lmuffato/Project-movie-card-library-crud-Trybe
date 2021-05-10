@@ -10,9 +10,9 @@ class NewMovie extends Component {
 
     this.state = {
       status: 'running',
-      shouldRedirect: false
-    }
-    
+      shouldRedirect: false,
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,19 +21,20 @@ class NewMovie extends Component {
       { status: 'loading' },
       async () => {
         await movieAPI.createMovie(newMovie);
-        this.setState({ 
+        this.setState({
           status: 'running',
-          shouldRedirect: true
+          shouldRedirect: true,
         });
-      })
+      },
+    );
   }
 
   render() {
     const { status, shouldRedirect } = this.state;
-    
-    if (shouldRedirect) return <Redirect to="/"/>
 
-    if ( status === 'loading' ) {
+    if (shouldRedirect) return <Redirect to="/" />;
+
+    if (status === 'loading') {
       return (
         <Loading />
       );

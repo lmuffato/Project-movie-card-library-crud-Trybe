@@ -1,5 +1,137 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgba(238, 235, 221, 1);
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.loading {
+  color: rgba(129, 0, 0, 1);
+  font-size: 40px;
+  margin: 64px;
+  text-align: center;
+}
+
+.header {
+  background-color: rgba(27, 23, 23, 1);
+  color: rgba(238, 235, 221, 1);
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+  padding: 32px;
+  text-align: center;
+}
+
+.add-btn {
+  background-color: rgba(206, 18, 18, 1);
+  border-radius: 30px;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 16px 0;
+  width: 250px;
+}
+
+.add-btn a {
+  color: rgba(238, 235, 221, 1);
+  text-decoration: none;
+}
+
+.add-btn:hover {
+  background-color: rgba(129, 0, 0, 1);
+  transition: 0.3s;
+}
+
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 32px auto;
+  width: 960px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  max-width: 220px;
+}
+
+.movie-card h2 {
+  color: rgba(129, 0, 0, 1);
+  font-size: 18px;
+  text-align: center;
+}
+
+.storyline {
+  color: rgba(27, 23, 23, 1);
+  font-size: 14px;
+  height: 130px;
+}
+
+.movie-card a {
+  background-color: rgba(206, 18, 18, 1);
+  border-radius: 30px;
+  color: rgba(238, 235, 221, 1);
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto;
+  width: 960px;
+}
+
+.links-details {
+  display: flex;
+  justify-content: space-around;
+  margin: 32px 0;
+}
+
+.links-details a {
+  background-color: rgba(206, 18, 18, 1);
+  border-radius: 30px;
+  color: rgba(238, 235, 221, 1);
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+}
+
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto;
+  width: 960px;
+}
+
+.movie-form button {
+  background-color: rgba(206, 18, 18, 1);
+  border: none;
+  border-radius: 30px;
+  color: rgba(238, 235, 221, 1);
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 10px;
+  width: 150px;
+}
+
+.movie-form div {
+  margin: 18px 0 0;
+}
+
+.form-group {
+  color: rgba(27, 23, 23, 1);
+  display: flex;
+  flex-direction: column;
+}

@@ -28,6 +28,11 @@ class MovieDetails extends Component {
     });
   };
 
+  handleDelete = (event, id) => {
+    event.preventDefault();
+    movieAPI.deleteMovie(id);
+  }
+
   handleLoading(movie) {
     const { id, imagePath, subtitle, storyline, genre, rating, title } = movie;
     return (
@@ -40,6 +45,9 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <button type="submit" onClick={ (event) => this.handleDelete(event, id) }>
+          <Link to="/">DELETAR</Link>
+        </button>
       </div>
     );
   }

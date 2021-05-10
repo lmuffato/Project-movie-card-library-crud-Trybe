@@ -1,9 +1,13 @@
 .movieList {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
   margin: 0 auto;
   max-width: 100%;
   width: 100%;
+}
+
+.list {
+  display: flex;
 }

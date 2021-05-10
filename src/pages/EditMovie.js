@@ -5,6 +5,8 @@ import { Redirect } from 'react-router';
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
+import './styles/EditMovie.css';
+
 class EditMovie extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,8 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
+      <div data-testid="edit-movie" className="editMovie d-flex">
+        <h1>Edite os dados do cartão</h1>
         <MovieForm movie={ { ...movie } } onSubmit={ this.handleSubmit } />
       </div>
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/MovieCard.css';
 import { Link } from 'react-router-dom';
 

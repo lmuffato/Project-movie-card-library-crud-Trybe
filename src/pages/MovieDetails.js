@@ -75,17 +75,18 @@ class MovieDetails extends Component {
           <Card.Footer>
             <Link to="/">VOLTAR</Link>
             <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+            <Link
+              to="/"
+              onClick={ async () => {
+                await movieAPI.deleteMovie(id);
+              } }
+            >
+              DELETAR
+
+            </Link>
           </Card.Footer>
         </Card>
-        <Link
-          to="/"
-          onClick={ async () => {
-            await movieAPI.deleteMovie(id);
-          } }
-        >
-          DELETAR
 
-        </Link>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 .movieCard {
   height: 350px;
   margin: 10px;
-  overflow: hidden;
   width: 250px;
 }
 
@@ -12,4 +11,6 @@
 
 .storyline {
   font-size: 14px;
+  max-height: 113px;
+  overflow: hidden;
 }

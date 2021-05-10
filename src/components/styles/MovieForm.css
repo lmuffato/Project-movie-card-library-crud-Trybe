@@ -1,0 +1,4 @@
+.exception {
+  display: flex;
+  justify-content: space-between;
+}

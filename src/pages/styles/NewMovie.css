@@ -1,0 +1,7 @@
+.newMovie {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

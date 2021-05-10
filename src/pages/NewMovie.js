@@ -4,9 +4,11 @@ import { Redirect } from 'react-router';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
+import './styles/NewMovie.css';
+
 class NewMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       shouldRedirect: false,
@@ -30,8 +32,8 @@ class NewMovie extends Component {
     }
 
     return (
-      <div data-testid="new-movie">
-        <h1>NewMovie</h1>
+      <div data-testid="new-movie" className="newMovie">
+        <h1>Adicionando novo cartão</h1>
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );

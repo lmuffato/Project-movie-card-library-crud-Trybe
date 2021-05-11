@@ -14,10 +14,6 @@
 
   --gray: #bec2c6;
 
-  --green: #006400;
-
-  --lightgreen: #008000;
-
   --lightgreen2: #57a857;
 
   --white: #fbfbfb;
@@ -136,13 +132,24 @@ a.add-card:active {
   background-color: var(--lightpurple);
 }
 
+.movie-card a {
+  background-color: var(--background2);
+  color: var(--gray);
+  font-size: 1rem;
+  font-weight: 600;
+  max-width: 300px;
+  padding: 1.188rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
 .btn-delete a:hover {
   color: var(--white);
 }
 
 .btn-back {
   align-self: center;
-  background-color: var(--lightgreen);
+  background-color: #008000;
   border: 0;
   border-radius: 0.25rem;
   color: var(--white);
@@ -180,10 +187,10 @@ a.add-card:active {
 }
 
 .movie-card-img-container {
+  flex: 1 auto;
+  justify-content: space-between;
   max-width: 100%;
   padding: 10px;
-  justify-content: space-between;
-  flex: 1 auto;
 }
 
 .movie-card-image {
@@ -199,17 +206,6 @@ a.add-card:active {
   justify-content: space-evenly;
   max-width: 46vw;
   padding: 15px;
-}
-
-.movie-card a {
-  background-color: var(--background2);
-  color: var(--gray);
-  font-size: 1rem;
-  font-weight: 600;
-  max-width: 300px;
-  padding: 1.188rem 2rem;
-  text-align: center;
-  text-decoration: none;
 }
 
 .movie-card a:active {
@@ -343,7 +339,7 @@ a.add-card:active {
   overflow-y: scroll;
 }
 
-@media (max-width: 786px) {
+@media ( max-width : 786px ) {
   html {
     font-size: 87.5%;
   }
@@ -373,8 +369,8 @@ a.add-card:active {
   }
 
   .movie-card-image {
-   max-width: 100%;
-   width: 100%;
+    max-width: 100%;
+    width: 100%;
   }
 
   .movie-card-body {

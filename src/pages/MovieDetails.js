@@ -28,7 +28,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { status, movie: { id, storyline, imagePath, genre, rating,
+    const { status, movie: { id, title, storyline, imagePath, genre, rating,
       subtitle } } = this.state;
     if (status === 'loading') {
       return <Loading />;
@@ -36,12 +36,16 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <p>{`Title:${title}`}</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <div>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        </div>
+        <div>
+          <Link to="/">VOLTAR</Link>
         </div>
       </div>
     );

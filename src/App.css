@@ -1,11 +1,18 @@
+
 :root {
-  --background: #1F2229;
-  --background2: #2E303C;
+  --background: #1f2229;
+
+  --background2: #2e303c;
+
   --background-button: #373945;
-  --background-button2: #4B4D59;
-  --yellow: #FAE800;
-  --gray: #BEC2C6;
-  --white: #FBFBFB;
+
+  --background-button2: #4b4d59;
+
+  --yellow: #fae800;
+
+  --gray: #bec2C6;
+
+  --white: #fbfbfb;
 }
 
 * {
@@ -18,13 +25,12 @@ body {
   background-color: var(--background);
   display: flex;
   flex-direction: row;
-  font-family: Poppins, Arial, sans-serif;
+  font-family: Poppins , Arial , sans-serif;
   font-size: 16px;
 }
 
 .movie-card-header {
   display: flex;
-  
   justify-content: center;
 }
 
@@ -34,10 +40,10 @@ body {
   color: var(--gray);
   font-size: 3rem;
   font-weight: 600;
-  min-height: 100px;
-  text-align: center;
   flex-direction: row;
+  min-height: 100px;
   padding-bottom: 10px;
+  text-align: center;
   width: 100vw;
 }
 
@@ -59,14 +65,6 @@ body {
   width: 15.5rem;
 }
 
-.add-card:hover , .btn:hover {
-  background-color: var(--background-button2);
-}
-
-a:active {
-  background-color: var(--yellow);
-}
-
 .btn-edit, .btn {
   align-self: center;
   background-color: var(--background-button);
@@ -75,10 +73,18 @@ a:active {
   color: var(--white);
   display: flex;
   font-size: 1.125rem;
-  padding: 1.1175rem 1.7rem;
+  padding: 1.117rem 1.7rem;
   text-align: center;
   text-decoration: none;
   width: 7.5rem;
+}
+
+.add-card:hover, .btn:hover {
+  background-color: var(--background-button2);
+}
+
+a:active {
+  background-color: var(--yellow);
 }
 
 .btn-delete  {
@@ -88,7 +94,7 @@ a:active {
   border-radius: 0.25rem;
   display: flex;
   font-size: 1.125rem;
-  padding: 1.1275rem 1.7rem;
+  padding: 1.127rem 1.7rem;
   text-align: center;
   text-decoration: none;
   width: 7.9rem;
@@ -99,7 +105,7 @@ a:active {
   text-decoration: none;
 }
 
-a.btn-back {
+.btn-back {
   align-self: center;
   background-color: green;
   border: 0;
@@ -107,7 +113,7 @@ a.btn-back {
   color: var(--white);
   display: flex;
   font-size: 1.125rem;
-  padding: 1.1175rem 1.7rem;
+  padding: 1.117rem 1.7rem;
   text-align: center;
   text-decoration: none;
   width: 7.5rem;
@@ -132,7 +138,6 @@ a.btn-back {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -147,13 +152,13 @@ a.btn-back {
   color: var(--gray);
   font-size: 1rem;
   max-width: 300px;
-  padding: 1.1775rem 2rem;
+  padding: 1.1875rem 2rem;
   text-align: center;
   text-decoration: none;
 }
 
 .movie-card a:active {
-  color: var(--yellow)
+  color: var(--yellow);
 }
 
 .movie-card a:hover {
@@ -212,8 +217,7 @@ a.btn-back {
 
 .movie-details {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -231,9 +235,9 @@ a.btn-back {
   color: var(--gray);
   font-size: 1.875rem;
   font-weight: 600;
+  max-width: 95vw;
   padding-left: 20px;
   padding-top: 20px;
-  max-width: 95vw;
 }
 
 .movie-detail-subtitle {
@@ -253,8 +257,8 @@ a.btn-back {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .container-detail {

@@ -5,10 +5,13 @@ body {
 
 .movieCard {
   border: solid 1px black;
+  height: 355px;
+  margin: 10px;
   width: 250px;
 }
 
 .movie-card-image {
+  box-sizing: border-box;
   width: 250px;
 }
 
@@ -16,5 +19,63 @@ body {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.movie-card-body {
+  padding: 0 10px 5px;
+}
+
+.header {
+  background-color: rgb(16, 99, 81);
+  color: rgb(204, 204, 204);
+  padding: 20px;
+  text-align: center;
+}
+
+.movie-card-storyline {
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.detalhes {
+  background-color: rgb(16, 99, 81);
+  border-radius: 5px;
+  color: rgb(204, 204, 204);
+  margin-bottom: 5px;
+  margin-left: 52px;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.detalhes:hover {
+  background-color: rgb(24, 128, 105);
+  padding: 5px;
+}
+
+.adicionaCartao {
+  background-color: rgb(16, 99, 81);
+  border-radius: 5px;
+  color: rgb(204, 204, 204);
+  margin-left: 52px;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.adicionaCartao:hover {
+  background-color: rgb(24, 128, 105);
+  padding: 5px;
+}
+
+.footer {
+  background-color: rgb(36, 35, 35);
+  color: aliceblue;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 }

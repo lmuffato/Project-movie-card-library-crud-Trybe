@@ -19,7 +19,7 @@ class MovieList extends Component {
     this.getMovies();
   }
 
-  async getMovies() {
+  getMovies() {
     this.setState(
       { loading: true },
       async () => {

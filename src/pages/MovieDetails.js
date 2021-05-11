@@ -3,6 +3,9 @@ import { shape, number } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 import { getMovie, deleteMovie } from '../services/movieAPI';
+import { union } from '../fp-library/union';
+
+const Type = union('loading', 'loaded');
 
 class MovieDetails extends Component {
   constructor() {
@@ -10,7 +13,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: {},
-      loading: true,
+      status: Type.loading,
     };
   }
 
@@ -18,9 +21,9 @@ class MovieDetails extends Component {
 
   fetchData = () => {
     const { match: { params: { id } } } = this.props;
-    this.setState({ loading: true }, () => {
+    this.setState({ status: Type.loading }, () => {
       getMovie(id).then((data) => {
-        this.setState({ movie: data, loading: false });
+        this.setState({ movie: data, status: Type.loaded });
       });
     });
   }
@@ -47,8 +50,11 @@ class MovieDetails extends Component {
   )
 
   render = () => {
-    const { movie, loading } = this.state;
-    return loading ? <Loading /> : this.renderMovie(movie);
+    const { movie, status } = this.state;
+    return status.match({
+      loading: <Loading />,
+      loaded: this.renderMovie(movie),
+    });
   }
 }
 

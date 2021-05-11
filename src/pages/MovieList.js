@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { MovieCard, Loading } from '../components';
 import { getMovies } from '../services/movieAPI';
+import { union } from '../fp-library/union';
+
+const Type = union('loading', 'loaded');
 
 class MovieList extends Component {
   constructor() {
@@ -8,15 +11,15 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-      loading: true,
+      status: Type.loading,
     };
   }
 
   componentDidMount = () => this.fetchData()
 
-  fetchData = () => this.setState({ loading: true }, () => {
+  fetchData = () => this.setState({ status: Type.loading }, () => {
     getMovies().then((data) => {
-      this.setState({ movies: data, loading: false });
+      this.setState({ movies: data, status: Type.loaded });
     });
   })
 
@@ -27,8 +30,11 @@ class MovieList extends Component {
   )
 
   render = () => {
-    const { movies, loading } = this.state;
-    return loading ? <Loading /> : this.renderMovies(movies);
+    const { movies, status } = this.state;
+    return status.match({
+      loading: <Loading />,
+      loaded: this.renderMovies(movies),
+    });
   }
 }
 

@@ -25,16 +25,20 @@ class EditMovie extends Component {
       }));
   }
 
-  async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie);
     this.setState({ shouldRedirect: true });
   }
 
   render() {
     const { loading, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) return <Redirect to="/" />;
+    if (shouldRedirect) {
+      return <Redirect to="/" />;
+    }
 
-    if (loading) return <Loading />;
+    if (loading) {
+      return <Loading />;
+    }
 
     return (
       <div data-testid="edit-movie">

@@ -5,27 +5,36 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this.state = {
-      movie: {},
+      movies: [],
       loading: true,
     };
   }
 
-  async componentDidMount() {
-    const { match: { params: { id } } } = this.props;
-    await movieAPI.getMovie(id)
-      .then((response) => this.setState({
-        movie: response,
-        loading: false,
-      }));
+  componentDidMount() {
+    this.fetchMovies();
   }
 
+  fetchMovies = async () => {
+    const { id } = this.props;
+    const { getMovie } = movieAPI;
+    const data = await getMovie(id);
+    this.setState({ movies: data, loading: false });
+  };
+
+  deleteMovie = async () => {
+    const { id } = this.props;
+    const { deleteMovie } = movieAPI;
+    const data = await deleteMovie(id);
+    return data;
+  };
+
   render() {
-    const { movie, loading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { loading, movies } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle } = movies;
+    const { id } = this.props;
     if (loading) return <Loading />;
     return (
       <div data-testid="movie-details">
@@ -46,7 +55,9 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.object,
+  id: PropTypes.number,
 }.isRequired;
 
 export default MovieDetails;
+
+// Construído com a ajuda do Amigo Luciano Amâncio (https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/52)

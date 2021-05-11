@@ -11,10 +11,14 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={ MovieList } exact />
-        <Route path="/movies/:id" component={ MovieDetails } />
+        <Route exact path="/" component={ MovieList } />
         <Route path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id/edit" component={ EditMovie } />
+        <Route
+          path="/movies/:id"
+          render={ ({ match: { params: { id } } }) => <MovieDetails id={ id } /> }
+        />
+        {/* Rota construída com a ajuda do Amigo Luciano Amâncio (https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/52) */}
         <Route component={ NotFound } />
       </Switch>
     </BrowserRouter>

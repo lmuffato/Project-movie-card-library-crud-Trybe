@@ -47,14 +47,14 @@ class MovieDetails extends Component {
     const { id } = this.state;
     return (
       <div className="movie-details" data-testid="movie-details">
+        <img className="img-movie" src={ `../${imagePath}` } alt="Movie Cover" />
         <h1>{title}</h1>
-        <h3>{subtitle}</h3>
+        <h2>{subtitle}</h2>
         <p>{storyline}</p>
-        <img className="img-movie" src={ imagePath } alt="Movie Cover" />
         <h4>{genre}</h4>
-        <button type="button"><Link to="/">VOLTAR</Link></button>
-        <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
         <h1>{rating}</h1>
+        <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+        <button type="button"><Link to="/">VOLTAR</Link></button>
 
       </div>
     );

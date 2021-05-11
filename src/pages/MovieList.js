@@ -15,7 +15,6 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log('MovieList has just mounted');
     movieAPI.getMovies().then((movies) => this.setState({ movies, gotMovies: true }));
   }
 

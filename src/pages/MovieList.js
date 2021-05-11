@@ -27,12 +27,13 @@ async ComeToMeMovies() {
 
   render() {
     const { movies } = this.state;
-    // Render Loading here if the request is still happening
+    if (this.state.loading){
+      return <Loading />
+      }
 
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <p>{this.state.loading ? <Loading /> : console.log('a') }</p>
       </div>
     );
   }

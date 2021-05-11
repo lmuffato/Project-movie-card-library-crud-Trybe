@@ -60,7 +60,8 @@ class MovieDetails extends Component {
         <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
         <button type="button"><Link to="/">VOLTAR</Link></button>
         <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
-        { /* essa parte do código acima consultei o PR do Renzo Sevilha pois eu estava trocando a função onClick por onChange */ }
+        { /* essa parte do código acima consultei o PR do Renzo Sevilha
+        pois eu estava trocando a função onClick por onChange */ }
       </div>
     );
   }

@@ -31,6 +31,11 @@ class MovieDetails extends Component {
       });
   }
 
+  deleteCard = () => {
+    const { id } = this.state;
+    movieAPI.deleteMovie(id);
+  }
+
   componentDidMount = async () => {
     const { match } = this.props;
     const { params } = match;
@@ -62,6 +67,9 @@ class MovieDetails extends Component {
           {/* <button type="button">VOLTAR</button> */}
           VOLTAR
         </Link>
+        <button type="button" onClick={ this.deleteCard }>
+          <Link to="/">DELETAR</Link>
+        </button>
       </div>
     );
   }

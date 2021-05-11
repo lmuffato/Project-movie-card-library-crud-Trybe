@@ -7,9 +7,6 @@ import { createMovie } from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       shouldRedirect: false,

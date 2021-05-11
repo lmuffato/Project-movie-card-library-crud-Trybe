@@ -5,6 +5,13 @@ body {
   font-size: 16px;
 }
 
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
 .dark-mode-span {
   color: white;
   font-size: 10px;
@@ -98,6 +105,7 @@ h4 {
 }
 
 .movie-card {
+  align-items: center;
   background-color: rgb(209, 207, 207);
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
@@ -107,6 +115,7 @@ h4 {
   display: flex;
   flex-direction: column;
   height: 450px;
+  justify-content: center;
   margin: 5px;
   max-width: 100%;
   overflow: hidden;

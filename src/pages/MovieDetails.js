@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
@@ -50,15 +51,15 @@ class MovieDetails extends Component {
     const { movieId } = this.state;
     return (
       <div>
-        <img alt="Movie Cover" src={ `/${imagePath}` } />
+        <img alt="Movie Cover" src={`/${imagePath}`} />
         <p>{`Título: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${movieId}/edit` }>EDITAR</Link>
-        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+        <Link to={`/movies/${movieId}/edit`}>EDITAR</Link>
+        <Link to="/" onClick={this.deleteMovie}>DELETAR</Link>
       </div>
     );
   }
@@ -77,11 +78,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
+  match: PropTypes.object,
+}.isRequired;
 
 export default MovieDetails;

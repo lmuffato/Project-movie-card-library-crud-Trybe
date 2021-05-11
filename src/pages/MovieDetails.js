@@ -31,6 +31,12 @@ class MovieDetails extends Component {
     console.log(this.state);
   }
 
+  handleDelete = () => {
+    const { match } = this.props;
+    const { id } = match.params;
+    movieAPI.deleteMovie(id);
+  }
+
   handleReturn = () => {
     const { loading, movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
@@ -52,7 +58,12 @@ class MovieDetails extends Component {
         <button type="button">
           <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
         </button>
-        <button type="button"><Link to="/">VOLTAR</Link></button>
+        <button type="button">
+          <Link to="/">VOLTAR</Link>
+        </button>
+        <button type="button" onClick={ this.handleDelete }>
+          <Link to="/">DELETAR</Link>
+        </button>
       </div>
     );
   }

@@ -27,7 +27,8 @@ class MovieDetails extends Component {
 
   renderMovie = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
     <section data-testid="movie-details">
-      <img alt="Movie Cover" src={ `../${imagePath}` } />
+      {/* img src fix graças a Lucas Pedroso */}
+      <img alt="Movie Cover" src={ `/${imagePath}` } />
       <h2>{ `Title: ${title}` }</h2>
       <p>{ `Subtitle: ${subtitle}` }</p>
       <p>{ `Storyline: ${storyline}` }</p>

@@ -1,5 +1,5 @@
-
 :root {
+
   --background: #1f2229;
 
   --background2: #2e303c;
@@ -10,7 +10,7 @@
 
   --yellow: #fae800;
 
-  --gray: #bec2C6;
+  --gray: #bec2c6;
 
   --white: #fbfbfb;
 }
@@ -38,9 +38,9 @@ body {
   align-items: center;
   background-color: var(--background2);
   color: var(--gray);
+  flex-direction: row;
   font-size: 3rem;
   font-weight: 600;
-  flex-direction: row;
   min-height: 100px;
   padding-bottom: 10px;
   text-align: center;
@@ -59,7 +59,7 @@ body {
   margin-right: auto;
   margin-top: 4%;
   max-width: 20rem;
-  padding: 1.1875rem 2rem;
+  padding: 1.188rem 2rem;
   text-align: center;
   text-decoration: none;
   width: 15.5rem;
@@ -87,7 +87,7 @@ a:active {
   background-color: var(--yellow);
 }
 
-.btn-delete  {
+.btn-delete {
   align-self: center;
   background-color: purple;
   border: 0;
@@ -152,7 +152,7 @@ a:active {
   color: var(--gray);
   font-size: 1rem;
   max-width: 300px;
-  padding: 1.1875rem 2rem;
+  padding: 1.188rem 2rem;
   text-align: center;
   text-decoration: none;
 }
@@ -243,8 +243,8 @@ a:active {
 .movie-detail-subtitle {
   color: var(--background-button2);
   font-weight: 600;
-  padding-left: 20px;
   max-width: 95vw;
+  padding-left: 20px;
 }
 
 .movie-detail-storyline, .movie-detail-genre, .movie-detail-rating {
@@ -269,10 +269,8 @@ a:active {
   justify-content: center;
   padding-top: 15px;
 }
-
 /* CSS (estilização de botões, links, paleta de cores, etc) retirados e/ou inspirados nas fontes abaixo: 
 --> Meu PR do Projeto Movie Cards: 
 ----> https://github.com/tryber/sd-010-a-project-movie-cards-library/pull/17
 --> Template do desafio complementar do Ignite ReactJS da Rocketseat: 
-----> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao
-*/
+----> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao */

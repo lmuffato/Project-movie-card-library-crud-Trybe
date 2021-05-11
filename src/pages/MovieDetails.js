@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { shape, number } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Loading } from '../components';
-import { getMovie } from '../services/movieAPI';
+import { getMovie, deleteMovie } from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor() {
@@ -25,6 +25,11 @@ class MovieDetails extends Component {
     });
   }
 
+  removeMovie = () => {
+    const { match: { params: { id } } } = this.props;
+    deleteMovie(id);
+  }
+
   renderMovie = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
     <section data-testid="movie-details">
       <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -33,8 +38,11 @@ class MovieDetails extends Component {
       <p>{ `Storyline: ${storyline}` }</p>
       <p>{ `Genre: ${genre}` }</p>
       <p>{ `Rating: ${rating}` }</p>
-      <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-      <Link to="/">VOLTAR</Link>
+      <button type="button"><Link to="/">VOLTAR</Link></button>
+      <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+      <button type="button" onClick={ this.removeMovie }>
+        <Link to="/">DELETAR</Link>
+      </button>
     </section>
   )
 

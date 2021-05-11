@@ -10,9 +10,23 @@
 
   --yellow: #fae800;
 
+  --lightyellow: #e9e174;
+
   --gray: #bec2c6;
 
+  --green: #006400;
+
+  --lightgreen: #008000;
+
+  --lightgreen2: #57a857;
+
   --white: #fbfbfb;
+
+  --lightpurple: #a546a5;
+
+  --purple-400: #9164fa;
+
+  --purple-800: #6f48c9;
 }
 
 * {
@@ -36,8 +50,7 @@ body {
 
 .page-title {
   align-items: center;
-  background-color: var(--background2);
-  color: var(--gray);
+  color: var(--yellow);
   flex-direction: row;
   font-size: 3rem;
   font-weight: 600;
@@ -49,10 +62,10 @@ body {
 
 .add-card {
   align-self: center;
-  background-color: var(--background-button);
+  background-color: var(--yellow);
   border: 0;
   border-radius: 0.25rem;
-  color: var(--white);
+  color: var(--background-button);
   display: flex;
   font-size: 1.125rem;
   margin-left: auto;
@@ -79,12 +92,26 @@ body {
   width: 7.5rem;
 }
 
-.add-card:hover, .btn:hover {
+.btn-edit:hover {
   background-color: var(--background-button2);
+  color: var(--white);
 }
 
-a:active {
-  background-color: var(--yellow);
+.btn {
+  background-color: var(--green);
+}
+
+.btn:hover {
+  background-color: var(--lightgreen2);
+}
+
+.add-card:hover {
+  background-color: var(--lightyellow);
+  color: var(--background);
+}
+
+a.add-card:active {
+  background-color: var(--lightgreen2);
 }
 
 .btn-delete {
@@ -105,9 +132,17 @@ a:active {
   text-decoration: none;
 }
 
+.btn-delete:hover {
+  background-color: var(--lightpurple);
+}
+
+.btn-delete a:hover {
+  color: var(--white);
+}
+
 .btn-back {
   align-self: center;
-  background-color: green;
+  background-color: var(--lightgreen);
   border: 0;
   border-radius: 0.25rem;
   color: var(--white);
@@ -117,6 +152,11 @@ a:active {
   text-align: center;
   text-decoration: none;
   width: 7.5rem;
+}
+
+.btn-back:hover {
+  background-color: var(--lightgreen2);
+  color: var(--white);
 }
 
 .movie-list {
@@ -131,26 +171,41 @@ a:active {
   border-radius: 3px;
   color: white;
   display: flex;
-  flex-direction: column;
-  height: 525px;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px;
+  max-height: 90vh;
   overflow: hidden;
-  width: 300px;
+  width: 100vw;
+}
+
+.movie-card-img-container {
+  max-width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  flex: 1 auto;
 }
 
 .movie-card-image {
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  max-height: 55vh;
+  max-width: 50vw;
+  width: 50vw;
 }
 
 .movie-card-body {
   flex: 1 1 auto;
-  padding: 20px;
+  justify-content: space-evenly;
+  max-width: 46vw;
+  padding: 15px;
 }
 
 .movie-card a {
   background-color: var(--background2);
   color: var(--gray);
   font-size: 1rem;
+  font-weight: 600;
   max-width: 300px;
   padding: 1.188rem 2rem;
   text-align: center;
@@ -185,17 +240,15 @@ a:active {
 }
 
 .rating {
-  background-color: var(--background-button);
-  border-radius: 25px;
-  color: white;
+  background-color: var(--yellow);
+  border-radius: 100%;
+  color: var(--background);
   font-size: 1rem;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 6px 12px;
 }
 
 .movie-card-rating {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
@@ -212,7 +265,9 @@ a:active {
 }
 
 .form-addMovie input {
+  background-color: var(--background2);
   border: 0;
+  opacity: 0.9;
 }
 
 .movie-details {
@@ -268,6 +323,75 @@ a:active {
   flex-direction: column;
   justify-content: center;
   padding-top: 15px;
+}
+
+#movie_title {
+  width: 60vw;
+}
+
+#movie_storyline {
+  background-color: var(--background2);
+  border: 0;
+  opacity: 0.9;
+}
+
+#movie_genre {
+  background-color: var(--background2);
+  border: 0;
+  color: var(--gray);
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+@media (max-width: 786px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .movie-list {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .movie-card {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    max-height: 600px;
+    max-width: 350px;
+    padding: 0;
+  }
+
+  .movie-card-img-container {
+    align-items: stretch;
+    display: flex;
+    justify-content: stretch;
+    margin: 0;
+    max-height: 40%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .movie-card-image {
+   max-width: 100%;
+   width: 100%;
+  }
+
+  .movie-card-body {
+    flex: 1 1 auto;
+    justify-content: none;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .movie-card-subtitle {
+    margin: 0 0 8px;
+  }
+
+  .movie-card-storyline {
+    font-size: 14px;
+    text-align: justify;
+  }
 }
 
 /* CSS (estilização de botões, links, paleta de cores, etc)

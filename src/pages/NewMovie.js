@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style/NewMovie.css';
 import { Redirect } from 'react-router';
 
 import MovieForm from '../components/MovieForm';
@@ -24,7 +25,8 @@ class NewMovie extends Component {
   render() {
     const { status } = this.state;
     return (
-      <div data-testid="new-movie">
+      <div data-testid="new-movie" className="new-movie">
+        <h3>Novo filme</h3>
         { status && <Redirect to="/" /> }
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>

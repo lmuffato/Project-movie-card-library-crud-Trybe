@@ -1,0 +1,27 @@
+.movie-card {
+  background-color: #fcfcfc;
+  height: 400px;
+  margin: 25px;
+  max-width: 350px;
+}
+
+.movie-card img {
+  width: 350px;
+}
+
+.movie-card p {
+  height: 120px;
+  margin: 10px;
+  text-align: justify;
+}
+
+.link {
+  background-color: #c9cccc;
+  height: 30px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.link a {
+  color: #7e8282;
+}

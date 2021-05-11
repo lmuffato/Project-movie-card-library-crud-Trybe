@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style/EditMovie.css';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MovieForm } from '../components';
@@ -47,7 +48,7 @@ class EditMovie extends Component {
   render() {
     const { status, movie, shouldRedirect } = this.state;
     return (
-      <div>
+      <div className="edit-movie">
         {shouldRedirect && <Redirect to="/" />}
         {status ? <Loading /> : (
           <div data-testid="edit-movie">

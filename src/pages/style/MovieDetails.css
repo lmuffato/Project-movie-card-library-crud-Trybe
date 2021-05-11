@@ -1,0 +1,49 @@
+.movie-details {
+  align-items: center;
+  background-color: #fcfcfc;
+  margin-bottom: 25px;
+  margin-left: 400px;
+  margin-top: 25px;
+  width: 500px;
+}
+
+.movie-details img {
+  width: 500px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.links a {
+  background-color: #c9cccc;
+  border-radius: 8px;
+  color: #7e8282;
+  height: 20px;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  width: 80px;
+}
+
+button {
+  background: none;
+  background-color: #c9cccc;
+  border: none;
+  border-radius: 8px;
+  color: #7e8282;
+  font: inherit;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: 200px;
+  margin-top: 15px;
+  outline: inherit;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+}

@@ -1,5 +1,23 @@
 body {
-  background-color: whitesmoke;
+  background-color: #ededed;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background-color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  height: 80px;
+  text-align: center;
+}
+
+.header h2 {
+  color: #615f5f;
+  padding-top: 10px;
 }
 

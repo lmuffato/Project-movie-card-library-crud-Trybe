@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style/MovieDetails.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
@@ -45,18 +46,21 @@ class MovieDetails extends Component {
     return (
       <div>
         { load ? <Loading /> : (
-          <div data-testid="movie-details">
+          <div data-testid="movie-details" className="movie-details">
+            <button type="button" onClick={ this.deleteMovie }>
+              <Link to="/">DELETAR</Link>
+            </button>
             <img alt="Movie Cover" src={ `../${imagePath}` } />
             <p>{`Title: ${title}`}</p>
             <p>{`Subtitle: ${subtitle}`}</p>
             <p>{`Storyline: ${storyline}`}</p>
             <p>{`Genre: ${genre}`}</p>
             <p>{`Rating: ${rating}`}</p>
-            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-            <Link to="/">VOLTAR</Link>
-            <button type="button" onClick={ this.deleteMovie }>
-              <Link to="/">DELETAR</Link>
-            </button>
+            <div className="links">
+              <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+              <Link to="/">VOLTAR</Link>
+            </div>
+
           </div>
         )}
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style/MovieList.css';
 import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
@@ -30,12 +31,13 @@ class MovieList extends Component {
 
   render() {
     const { movies, loading } = this.state;
-    // Render Loading here if the request is still happening
     return (
-      <div>
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+      <div className="main">
+        <div className="link-list">
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        </div>
         { loading ? <Loading /> : (
-          <div data-testid="movie-list">
+          <div data-testid="movie-list" className="movie-list">
             {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
           </div>
         ) }

@@ -1,0 +1,27 @@
+.new-movie {
+  align-items: center;
+  background-color: #fcfcfc;
+  color: #615f5f;
+  height: 360px;
+  margin-bottom: 25px;
+  margin-left: 450px;
+  margin-top: 25px;
+  padding: 20px;
+  width: 500px;
+}
+
+.new-movie input {
+  height: 25px;
+  margin: 5px;
+  width: 380px;
+}
+
+.new-movie textarea {
+  height: 50px;
+  margin: 5px;
+  width: 380px;
+}
+
+.new-movie h3 {
+  text-align: center;
+}

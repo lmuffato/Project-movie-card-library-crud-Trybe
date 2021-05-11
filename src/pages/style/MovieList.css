@@ -1,0 +1,27 @@
+.main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 25px;
+}
+
+.link-list {
+  background-color: #c9cccc;
+  border-radius: 8px;
+  height: 25px;
+  margin: 25px;
+  padding-top: 5px;
+  text-align: center;
+  width: 200px;
+}
+
+.link-list a {
+  color: #7e8282;
+}

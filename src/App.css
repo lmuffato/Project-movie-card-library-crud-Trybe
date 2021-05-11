@@ -106,7 +106,7 @@ body {
   color: var(--background);
 }
 
-a.add-card:active {
+.add-card:active {
   background-color: var(--lightgreen2);
 }
 
@@ -273,8 +273,8 @@ a.add-card:active {
 
 .form-addMovie select {
   background-color: var(--background2);
-  color: var(--white);
   border: 0;
+  color: var(--white);
 }
 
 .movie-details {

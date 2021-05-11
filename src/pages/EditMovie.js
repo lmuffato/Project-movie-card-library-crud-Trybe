@@ -8,8 +8,9 @@ import { union } from '../fp-library/union';
 const Type = union('loading', 'loaded', 'redirect');
 
 class EditMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+
     this.state = {
       status: Type.loading,
       movie: {},
@@ -18,13 +19,11 @@ class EditMovie extends Component {
 
   componentDidMount = () => this.fetchData()
 
-  handleSubmit = (updatedMovie) => {
-    this.setState({ status: Type.loading }, () => {
-      updateMovie(updatedMovie).then(() => {
-        this.setState({ status: Type.redirect });
-      });
+  handleSubmit = (updatedMovie) => this.setState({ status: Type.loading }, () => {
+    updateMovie(updatedMovie).then(() => {
+      this.setState({ status: Type.redirect });
     });
-  }
+  })
 
   fetchData = () => {
     const { match: { params: { id } } } = this.props;
@@ -35,17 +34,18 @@ class EditMovie extends Component {
     });
   }
 
+  createMovieForm = (movie) => (
+    <div data-testid="edit-movie">
+      <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+    </div>
+  )
+
   render = () => {
     const { movie, status } = this.state;
-    const wrappedMovieForm = (
-      <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-      </div>
-    );
     return status.match({
       redirect: <Redirect to="/" />,
       loading: <Loading />,
-      loaded: wrappedMovieForm,
+      loaded: this.createMovieForm(movie),
     });
   }
 }

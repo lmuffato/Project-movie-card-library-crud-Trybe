@@ -23,7 +23,7 @@ class MovieList extends Component {
     });
   })
 
-  renderMovies = (movies) => (
+  createMovieCards = (movies) => (
     <div data-testid="movie-list">
       {movies.map((movie) => <MovieCard key={ movie.id } movie={ movie } />)}
     </div>
@@ -33,7 +33,7 @@ class MovieList extends Component {
     const { movies, status } = this.state;
     return status.match({
       loading: <Loading />,
-      loaded: this.renderMovies(movies),
+      loaded: this.createMovieCards(movies),
     });
   }
 }

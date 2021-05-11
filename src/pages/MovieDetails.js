@@ -28,7 +28,7 @@ class MovieDetails extends Component {
     });
   }
 
-  renderMovie = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
+  createMovieDetails = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
     <section data-testid="movie-details">
       {/* img src fix graças a Lucas Pedroso */}
       <img alt="Movie Cover" src={ `/${imagePath}` } />
@@ -53,7 +53,7 @@ class MovieDetails extends Component {
     const { movie, status } = this.state;
     return status.match({
       loading: <Loading />,
-      loaded: this.renderMovie(movie),
+      loaded: this.createMovieDetails(movie),
     });
   }
 }

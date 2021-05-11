@@ -12,7 +12,6 @@ class App extends React.Component {
       // Requisito 1
       <BrowserRouter>
         <div>Movie Card Library CRUD</div>
-        {/* <Link to="/movies/new">ADICIONAR CARTÃO</Link> */}
         <Switch>
           <Route exact path="/" component={ MovieList } />
           <Route path="/movies/new" component={ NewMovie } />

@@ -34,10 +34,13 @@ class MovieDetails extends Component {
   handleReturn = () => {
     const { loading, movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    console.log(movie);
 
     if (loading) {
+      console.log(loading);
       return <Loading />;
     }
+
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />

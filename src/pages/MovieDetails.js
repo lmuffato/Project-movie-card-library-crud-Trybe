@@ -13,10 +13,17 @@ class MovieDetails extends Component {
       status: 'loading',
     };
     this.fetchMovies = this.fetchMovies.bind(this);
+    this.deletarElemento = this.deletarElemento.bind(this);
   }
 
   componentDidMount() {
     this.fetchMovies();
+  }
+
+  deletarElemento() {
+    const { match } = this.props;
+    const { id } = match.params;
+    movieAPI.deleteMovie(id);
   }
 
   fetchMovies() {
@@ -47,6 +54,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR </Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR </Link>
+        <Link to="/" onClick={ this.deletarElemento }>DELETAR</Link>
       </div>
     );
   }

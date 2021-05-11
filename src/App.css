@@ -333,20 +333,20 @@ body {
 }
 
 .main-box {
-  margin: auto;
   height: 600px;
-  width: 600px;
+  margin: auto;
   position: relative;
+  width: 600px;
 }
 
 .err, .err2, .far, .not-found {
   color: var(--white);
-  position:absolute;
+  position: absolute;
 }
 
 .err, .err2 {
-  top: 8%;
   font-size: 11rem;
+  top: 8%;
 }
 
 .err {
@@ -427,6 +427,6 @@ retirados e/ou inspirados nas fontes abaixo:
 --> Meu PR do Projeto Movie Cards:
 --> https://github.com/tryber/sd-010-a-project-movie-cards-library/pull/17
 --> Template do desafio complementar do Ignite ReactJS da Rocketseat:
---> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao 
-Estilização de Page Not Found: https://codepen.io/purplexmoss/pen/PoPyzMW 
+--> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao
+Estilização de Page Not Found: https://codepen.io/purplexmoss/pen/PoPyzMW
 */

@@ -16,25 +16,13 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log('componente montado');
     this.handleMovie();
-    // this.handleFetch();
-  }
-
-  // aqui estou chamando a "API" e depois que ela "responde" altero a chave shouldRedirect do estado
-  handleFetch = () => {
-    const { movieForm } = this.state;
-    movieAPI.updateMovie(movieForm)
-      .then(this.setState({
-        shouldRedirect: true,
-      }));
   }
 
   // cahamo novamente, a partir do id do route (param) o função get movie, coloco ela no state para depois passar como props para o MovieForm
   handleMovie = () => {
-    // const { match: { params: { id } } } = this.props;
-    const { match } = this.props;
-    const { id } = match.params;
+    const { match: { params: { id } } } = this.props;
     console.log(id);
     movieAPI.getMovie(id)
       .then((resolve) => this.handleStateMovie(resolve));
@@ -47,11 +35,18 @@ class EditMovie extends Component {
     });
   }
 
-  // coloca o conteudo do formulario dentro do estado, updateMovie é um obejeto com varias chaves
+  // chama a função handleFetch pois queremos que ela chame api e atualize o filme toda vez que eu cliclar no botão
   handleSubmit(updatedMovie) {
-    this.setState({
-      movieForm: updatedMovie,
-    });
+    this.handleFetch(updatedMovie);
+    // passo como parametro as informações da atulização dque foi pega pelo MovieForm(componente filho)
+  }
+
+  // aqui estou chamando a "API" que atualiza o filme e depois que ela "responde" altero a chave shouldRedirect do estado
+  handleFetch = (param) => {
+    movieAPI.updateMovie(param)
+      .then(this.setState({
+        shouldRedirect: true,
+      }));
   }
 
   handleReturn = () => {
@@ -68,18 +63,10 @@ class EditMovie extends Component {
     return <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />;
   }
 
-  // handleRedirect = () => {
-  //   const { shouldRedirect } = this.state;
-  //   if (shouldRedirect) {
-  //     return <Redirect />;
-  //   }
-  // }
-
   render() {
     return (
       <div data-testid="edit-movie">
         { this.handleReturn() }
-        {/* { this.handleRedirect() } */}
       </div>
     );
   }

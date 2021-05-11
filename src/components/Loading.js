@@ -5,7 +5,7 @@ class Loading extends Component {
     return (
       <div>
         <img src="http://www.sudburycatholicschools.ca/wp-content/plugins/3d-flip-book/assets/images/dark-loader.gif" alt="carregando" />
-        <p> Carregando...</p>
+        <p>Carregando...</p>
       </div>
     );
   }

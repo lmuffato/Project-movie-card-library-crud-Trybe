@@ -12,6 +12,7 @@ class NewMovie extends Component {
     };
   }
 
+  // essa parte fiz consultando o PR #32 do Renzo Sevilha
   handleSubmit = (newMovie) => {
     this.setState({
       shouldRedirect: false,

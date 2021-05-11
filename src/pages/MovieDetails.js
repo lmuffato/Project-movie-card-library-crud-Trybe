@@ -8,11 +8,10 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
-    const { match } = this.props;
-    const { params } = match;
+    const { match: { params: { id } } } = this.props;
 
     this.state = {
-      id: params.id,
+      id,
       movie: {},
       loading: false,
     };
@@ -32,6 +31,11 @@ class MovieDetails extends Component {
     });
   }
 
+  deleteMovie = async () => {
+    const { id } = this.state;
+    await movieAPI.deleteMovie(id);
+  }
+
   componentDidMount = async () => {
     this.fetchMovie();
   }
@@ -47,7 +51,7 @@ class MovieDetails extends Component {
     const { id } = this.state;
     return (
       <div className="movie-details" data-testid="movie-details">
-        <img className="img-movie" src={ `../${imagePath}` } alt="Movie Cover" />
+        <img className="img-movie" src={ `/${imagePath}` } alt="Movie Cover" />
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
         <p>{storyline}</p>
@@ -55,7 +59,8 @@ class MovieDetails extends Component {
         <h1>{rating}</h1>
         <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
         <button type="button"><Link to="/">VOLTAR</Link></button>
-
+        <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
+        { /* essa parte do código acima consultei o PR do Renzo Sevilha pois eu estava trocando a função onClick por onChange */ }
       </div>
     );
   }

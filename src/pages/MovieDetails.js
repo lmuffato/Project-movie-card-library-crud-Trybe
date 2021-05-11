@@ -51,15 +51,20 @@ class MovieDetails extends Component {
     const { id } = this.state;
     return (
       <div className="movie-details" data-testid="movie-details">
+        <h1>DETALHES DO FILME</h1>
         <img className="img-movie" src={ `/${imagePath}` } alt="Movie Cover" />
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
         <p>{storyline}</p>
         <h4>{genre}</h4>
         <h1>{rating}</h1>
-        <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
-        <button type="button"><Link to="/">VOLTAR</Link></button>
-        <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
+        <div className="btn-details">
+          <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+          <button type="button"><Link to="/">VOLTAR</Link></button>
+        </div>
+        <div className="links deletar">
+          <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
+        </div>
         { /* essa parte do código acima consultei o PR do Renzo Sevilha
         pois eu estava trocando a função onClick por onChange */ }
       </div>

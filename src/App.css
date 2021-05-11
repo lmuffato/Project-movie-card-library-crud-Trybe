@@ -1,7 +1,7 @@
 body {
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(44, 44, 44);
   box-sizing: border-box;
-  color: black;
+  color: white;
   font-size: 16px;
 }
 
@@ -12,46 +12,46 @@ body {
   padding: 30px;
 }
 
-.dark-mode-span {
+a {
   color: white;
-  font-size: 10px;
-  left: 20px;
-  position: absolute;
-  top: 20px;
-
+  font-weight: 800;
+  text-decoration: none;
 }
 
-.dark-mode {
-  appearance: none;
-  background-color: rgb(41, 41, 41);
+button {
+  background-color: rgb(29, 122, 245);
+  border: none;
+  border-radius: 10px;
   color: white;
+  cursor: pointer;
+  height: 50px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  padding: 10px;
+  width: 80px;
 }
 
-.dark-mode-label {
-  background-color: rgb(233, 135, 135);
-  border-radius: 50px;
-  display: flex;
-  height: 16px;
-  left: 20px;
-  position: absolute;
-  top: 35px;
-  width: 30px;
+button:hover {
+  background-color: rgb(86, 151, 236);
 }
 
-.ball {
-  background-color: rgb(246, 224, 23);
-  border-radius: 50%;
-  height: 16px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transition: transform 0.2 linear;
-  width: 16px;
+.links {
+  background-color: rgb(29, 122, 245);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  height: 20px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  padding: 10px;
+  text-align: center;
+  width: 120px;
 }
 
-.dark-mode:checked + .ball {
-  background-color: rgb(15, 14, 68);
-  transform: translateX(14px);
+.add-card {
+  margin-bottom: 30px;
+  margin-left: 40.5%;
 }
 
 .movie-card-header {
@@ -65,7 +65,7 @@ body {
   text-align: center;
 }
 
-h2 {
+h1 {
   margin-top: 20px;
   text-align: center;
 }
@@ -73,17 +73,6 @@ h2 {
 
 h4 {
   margin-bottom: 20px;
-}
-
-.search-bar-form {
-  display: flex;
-  flex-direction: column;
-  margin-left: 30px;
-}
-
-.search-bar-form input, select {
-  align-items: center;
-  margin-left: 10px;
 }
 
 .page-title {
@@ -177,31 +166,31 @@ h4 {
   padding: 12px 20px;
 }
 
-.add-movie-form input, textarea, select {
+.movie-details {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: baseline;
-  margin-left: 30px;
 }
 
-.add-movie-form label {
+.btn-details {
+  display: flex;
+}
+
+.movie-form {
   align-items: center;
-  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
 }
 
-button {
-  background-color: rgb(29, 122, 245);
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  padding: 10px;
+input {
+  margin: 10px;
 }
 
-button:hover {
-  background-color: rgb(86, 151, 236);
+label {
+  margin: 50px;
 }
 
+.deletar {
+  background-color: rgb(243, 68, 37);
+}

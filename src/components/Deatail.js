@@ -8,21 +8,24 @@ export default class Detail extends Component {
     const { movie } = this.props;
     return (
       <div className="movie-container">
-        <img alt="Movie Cover" src={ `../${movie.imagePath}` } />
-        <p className="movie-title">{`Title: ${movie.title}`}</p>
-        <p className="movie-subtitle">{ `Subtitle: ${movie.subtitle}` }</p>
-        <p className="movie-storyline">{ `Storyline: ${movie.storyline}` }</p>
-        <p className="movie-genre">{ `Genre: ${movie.genre}` }</p>
-        <p className="movie-rating">{ `Rating: ${movie.rating}` }</p>
-        <div className="buttons">
-          <Link className="button-back" to="/">VOLTAR</Link>
-          <Link className="button-edit" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+        <div className="container-image">
+          <img className="img" alt="Movie Cover" src={ `../${movie.imagePath}` } />
+          <p className="movie-title">{`${movie.title}`}</p>
+        </div>
+        <div className="text-container">
+          <p className="movie-subtitle">{ `Subtitle: ${movie.subtitle}` }</p>
+          <p className="movie-storyline">{ `Storyline: ${movie.storyline}` }</p>
+          <p className="movie-genre">{ `Genre: ${movie.genre}` }</p>
+          <p className="movie-rating">{ `Rating: ${movie.rating}` }</p>
+          <div className="buttons">
+            <Link className="button-back" to="/">VOLTAR</Link>
+            <Link className="button-edit" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+          </div>
         </div>
       </div>
     );
   }
 }
-
 Detail.propTypes = {
   movie: PropTypes.shape({
     imagePath: PropTypes.string.isRequired,

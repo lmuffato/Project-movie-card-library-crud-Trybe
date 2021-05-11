@@ -12,21 +12,25 @@ class NewMovie extends Component {
     this.state = {
       status: 'loading',
       shouldRedirect: false,
-    }
-  
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      status: 'loaded',
-    })
+    this.pageLoaded();
   }
 
   async handleSubmit(newMovie) {
     await movieAPI.createMovie(newMovie);
     this.setState({
       shouldRedirect: true,
+    });
+  }
+
+  pageLoaded() {
+    this.setState({
+      status: 'loaded',
     });
   }
 

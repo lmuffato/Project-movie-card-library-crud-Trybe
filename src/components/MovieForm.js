@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { func } from 'prop-types';
 
-class MovieForm extends React.Component {
+class MovieForm extends Component {
   constructor(props) {
     super(props);
     this.state = { ...props.movie };
@@ -165,7 +165,7 @@ class MovieForm extends React.Component {
 }
 
 MovieForm.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: func,
 }.isRequired;
 
 export default MovieForm;

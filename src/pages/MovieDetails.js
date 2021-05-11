@@ -26,16 +26,16 @@ class MovieDetails extends Component {
   }
 
   renderMovie = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
-    <div data-testid="movie-details">
+    <section data-testid="movie-details">
       <img alt="Movie Cover" src={ `../${imagePath}` } />
-      <p>{ `Title: ${title}` }</p>
+      <h2>{ `Title: ${title}` }</h2>
       <p>{ `Subtitle: ${subtitle}` }</p>
       <p>{ `Storyline: ${storyline}` }</p>
       <p>{ `Genre: ${genre}` }</p>
       <p>{ `Rating: ${rating}` }</p>
       <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
       <Link to="/">VOLTAR</Link>
-    </div>
+    </section>
   )
 
   render = () => {

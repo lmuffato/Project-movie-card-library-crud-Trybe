@@ -9,7 +9,7 @@ class EditMovie extends Component {
     super(props);
     this.state = {
       movie: {},
-      status: 'loading',
+      status: '',
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);

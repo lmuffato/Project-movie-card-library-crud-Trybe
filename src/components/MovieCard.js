@@ -7,7 +7,7 @@ class MovieCard extends React.Component {
 
     return (
       <div data-testid="movie-card">
-        <img src={ `../${imagePath}` } alt="movie" width="400px" />
+        <img src={ `/${imagePath}` } alt="movie" width="400px" />
         <h1>{ title }</h1>
         <p>{ storyline }</p>
         <Link to={ `/movies/${id}` }>VER DETALHES</Link>

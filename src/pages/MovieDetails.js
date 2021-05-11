@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super();
     this.getMovieApi = this.getMovieApi.bind(this);
     this.renderMovie = this.renderMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
       movie: '',
@@ -37,20 +38,27 @@ class MovieDetails extends Component {
     );
   }
 
+  deleteMovie() {
+    const { deleteMovie } = movieAPI;
+    const { match: { params: { id } } } = this.props;
+    deleteMovie(id);
+  }
+
   renderMovie() {
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     const { movieId } = this.state;
     return (
       <div>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Título: ${title}`}</p>
+        <img alt="Movie Cover" src={ `/${imagePath}` } />
+        <p>{`Título: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${movieId}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }

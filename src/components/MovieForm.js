@@ -182,7 +182,7 @@ MovieForm.defaultProps = {
   movie: {
     title: '',
     subtitle: '',
-    storyline: '', 
+    storyline: '',
     imagePath: '',
     rating: 0,
     genre: 'action',

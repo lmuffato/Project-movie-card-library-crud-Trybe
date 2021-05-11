@@ -24,10 +24,14 @@ class MovieDetails extends Component {
     });
   }
 
+  deleteMovie = async (id) => {
+    await movieAPI.deleteMovie(id);
+  }
+
   movieDetails = ({ id, title, subtitle, storyline, imagePath, rating, genre }) => (
     <div data-testid="movie-details">
       <span className="movieId" style={ { display: 'none' } }>{id}</span>
-      <img src={ `/${imagePath}` } alt={ title } />
+      <img src={ `/${imagePath}` } alt="Movie Cover" />
       <h1>{title}</h1>
       <h2>{subtitle}</h2>
       <p>{storyline}</p>
@@ -35,6 +39,7 @@ class MovieDetails extends Component {
       <span>{rating}</span>
       <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
       <Link to="/">VOLTAR</Link>
+      <Link to="/" onClick={ () => { this.deleteMovie(id); } }>DELETAR</Link>
     </div>
   );
 

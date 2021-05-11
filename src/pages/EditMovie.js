@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 
@@ -16,16 +17,6 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie)
-      .then((movieUpdate) => {
-        console.log(movieUpdate);
-        this.setState({
-          shouldRedirect: true,
-        });
-      });
-  }
-
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     movieAPI.getMovie(id).then((movie) => {
@@ -36,6 +27,16 @@ class EditMovie extends Component {
     });
   }
 
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie)
+      .then((movieUpdate) => {
+        console.log(movieUpdate);
+        this.setState({
+          shouldRedirect: true,
+        });
+      });
+  }
+
   render() {
     const { loading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
@@ -43,7 +44,7 @@ class EditMovie extends Component {
     }
 
     if (loading) {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
@@ -53,5 +54,13 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }),
+}.isRequired;
 
 export default EditMovie;

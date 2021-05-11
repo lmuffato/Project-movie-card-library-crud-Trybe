@@ -28,7 +28,7 @@ class MovieList extends Component {
     const { movies } = this.state;
     const loading = movies.length; // array vazio, usamos length para saber se há algo
 
-    if (loading) return <Loading />;
+    if (!loading) return <Loading />;
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}

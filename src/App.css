@@ -263,6 +263,7 @@ body {
 .form-addMovie input, .form-addMovie textarea {
   background-color: var(--background2);
   border: 0;
+  color: var(--white);
   opacity: 0.9;
   width: 60vw;
 }
@@ -370,6 +371,30 @@ body {
   width: 75%;
 }
 
+.loading {
+  align-items: center;
+  animation: spin 2s linear infinite;
+  border: 16px solid var(--gray);
+  border-radius: 50%;
+  border-top: 16px solid var(--yellow);
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  position: absolute;
+  -webkit-animation: spin 2s linear infinite; /* Para Safari */
+  width: 150px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media ( max-width : 786px ) {
 
   html {
@@ -429,4 +454,4 @@ retirados e/ou inspirados nas fontes abaixo:
 --> Template do desafio complementar do Ignite ReactJS da Rocketseat:
 --> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao
 Estilização de Page Not Found: https://codepen.io/purplexmoss/pen/PoPyzMW
-*/
+Código do loading retirado de: https://www.w3schools.com/howto/howto_css_loader.asp */

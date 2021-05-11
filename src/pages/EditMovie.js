@@ -1,6 +1,5 @@
-/* import React, { Component } from 'react';
-
-import { MovieForm } from '../components';
+ import React, { Component } from 'react';
+import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -32,4 +31,3 @@ class EditMovie extends Component {
 }
 
 export default EditMovie;
-*/

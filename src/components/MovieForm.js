@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
@@ -165,4 +165,3 @@ class MovieForm extends React.Component {
 }
 
 export default MovieForm;
- */

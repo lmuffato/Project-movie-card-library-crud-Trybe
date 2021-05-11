@@ -64,16 +64,3 @@ EditMovie.propTypes = {
 };
 
 export default EditMovie;
-
-// if (shouldRedirect) {
-//   // Redirect
-// }
-// if (status === true) {
-//   // render Loading
-//   this.loading();
-// }
-// return (
-//   <div data-testid="edit-movie">
-//     <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-//   </div>
-// )

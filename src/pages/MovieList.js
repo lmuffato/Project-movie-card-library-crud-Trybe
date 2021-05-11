@@ -1,3 +1,6 @@
+// feito com auxilio:
+// Iago Ferreira - Turma 10 - Tribo A
+// Rafael Medeiros - Turma 10 - Tribo A
 import React, { Component } from 'react';
 import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
@@ -5,8 +8,8 @@ import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       loading: true,

@@ -1,17 +1,18 @@
+// feito com auxilio: Rafael Medeiros - Turma 10 - Tribo A
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from '../pages';
 
 class MyPages extends Component {
   render() {
     return (
-      <>
-        <Route path="/" component={ MovieList } />
-        <Route path="/movies/:id" component={ MovieDetails } />
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
-        <Route path="*" component={ NotFound } />
-      </>
+      <Switch>
+        <Route exact path="/" component={ MovieList } />
+        <Route exact path="/movies/new" component={ NewMovie } />
+        <Route exact path="/movies/:id" component={ MovieDetails } />
+        <Route exact path="/movies/:id/edit" component={ EditMovie } />
+        <Route exact path="*" component={ NotFound } />
+      </Switch>
     );
   }
 }

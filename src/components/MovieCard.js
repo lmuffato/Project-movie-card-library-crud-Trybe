@@ -1,19 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props
+    const { movie } = this.props;
+    const { imagePath, title, subtitle, storyline, id } = movie;
     return (
       <div data-testid="movie-card">
-        <img src={movie.imagePath} alt="movie"/>
-        <h1>{movie.title}</h1>
-        <h4>{movie.subtitle}</h4>
-        <p>{movie.storyline}</p>
-        <Link to={`/movies/${movie.id}`}>VER DETALHES</Link>
+        <img src={ imagePath } alt="movie" />
+        <h1>{ title }</h1>
+        <h4>{ subtitle }</h4>
+        <p>{ storyline }</p>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }
 }
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    imagePath: PropTypes.string,
+  }).isRequired,
+};

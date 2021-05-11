@@ -39,7 +39,7 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
     const { movies, stateLoading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
-    const editLink = `movies/${id}/edit`;
+    const editLink = `${id}/edit`;
     return (
       stateLoading ? <Loading /> : (
         <div data-testid="movie-details">

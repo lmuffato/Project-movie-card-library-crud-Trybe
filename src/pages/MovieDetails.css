@@ -1,0 +1,46 @@
+.movieDetails {
+  background-color: white;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  max-width: 1000px;
+}
+
+.movieDetails__img {
+  width: 100%;
+}
+
+.movieDetails__img__wrap {
+  position: relative;
+}
+
+.movieDetails__title {
+  color: white;
+  font-weight: 200;
+  padding: 20px;
+  position: absolute;
+  top: 45vh;
+}
+
+.movieDetails p {
+  line-height: 1.5;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.movieDetails__links {
+  background-color: rgb(101, 40, 173);
+  border-top: 1px solid rgb(232, 232, 232);
+  padding: 20px;
+  padding-left: 20px;
+}
+
+.movieDetails__links a {
+  color: rgb(260, 173, 70);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+
+.movieDetails__links a + a {
+  margin-left: 20px;
+}

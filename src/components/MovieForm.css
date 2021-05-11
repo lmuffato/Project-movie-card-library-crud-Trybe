@@ -1,0 +1,49 @@
+.movieForme {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.MovieForm__input--text {
+  padding: 10px;
+  width: 100%;
+}
+
+.MovieForm__input--text, .MovieForm__input--number, textarea, select {
+  margin: 20px 8px 10px 0;
+}
+
+textarea {
+  resize: none;
+  width: 102%;
+}
+
+.MovieForm__input--number, select {
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
+
+.MovieForm__label {
+  color: rgb(260, 173, 70);
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.movieForm__button {
+  background-color: rgb(101, 40, 173);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 1px rgb(117, 117, 117) , 2px 2px 5px 2px rgb(219, 219, 219);
+  box-sizing: border-box;
+  color: rgb(260, 173, 70);
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.movieForm__button:hover {
+  opacity: 0.7;
+}

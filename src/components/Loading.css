@@ -1,0 +1,24 @@
+.loadingElement {
+  animation: spin 2s linear infinite;
+  border: 16px solid whitesmoke;
+  border-bottom: 16px solid rgb(260, 173, 70);
+  border-radius: 50%;
+  border-top: 16px solid rgb(260, 173, 70);
+  font-size: 0;
+  height: 120px;
+  position: absolute;
+  right: 50vw;
+  top: 45vh;
+  width: 120px;
+}
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

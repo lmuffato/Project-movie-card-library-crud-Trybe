@@ -1,0 +1,38 @@
+.movieForme {
+  margin-top: 100px;
+}
+
+.movie-list {
+  margin-top: 120px;
+}
+
+.movieDetails {
+  margin-top: 95px;
+}
+
+.header {
+  background-color: rgb(101, 40, 173);
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+}
+
+.header ul li + li {
+  margin-left: 20px;
+}
+
+.header ul li a {
+  color: rgb(249, 173, 69);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header ul li a:hover {
+  opacity: 0.8;
+}

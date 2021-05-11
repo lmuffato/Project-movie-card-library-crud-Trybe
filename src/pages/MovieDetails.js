@@ -51,15 +51,15 @@ class MovieDetails extends Component {
     const { movieId } = this.state;
     return (
       <div>
-        <img alt="Movie Cover" src={`/${imagePath}`} />
+        <img alt="Movie Cover" src={ `/${imagePath}` } />
         <p>{`Título: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${movieId}/edit`}>EDITAR</Link>
-        <Link to="/" onClick={this.deleteMovie}>DELETAR</Link>
+        <Link to={ `/movies/${movieId}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }

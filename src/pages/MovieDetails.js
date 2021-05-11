@@ -36,16 +36,14 @@ class MovieDetails extends Component {
 
   deleteMovieLocal = () => {
     const { deleteMovie } = movieAPI;
-    const { match } = this.props;
-    const { id } = match.params;
+    const { match: { params: { id } } } = this.props;
     deleteMovie(id);
   }
 
   modifiedRender = () => {
     const { movies, loading } = this.state;
     const { imagePath, subtitle, storyline, genre, rating, title } = movies;
-    const { match } = this.props;
-    const { id } = match.params;
+    const { match: { params: { id } } } = this.props;
     if (loading) return <Loading />;
     return (
       <section>

@@ -112,7 +112,7 @@ body {
 
 .btn-delete {
   align-self: center;
-  background-color: purple;
+  background-color: var(--lightpurple);
   border: 0;
   border-radius: 0.25rem;
   display: flex;
@@ -332,6 +332,44 @@ body {
   padding-top: 15px;
 }
 
+.main-box {
+  margin: auto;
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+
+.err, .err2, .far, .not-found {
+  color: var(--white);
+  position:absolute;
+}
+
+.err, .err2 {
+  top: 8%;
+  font-size: 11rem;
+}
+
+.err {
+  left: 20%;
+}
+
+.err2 {
+  left: 68%;
+}
+
+.far {
+  font-size: 8.5rem;
+  left: 42%;
+  top: 15%;
+}
+
+.not-found {
+  font-size: 1.6rem;
+  left: 26%;
+  top: 45%;
+  width: 75%;
+}
+
 @media ( max-width : 786px ) {
 
   html {
@@ -389,4 +427,6 @@ retirados e/ou inspirados nas fontes abaixo:
 --> Meu PR do Projeto Movie Cards:
 --> https://github.com/tryber/sd-010-a-project-movie-cards-library/pull/17
 --> Template do desafio complementar do Ignite ReactJS da Rocketseat:
---> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao */
+--> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao 
+Estilização de Page Not Found: https://codepen.io/purplexmoss/pen/PoPyzMW 
+*/

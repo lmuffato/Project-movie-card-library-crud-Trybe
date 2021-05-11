@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
-import { getMovie } from '../services/movieAPI';
-
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import { deleteMovie, getMovie } from '../services/movieAPI';
+import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
   constructor() {
@@ -32,11 +30,16 @@ class MovieDetails extends Component {
     });
   }
 
+  delMovie = () => {
+    const { match: { params: { id } } } = this.props;
+    deleteMovie(id);
+  }
+
   render() {
     const { loading } = this.state;
     const loadingDetails = () => {
       if (loading === 'loading') {
-        return <p>Carregando...</p>;
+        return <Loading />;
       }
     };
 
@@ -58,13 +61,18 @@ class MovieDetails extends Component {
         <button type="submit">
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         </button>
+        <button type="submit">
+          <Link to="/" onClick={ () => this.delMovie() }>DELETAR</Link>
+        </button>
       </div>
     );
   }
 }
 
 MovieDetails.propTypes = {
-  match: Proptypes.objectOf(Proptypes.object).isRequired,
+  match: Proptypes.shape({ params: {
+    id: Proptypes.number,
+  } }).isRequired,
 };
 
 export default MovieDetails;

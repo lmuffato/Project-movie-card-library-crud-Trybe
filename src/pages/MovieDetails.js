@@ -25,11 +25,6 @@ class MovieDetails extends Component {
     });
   }
 
-  removeMovie = () => {
-    const { match: { params: { id } } } = this.props;
-    deleteMovie(id);
-  }
-
   renderMovie = ({ imagePath, id, title, subtitle, storyline, genre, rating }) => (
     <section data-testid="movie-details">
       <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -38,9 +33,13 @@ class MovieDetails extends Component {
       <p>{ `Storyline: ${storyline}` }</p>
       <p>{ `Genre: ${genre}` }</p>
       <p>{ `Rating: ${rating}` }</p>
-      <button type="button"><Link to="/">VOLTAR</Link></button>
-      <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
-      <button type="button" onClick={ this.removeMovie }>
+      <button type="button">
+        <Link to="/">VOLTAR</Link>
+      </button>
+      <button type="button">
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+      </button>
+      <button type="button" onClick={ () => deleteMovie(id) }>
         <Link to="/">DELETAR</Link>
       </button>
     </section>

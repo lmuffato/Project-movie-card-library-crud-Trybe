@@ -21,37 +21,45 @@ class MovieDetails extends Component {
     this.func();
   }
 
-func = () => {
-  const { id } = this.state;
-  movieAPI.getMovie(id)
-    .then((data) => {
-      this.setState({
-        movie: data,
-        loading: false,
+  dellMovie = async () => {
+    const { id } = this.state;
+    await movieAPI.deleteMovie(id);
+  }
+
+  func = () => {
+    const { id } = this.state;
+    movieAPI.getMovie(id)
+      .then((data) => {
+        this.setState({
+          movie: data,
+          loading: false,
+        });
       });
-    });
-}
+  }
 
-render() {
-  const { movie, loading, id } = this.state;
+  render() {
+    const { movie, loading, id } = this.state;
 
-  if (loading) return <Loading />;
+    if (loading) return <Loading />;
 
-  const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-  return (
-    <div data-testid="movie-details">
-      <img alt="Movie Cover" src={ `../${imagePath}` } />
-      <h1>{ `Title: ${title}` }</h1>
-      <p>{ `Subtitle: ${subtitle}` }</p>
-      <p>{ `Storyline: ${storyline}` }</p>
-      <p>{ `Genre: ${genre}` }</p>
-      <p>{ `Rating: ${rating}` }</p>
-      <button type="button"><Link to="/">VOLTAR</Link></button>
-      <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
-    </div>
-  );
-}
+    return (
+      <div data-testid="movie-details">
+        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <h1>{ `Title: ${title}` }</h1>
+        <p>{ `Subtitle: ${subtitle}` }</p>
+        <p>{ `Storyline: ${storyline}` }</p>
+        <p>{ `Genre: ${genre}` }</p>
+        <p>{ `Rating: ${rating}` }</p>
+        <button type="button"><Link to="/">VOLTAR</Link></button>
+        <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+        <button type="button" onClick={ this.dellMovie }>
+          <Link to="/">DELETAR</Link>
+        </button>
+      </div>
+    );
+  }
 }
 
 MovieDetails.propTypes = {

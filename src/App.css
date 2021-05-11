@@ -94,7 +94,7 @@ body {
 }
 
 .btn {
-  background-color: var(--green);
+  background-color: green;
 }
 
 .btn:hover {
@@ -149,7 +149,7 @@ a.add-card:active {
 
 .btn-back {
   align-self: center;
-  background-color: #008000;
+  background-color: green;
   border: 0;
   border-radius: 0.25rem;
   color: var(--white);
@@ -260,10 +260,21 @@ a.add-card:active {
   padding: 2px;
 }
 
-.form-addMovie input {
+.form-addMovie input, .form-addMovie textarea {
   background-color: var(--background2);
   border: 0;
   opacity: 0.9;
+  width: 60vw;
+}
+
+.form-addMovie textarea {
+  overflow-y: scroll;
+}
+
+.form-addMovie select {
+  background-color: var(--background2);
+  color: var(--white);
+  border: 0;
 }
 
 .movie-details {
@@ -321,25 +332,8 @@ a.add-card:active {
   padding-top: 15px;
 }
 
-#movie_title {
-  width: 60vw;
-}
-
-#movie_storyline {
-  background-color: var(--background2);
-  border: 0;
-  opacity: 0.9;
-}
-
-#movie_genre {
-  background-color: var(--background2);
-  border: 0;
-  color: var(--gray);
-  opacity: 0.9;
-  overflow-y: scroll;
-}
-
 @media ( max-width : 786px ) {
+
   html {
     font-size: 87.5%;
   }

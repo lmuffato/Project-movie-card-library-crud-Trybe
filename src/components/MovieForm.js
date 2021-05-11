@@ -63,7 +63,7 @@ class MovieForm extends React.Component {
       <div className="row">
         <label htmlFor="movie_image">
           <input
-            placeholder="Insira o caminho da imagem"
+            placeholder="Insira a imagem"
             id="movie_image"
             type="text"
             value={ imagePath }
@@ -163,5 +163,10 @@ class MovieForm extends React.Component {
     );
   }
 }
-
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 export default MovieForm;

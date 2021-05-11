@@ -7,7 +7,7 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+
     const { match } = this.props;
     const { params } = match;
 

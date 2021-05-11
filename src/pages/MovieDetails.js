@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       movie: '',
+      status: 'loading',
     };
     this.fetchMovies = this.fetchMovies.bind(this);
   }
@@ -23,16 +24,18 @@ class MovieDetails extends Component {
     const { id } = match.params;
     movieAPI.getMovie(id)
       .then((data) => {
-        this.setState({ movie: data });
+        this.setState({ movie: data, status: 'busy' });
       });
   }
 
   render() {
     // Change the condition to check the state
-    const { movie } = this.state;
+    const { movie, status } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    if (movie === '') { return <Loading />; }
+    if (status === 'loading') {
+      return <Loading />;
+    }
 
     return (
       <div data-testid="movie-details">

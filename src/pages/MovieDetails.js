@@ -17,16 +17,14 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
-    this.getMovie = this.getMovie.bind(this);
-
     this.state = INITIAL_STATE;
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.getMovie();
   }
 
-  getUrlId() {
+  getUrlId = () => {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
@@ -36,14 +34,14 @@ class MovieDetails extends Component {
   async getMovie() {
     const { getMovie } = movieAPI;
     const id = this.getUrlId();
-    const data = await getMovie(id);
+    const { imagePath, title, subtitle, storyline, genre, rating } = await getMovie(id);
     this.setState({
-      imagePath: data.imagePath,
-      title: data.title,
-      subtitle: data.subtitle,
-      storyline: data.storyline,
-      genre: data.genre,
-      rating: data.rating,
+      imagePath,
+      title,
+      subtitle,
+      storyline,
+      genre,
+      rating,
     });
   }
 

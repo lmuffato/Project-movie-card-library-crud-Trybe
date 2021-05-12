@@ -1,5 +1,146 @@
 body {
-  background-color: whitesmoke;
+  background-color: #DBDBE5;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #21222D;
+  font-weight: 700;
+}
+
+header {
+ background-color: #21222D;
+ color: #958CE8;
+ display: flex;
+ justify-content:space-between;
+ align-items: center;
+ padding: 30px;
+ box-shadow: 10px 10px 10px rgb(170, 170, 170);
+}
+
+.headerLink {
+  padding: 16px;
+  border-radius: 22px;
+  background-color: #958CE8;
+  transition: all 1s ease
+}
+
+.headerLink:hover{
+  background-color: #ACD1FD;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  width: 29%;
+  background-color:#21222D;
+  margin: 30px;
+  box-shadow: 10px 10px 10px rgb(202, 202, 202);
+  overflow: hidden;
+  color: #DBDBE5;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.movie-card img {
+  width: 100%;
+}
+
+.movie-card h2 {
+  color: #ACD1FD;
+  margin-left: 15px;
+}
+
+.movie-card p {
+  margin-left: 15px;
+  width: 90%;
+}
+
+.card-link {
+  text-decoration: none;
+  background-color: #958CE8;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 0;
+  transition: all 1s ease;
+  color: #21222D;
+  
+  font-weight: 600;
+}
+
+.card-link:hover{
+  background-color: #ACD1FD;
+}
+
+.movie-details {
+  background-color: #21222D;
+  height: 100vh;
+  color: #DBDBE5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-details img {
+  width: 50%;
+  height: 50%;
+}
+
+.content {
+  width: 30%;
+  margin-left: 15px;
+}
+
+.content h2 {
+  color: #958CE8;
+}
+
+.content p {
+  width: 70%;
+}
+
+button {
+  background-color: #958CE8;
+  border: none;
+  padding: 13px;
+  color: #21222D;
+  transition: all 1s ease
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+button:hover{
+  background-color: #ACD1FD;
+}
+
+.form {
+  background-color: #21222D;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #DBDBE5;
+}
+
+input, textarea, select{
+  width: 350px;
+  padding: 20px;
+  background-color: #DBDBE5;
+  border: none;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #958CE8;
+  font-weight: bold;
 }
 

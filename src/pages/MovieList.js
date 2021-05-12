@@ -40,8 +40,13 @@ class MovieList extends Component {
     console.log(this.props);
     return (
       <div data-testid="movie-list">
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-        {this.handleReturn()}
+        <header>
+          <h1>Movie Cards Library</h1>
+          <Link className="headerLink link" to="/movies/new">Adicionar Cartão</Link>
+        </header>
+        <div className="flex">
+          {this.handleReturn()}
+        </div>
       </div>
     );
   }

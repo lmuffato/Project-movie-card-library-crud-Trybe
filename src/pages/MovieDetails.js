@@ -48,22 +48,24 @@ class MovieDetails extends Component {
     }
 
     return (
-      <div data-testid="movie-details">
+      <div data-testid="movie-details" className="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h4>{ `Subtitle: ${title}` }</h4>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <button type="button">
-          <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
-        </button>
-        <button type="button">
-          <Link to="/">VOLTAR</Link>
-        </button>
-        <button type="button" onClick={ this.handleDelete }>
-          <Link to="/">DELETAR</Link>
-        </button>
+        <div className="content">
+          <h2>{ `Subtitle: ${title}` }</h2>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
+          <button type="button">
+            <Link className="link" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+          </button>
+          <button type="button">
+            <Link className="link" to="/">VOLTAR</Link>
+          </button>
+          <button type="button" onClick={ this.handleDelete }>
+            <Link className="link" to="/">DELETAR</Link>
+          </button>
+        </div>
       </div>
     );
   }

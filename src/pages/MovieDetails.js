@@ -18,7 +18,14 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
-  async fetchMovie() {
+  deleteMovie = async () => {
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    await movieAPI.deleteMovie(id);
+  }
+
+  fetchMovie() {
     this.setState(
       { loading: true },
       async () => {
@@ -37,27 +44,31 @@ class MovieDetails extends Component {
 
   renderDetails() {
     const { movie } = this.state;
+    console.log(movie);
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
-      <>
+      <div>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <h1>{title}</h1>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-      </>
+      </div>
     );
   }
 
   render() {
     const { loading, id } = this.state;
+    if (loading) return <Loading />;
     return (
       <div data-testid="movie-details">
-        {loading ? <Loading /> : this.renderDetails()}
+        { this.renderDetails()}
         <Link to="/">VOLTAR</Link>
         <br />
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <br />
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }
@@ -65,7 +76,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }).isRequired,
   }).isRequired,
 };

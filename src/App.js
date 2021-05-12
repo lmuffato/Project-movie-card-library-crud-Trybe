@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages';
 
@@ -8,7 +8,6 @@ import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages'
 const App = () => (
   <Router>
     <div>Movie Card Library CRUD</div>
-    <Link to="/movies/new">ADICIONAR CARTÃO</Link>
     <Switch>
       <Route exact path="/movies/:id/edit" component={ EditMovie } />
       <Route exact path="/movies/new" component={ NewMovie } />

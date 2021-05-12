@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { MovieCard, Loading } from '../components';
 import { getMovies } from '../services/movieAPI';
 import { union } from '../fp-library/union';
@@ -25,6 +26,8 @@ class MovieList extends Component {
 
   createMovieCards = (movies) => (
     <div data-testid="movie-list">
+      {/* OPS I had the Link in the wrong page xD Thanks Luan Ramalho */}
+      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       {movies.map((movie) => <MovieCard key={ movie.id } movie={ movie } />)}
     </div>
   )

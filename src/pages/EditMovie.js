@@ -19,12 +19,6 @@ class EditMovie extends Component {
 
   componentDidMount = () => this.fetchData()
 
-  handleSubmit = (updatedMovie) => this.setState({ status: Type.loading }, () => {
-    updateMovie(updatedMovie).then(() => {
-      this.setState({ status: Type.redirect });
-    });
-  })
-
   fetchData = () => {
     const { match: { params: { id } } } = this.props;
     this.setState({ status: Type.loading }, () => {
@@ -33,6 +27,12 @@ class EditMovie extends Component {
       });
     });
   }
+
+  handleSubmit = (updatedMovie) => this.setState({ status: Type.loading }, () => {
+    updateMovie(updatedMovie).then(() => {
+      this.setState({ status: Type.redirect });
+    });
+  })
 
   createMovieForm = (movie) => (
     <div data-testid="edit-movie">

@@ -22,8 +22,8 @@ class MovieDetails extends Component {
   fetchData = () => {
     const { match: { params: { id } } } = this.props;
     this.setState({ status: Type.loading }, () => {
-      getMovie(id).then((data) => {
-        this.setState({ movie: data, status: Type.loaded });
+      getMovie(id).then((movie) => {
+        this.setState({ movie, status: Type.loaded });
       });
     });
   }

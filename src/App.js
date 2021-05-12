@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import MyPages from './components/MyPages';
+import Routes from './components/Routes';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <MyPages />
+        <Routes />
       </BrowserRouter>
     );
   }

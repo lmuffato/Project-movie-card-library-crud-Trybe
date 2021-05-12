@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from '../pages';
 
-class MyPages extends Component {
+class Routes extends Component {
   render() {
     return (
       <Switch>
@@ -17,4 +17,4 @@ class MyPages extends Component {
   }
 }
 
-export default MyPages;
+export default Routes;

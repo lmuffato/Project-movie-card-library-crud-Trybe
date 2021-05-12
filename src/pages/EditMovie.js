@@ -10,7 +10,7 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(updatedMovie) {
   }
 
   render() {

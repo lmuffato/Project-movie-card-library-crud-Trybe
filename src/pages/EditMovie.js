@@ -1,31 +1,49 @@
 import React, { Component } from 'react';
 
-import { MovieForm } from '../components';
+import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: false,
+      movie: {},
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(updatedMovie) {
   }
 
+  fetchMovie = () => {
+    const { match } = this.props;
+    const { id } = match.params;
+    this.setState(
+      { loading: true },
+      async () => {
+        const movieFromAPI = await movieAPI.getMovie(id);
+        this.setState({
+          movie: movieFromAPI,
+          loading: false,
+        });
+      },
+    );
+  }
+
+  componentDidMount = () => {
+    this.fetchMovie();
+  }
+
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { loading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect
     }
 
-    if (status === 'loading') {
-      // render Loading
-    }
-
     return (
       <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        {loading ? <Loading /> : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />}
       </div>
     );
   }

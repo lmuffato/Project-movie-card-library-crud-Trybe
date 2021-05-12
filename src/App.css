@@ -1,5 +1,9 @@
 body {
-  background-color: whitesmoke;
+  background-color: darkgray;
   box-sizing: border-box;
 }
 
+.movieCardImg {
+  width: 35%;
+  border-radius: 15px;
+}

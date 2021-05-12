@@ -12,11 +12,11 @@ function App() {
       Movie Card Library CRUD
       <BrowserRouter>
         <Switch>
-          <Route to="/" component={ MovieList } exact />
-          <Route to="/movies/:id" component={ MovieDetails } exact />
-          <Route to="movies/new" component={ NewMovie } exact />
-          <Route to="/movies/:id/edit" component={ EditMovie } exact />
-          <Route component={ NotFound } exact />
+          <Route path="/movies/:id/edit" component={ EditMovie } />
+          <Route path="/movies/new" component={ NewMovie } />
+          <Route path="/movies/:id" component={ MovieDetails } />
+          <Route path="/" component={ MovieList } exact />
+          <Route component={ NotFound } />
         </Switch>
       </BrowserRouter>
     </div>

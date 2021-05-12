@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 
-import * as movieAPI from '../services/movieAPI';
+// import * as movieAPI from '../services/movieAPI';
 
-class MovieList extends Component {
+export default class MovieList extends Component {
   constructor() {
     super();
 
     this.state = {
       movies: [],
+      // loading: true,
     };
   }
 
@@ -24,5 +25,3 @@ class MovieList extends Component {
     );
   }
 }
-
-export default MovieList;

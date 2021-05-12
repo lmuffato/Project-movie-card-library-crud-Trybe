@@ -1,17 +1,17 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { object, func } from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = { ...props.movie };
+    this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleSubmit() {
-  //   const { onSubmit } = this.props;
-  //   onSubmit(this.state);
-  // }
+  handleSubmit() {
+    const { onSubmit } = this.props;
+    onSubmit(this.state);
+  }
 
   updateMovie(field, newValue) {
     this.setState({ [field]: newValue });
@@ -29,7 +29,7 @@ class MovieForm extends React.Component {
             type="text"
             className="validate"
             value={ title }
-            // onChange={(event) => this.updateMovie('title', event.target.value)}
+            onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
           Título
         </label>
@@ -48,7 +48,7 @@ class MovieForm extends React.Component {
             id="movie_subtitle"
             type="text"
             value={ subtitle }
-            // onChange={(event) => this.updateMovie('subtitle', event.target.value)}
+            onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
           />
           Subtítulo
         </label>
@@ -163,5 +163,10 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: object,
+  onSubmit: func,
+}.isRequired;
 
 export default MovieForm;

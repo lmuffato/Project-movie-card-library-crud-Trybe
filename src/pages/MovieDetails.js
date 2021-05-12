@@ -19,11 +19,11 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
-  deleteMovie = async () => {
+  deleteMovie = () => {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
-    await movieAPI.deleteMovie(id);
+    movieAPI.deleteMovie(id);
   }
 
   async fetchMovie() {
@@ -76,7 +76,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }).isRequired,
   }).isRequired,
 };

@@ -21,7 +21,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount = () => {
-    this.getMovie();
+    this.movie();
   }
 
   getUrlId = () => {
@@ -31,7 +31,7 @@ class MovieDetails extends Component {
     return id;
   }
 
-  async getMovie() {
+  movie = async () => {
     const { getMovie } = movieAPI;
     const id = this.getUrlId();
     const { imagePath, title, subtitle, storyline, genre, rating } = await getMovie(id);

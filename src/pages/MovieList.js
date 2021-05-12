@@ -8,10 +8,9 @@ class MovieList extends Component {
   constructor() {
     super();
 
-    this.getMovie = this.getMovie.bind(this);
-
     this.state = {
       movies: [],
+      isLoading: true,
     };
   }
 
@@ -19,25 +18,25 @@ class MovieList extends Component {
     this.getMovie();
   }
 
-  async getMovie() {
+  getMovie = async () => {
     const { getMovies } = movieAPI;
     const data = await getMovies();
-    this.setState({ movies: data });
+    this.setState({
+      movies: data,
+      isLoading: false });
   }
 
   render() {
-    const { movies } = this.state;
-
-    if (movies.length <= 0) {
-      return <Loading />;
-    }
+    const { movies, isLoading } = this.state;
 
     return (
-      <div data-testid="movie-list">
-        {movies.map((movie) => (
-          <MovieCard key={ movie.title } movie={ movie } />
-        ))}
-      </div>
+      isLoading ? <Loading /> : (
+        <div data-testid="movie-list">
+          {movies.map((movie) => (
+            <MovieCard key={ movie.title } movie={ movie } />
+          ))}
+        </div>
+      )
     );
   }
 }

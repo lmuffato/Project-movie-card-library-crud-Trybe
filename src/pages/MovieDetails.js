@@ -5,11 +5,12 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       movie: {},
       loading: true,
+      movieID: null,
     };
     this.showMovieDetails = this.showMovieDetails.bind(this);
   }
@@ -24,12 +25,13 @@ class MovieDetails extends Component {
     this.setState({
       movie: specificMovie,
       loading: false,
+      movieID: id,
     });
   }
 
   render() {
-    const { movie, loading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+    const { movie, loading, movieID } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return loading ? <Loading /> : (
       <section>
@@ -42,7 +44,7 @@ class MovieDetails extends Component {
           <p>{ `Rating: ${rating}` }</p>
         </div>
         <div>
-          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link to={ `/movies/${movieID}/edit` }>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
       </section>

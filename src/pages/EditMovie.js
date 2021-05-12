@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { MovieForm } from '../components';
-// import * as movieAPI from '../services/movieAPI';
+import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -11,11 +12,16 @@ class EditMovie extends Component {
       loading: true,
     };
     this.showMovieForEdit = this.showMovieForEdit.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.showMovieForEdit();
+  }
+
+  // updatedMovie é parametro de handle submit
+  handleSubmit() {
+    console.log('qualquercoisa');
   }
 
   showMovieForEdit = async () => {
@@ -26,8 +32,6 @@ class EditMovie extends Component {
       loading: false,
     });
   }
-  /*   handleSubmit(updatedMovie) {
-  } */
 
   render() {
     const { status, shouldRedirect, movie, loading } = this.state;

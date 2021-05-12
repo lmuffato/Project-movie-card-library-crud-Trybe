@@ -1,3 +1,5 @@
+// feito com auxilio e dicas:
+// Rafael Medeiros - Turma 10 - Tribo A
 import React, { Component } from 'react';
 import { number } from 'prop-types';
 import { Redirect } from 'react-router-dom';

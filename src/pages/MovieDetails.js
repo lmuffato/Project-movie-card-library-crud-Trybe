@@ -18,6 +18,7 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const { id } = match.params;
     // aqui estou pegadno o id que foi passado como props no <Link to={ `/movies/${id}` }>VER DETALHES</Link>
+    // também estou chamando a api novamente para pegar todos os dados dos movies novamente
     console.log(this.props);
     movieAPI.getMovie(id)
       .then((resolve) => this.handleMovies(resolve));

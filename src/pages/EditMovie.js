@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
@@ -23,7 +23,7 @@ class EditMovie extends Component {
     movieAPI.updateMovie(updatedMovie);
   }
 
-  async renderMovies() {
+  renderMovies() {
     const { match } = this.props;
     const { id } = match.params;
     this.setState(
@@ -63,7 +63,7 @@ class EditMovie extends Component {
 EditMovie.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: 1,
+      id: '1',
     }),
   }),
 };
@@ -71,7 +71,7 @@ EditMovie.defaultProps = {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }),
 };

@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
     super();
-    this.renderMovies = this.renderMovies.bind(this);
+    this.renderMovie = this.renderMovie.bind(this);
+    this.delMovies = this.delMovies.bind(this);
     this.state = {
       stateLoading: true,
-      movies: {},
+      movie: {},
     };
   }
 
   componentDidMount() {
-    this.renderMovies();
+    this.renderMovie();
   }
 
-  async renderMovies() {
+  delMovies() {
+    const { match } = this.props;
+    const { id } = match.params;
+    movieAPI.deleteMovie(id);
+  }
+
+  async renderMovie() {
     const { match } = this.props;
     const { id } = match.params;
     this.setState(
       { stateLoading: true },
       async () => {
-        const requestMovies = await movieAPI.getMovie(id);
+        const requestMovie = await movieAPI.getMovie(id);
         this.setState({
-          movies: requestMovies,
+          movie: requestMovie,
           stateLoading: false,
         });
       },
@@ -37,8 +43,8 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movies, stateLoading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
+    const { movie, stateLoading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     const editLink = `${id}/edit`;
     return (
       stateLoading ? <Loading /> : (
@@ -53,6 +59,8 @@ class MovieDetails extends Component {
             <Link to={ editLink }>EDITAR</Link>
             <span>{' '}</span>
             <Link to="/">VOLTAR</Link>
+            <span>{' '}</span>
+            <Link to="/" onClick={ this.delMovies }>DELETAR</Link>
           </div>
         </div>
       )
@@ -63,7 +71,7 @@ class MovieDetails extends Component {
 MovieDetails.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: 1,
+      id: '1',
     }),
   }),
 };
@@ -71,7 +79,7 @@ MovieDetails.defaultProps = {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }),
 };

@@ -10,7 +10,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
-      movieID: null,
+      // movieID: null,
     };
     this.showMovieDetails = this.showMovieDetails.bind(this);
   }
@@ -25,13 +25,13 @@ class MovieDetails extends Component {
     this.setState({
       movie: specificMovie,
       loading: false,
-      movieID: id,
+      // movieID: id,
     });
   }
 
   render() {
-    const { movie, loading, movieID } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { movie, loading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return loading ? <Loading /> : (
       <section>
@@ -44,7 +44,7 @@ class MovieDetails extends Component {
           <p>{ `Rating: ${rating}` }</p>
         </div>
         <div>
-          <Link to={ `/movies/${movieID}/edit` }>EDITAR</Link>
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
       </section>

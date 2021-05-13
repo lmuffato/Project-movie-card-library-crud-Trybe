@@ -45,6 +45,12 @@ class MovieDetails extends Component {
     });
   }
 
+  delMovie = () => {
+    const { deleteMovie } = movieAPI;
+    const id = this.getUrlId();
+    deleteMovie(id);
+  }
+
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
     if (imagePath.length === 0) {
@@ -67,6 +73,10 @@ class MovieDetails extends Component {
           <br />
           <Link to="/">
             VOLTAR
+          </Link>
+          <br />
+          <Link to="/" onClick={ async () => this.delMovie() }>
+            DELETAR
           </Link>
         </div>
       </div>

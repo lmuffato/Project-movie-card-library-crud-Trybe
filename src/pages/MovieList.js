@@ -32,7 +32,6 @@ class MovieList extends Component {
       </div>
     );
   }
-
 }
 
 export default MovieList;

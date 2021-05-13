@@ -1,7 +1,129 @@
 body {
-  background-color: whitesmoke;
+  background: linear-gradient(0deg, rgba(101, 101, 101, 1) 0%, black 100%);
+  background-repeat: no-repeat;
   box-sizing: border-box;
+  color: rgb(50, 50, 50);
+  font-family: Helvetica , Arial , sans-serif;
+  height: 616px;
   margin: 0;
   padding: 0;
 }
 
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  background-color: whitesmoke;
+  border-radius: 5pt;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  height: 250px;
+  justify-content: space-between;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+h1 {
+  color: #e54e27;
+  font-weight: 700;
+  text-align: center;
+}
+
+.loading {
+  color: whitesmoke;
+  font-size: 20px;
+  padding: 200px 0;
+  text-align: center;
+}
+
+.movie-details {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 14px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  text-align: center;
+  width: 350px;
+}
+
+.link-main {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.link {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-detail {
+  margin: 10px;
+}
+
+a:link, a:visited, button {
+  background-color: #e54e27;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: 12px;
+  max-width: 200px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover, button:hover {
+  background-color: whitesmoke;
+  border: #e54e27 1px solid;
+  color: #e54e27;
+}
+
+form {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 12px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  width: 280px;
+}
+
+label {
+  display: inline-block;
+  font-weight: 800;
+  padding: 10px;
+  width: 100px;
+}
+
+.sizing {
+  width: 250px;
+}
+
+.storyline {
+  height: 100px;
+  resize: none;
+  width: 250px;
+}
+
+.others {
+  width: 170px;
+}
+
+.button-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.details-links {
+  margin-top: 30px;
+}

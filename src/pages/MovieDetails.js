@@ -46,22 +46,24 @@ class MovieDetails extends Component {
     }
 
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
+      <div data-testid="movie-details" className="movie-details">
+        <img alt="Movie Cover" src={ `../${imagePath}` } width="300px" />
         <p>{`Title: ${title}`}</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>
-          EDITAR
-        </Link>
-        <Link to="/">
-          VOLTAR
-        </Link>
-        <Link to="/" onClick={ () => this.deleteMovie() }>
-          DELETAR
-        </Link>
+        <div className="details-links">
+          <Link to={ `/movies/${id}/edit` } className="link-detail">
+            EDITAR
+          </Link>
+          <Link to="/" className="link-detail">
+            VOLTAR
+          </Link>
+          <Link to="/" onClick={ () => this.deleteMovie() } className="link-detail">
+            DELETAR
+          </Link>
+        </div>
       </div>
     );
   }

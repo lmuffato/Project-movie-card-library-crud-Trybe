@@ -3,8 +3,8 @@ body {
   box-sizing: border-box;
 }
 
-.movieCardImg {
+/* .movieCardImg {
   border-radius: 15px;
+  box-shadow: 30px 40px -25px black;
   width: 35%;
-  box-shadow: 0px 30px 40px -25px black;
-}
+} */

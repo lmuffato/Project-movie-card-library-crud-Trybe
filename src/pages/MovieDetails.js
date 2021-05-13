@@ -34,7 +34,7 @@ class MovieDetails extends Component {
     if (loading) return <Loading />;
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <img className="movieCardImg" alt="Movie Cover" src={ `../${imagePath}` } />
         <h4>{ `Title: ${title}` }</h4>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>

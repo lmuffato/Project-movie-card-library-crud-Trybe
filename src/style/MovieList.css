@@ -1,3 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.library-title {
+  color: white;
+  margin: auto;
+}
+
+.add-movie {
+  margin-right: 0;
+}
+
 .movie-list {
   display: flex;
   justify-content: flex-start;

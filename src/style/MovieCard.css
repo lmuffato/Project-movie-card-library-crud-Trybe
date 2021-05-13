@@ -13,6 +13,10 @@
   margin: 10px;
 }
 
+.movie-card:hover {
+  border: 3px solid gray;
+}
+
 .movie-title {
   color: #1A242F;
 }
@@ -20,7 +24,6 @@
 .movie-storyline {
   color: #1A242F;
   font-size: small;
-  height: 100%;
 }
 
 .detail-link {

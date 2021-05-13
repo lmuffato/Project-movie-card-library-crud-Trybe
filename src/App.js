@@ -2,7 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { MovieList, MovieDetails, EditMovie, NewMovie, NotFound } from './pages';
-
+// Projeto Realizado com ajude de:
+// Pollyana Oliveira - Turma 10 - Tribo A
+// Luan Ramalho - Turma 10 - Tribo A
+// Rafael Medeiros - Turma 10 - Tribo A
+// Vinicius Rodrigues - Turma 10 - Tribo A
+// Lucas Muniz Lara - Turma 10 - Tribo A
 function App() {
   return (
     <Router>

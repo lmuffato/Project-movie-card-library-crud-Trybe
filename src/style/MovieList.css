@@ -12,6 +12,18 @@
 
 .add-movie {
   margin-right: 0;
+  text-decoration: none;
+  background-color: white;
+  color: #1A242F;
+  padding: 8px;
+  border-radius: 10px;
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+.add-movie:hover {
+  background-color: #1A242F;
+  color: white;
+  border: 1px solid white;
 }
 
 .movie-list {

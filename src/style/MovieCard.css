@@ -11,10 +11,12 @@
   align-items: center;
   text-align: center;
   margin: 10px;
+  transition: border 0.5s, transform 0.5s;
 }
 
 .movie-card:hover {
   border: 3px solid gray;
+  transform: scale(1.06);
 }
 
 .movie-title {

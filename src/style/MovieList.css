@@ -1,8 +1,8 @@
 .header {
-  display: flex;
   align-items: center;
-  width: 80%;
+  display: flex;
   margin: auto;
+  width: 80%;
 }
 
 .library-title {
@@ -11,23 +11,23 @@
 }
 
 .add-movie {
-  margin-right: 0;
-  text-decoration: none;
-  background-color: #F1C860;
-  color: #1A242F;
-  padding: 8px;
+  background-color: #f1c860;
   border-radius: 10px;
-  transition: background-color 0.7s ease, color 0.7s ease;
+  color: #1a242f;
+  margin-right: 0;
+  padding: 8px;
+  text-decoration: none;
+  transition: background-color 0.7s ease , color 0.7s ease;
 }
 
 .add-movie:hover {
-  background-color: #1A242F;
-  color: white;
+  background-color: #1a242f;
   border: 1px solid white;
+  color: white;
 }
 
 .movie-list {
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }

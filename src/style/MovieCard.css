@@ -1,5 +1,5 @@
 .movie-card {
-  background-color: #1A242F;
+  background-color: white;
   width: 20%;
   height: 280px;
   min-width: 250px;
@@ -14,11 +14,13 @@
 }
 
 .movie-title {
-  color: white;
+  color: #1A242F;
 }
 
 .movie-storyline {
-  color: white;
+  color: #1A242F;
+  font-size: small;
+  height: 100%;
 }
 
 .detail-link {
@@ -28,4 +30,9 @@
   text-decoration: none;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.detail-link:hover {
+  transform: scale(1.2);
+  font-weight: bold;
 }

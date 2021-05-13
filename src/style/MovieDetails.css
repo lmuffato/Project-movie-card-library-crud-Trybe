@@ -1,0 +1,13 @@
+.movie-info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+}
+
+.details-buttons {
+  display: flex;
+  justify-content: space-around;
+}

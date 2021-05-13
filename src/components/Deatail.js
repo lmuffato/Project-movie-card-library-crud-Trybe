@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../css/movieDetails.css';
+import { deleteMovie } from '../services/movieAPI';
 
 export default class Detail extends Component {
+  functionDelete = async (film) => {
+    console.log(film);
+    const functionDel = await deleteMovie(film);
+    console.log(functionDel);
+    return functionDel;
+  }
+
   render() {
     const { movie } = this.props;
     return (
@@ -20,6 +28,13 @@ export default class Detail extends Component {
           <div className="buttons">
             <Link className="button-back" to="/">VOLTAR</Link>
             <Link className="button-edit" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+            <Link
+              className="button-delete"
+              to="/"
+              onClick={ () => this.functionDelete(movie.id) }
+            >
+              DELETAR
+            </Link>
           </div>
         </div>
       </div>

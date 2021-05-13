@@ -5,10 +5,11 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={ MovieList } />

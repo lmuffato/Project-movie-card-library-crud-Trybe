@@ -2,4 +2,26 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 90px;
+}
+
+.new {
+  background-color: rgb(247, 247, 247);
+  border-radius: 3px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.6);
+  color: #fec561;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 24px;
+  padding: 12px;
+  position: absolute;
+  text-decoration: none;
+}
+
+.new:active {
+  padding: 11px;
+}
+
+.movieList > div {
+  top: 64px;
 }

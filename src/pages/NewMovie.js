@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
+import '../css/movieForm.css';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class NewMovie extends Component {
     }
 
     return (
-      <div data-testid="new-movie">
+      <div className="newMovie" data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );

@@ -1,5 +1,12 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(224, 224, 224);
   box-sizing: border-box;
+}
+
+.app {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 

@@ -26,15 +26,14 @@ class MovieList extends Component {
 
   render() {
     const { movies } = this.state;
-
-    // Render Loading here if the request is still happening
-
     return (
       <div data-testid="movie-list" className="movieList">
-        {movies.length > 0 ? <Link to="/movies/new">ADICIONAR CARTÃO</Link> : '' }
-        {movies.length > 0 ? movies.map((movie) => (
-          <MovieCard key={ movie.title } movie={ movie } />
-        )) : <Loading />}
+        {movies
+          .length ? <Link className="new" to="/movies/new">ADICIONAR CARTÃO</Link> : ''}
+        {movies
+          .length ? movies.map((movie) => (
+            <MovieCard key={ movie.title } movie={ movie } />
+          )) : <Loading />}
       </div>
     );
   }

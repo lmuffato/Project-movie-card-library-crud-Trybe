@@ -9,13 +9,13 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-      <BrowserRouter>
-        <Route exact path="/" component={ MovieList } />
-        <Route path="/movies/:id" component={ MovieDetails } />
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
-        {/* https://qastack.com.br/programming/32128978/react-router-no-not-found-route */}
-        <Route path="*" component={ NotFound } />
+    <BrowserRouter>
+      <Route exact path="/" component={ MovieList } />
+      <Route path="/movies/:id" component={ MovieDetails } />
+      <Route path="/movies/new" component={ NewMovie } />
+      <Route path="/movies/:id/edit" component={ EditMovie } />
+      {/* https://qastack.com.br/programming/32128978/react-router-no-not-found-route */}
+      <Route path="*" component={ NotFound } />
     </BrowserRouter>
   );
 }

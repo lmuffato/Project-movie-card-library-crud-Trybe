@@ -1,9 +1,0 @@
-Internet
-Unix
-Bash
-Windows
-Excel
-PowerPoint
-Word
-Music
-D

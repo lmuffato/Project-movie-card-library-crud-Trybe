@@ -5,7 +5,6 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 export default class MovieDetails extends Component {
-
   constructor(props) {
     super(props);
     this.fetchMovieData = this.fetchMovieData.bind(this);

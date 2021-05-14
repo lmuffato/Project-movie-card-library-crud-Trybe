@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
+      movieId: null,
     };
   }
 
@@ -19,20 +20,19 @@ class MovieDetails extends Component {
 
   async fetchMovieApi() {
     const { match: { params: { id } } } = this.props;
-    this.setState({ loading: true }, async () => {
-      const getMovieReturn = await movieAPI.getMovie(id);
-      this.setState({
-        movie: getMovieReturn,
-        loading: false,
+    const getMovieReturn = await movieAPI.getMovie(id);
+    this.setState({
+      movie: getMovieReturn,
+      loading: false,
+      movieId: id,
       });
-    });
-  }
-
+    };
+  
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie, loading } = this.state;
-    const { storyline, imagePath, genre, rating, subtitle, title, id } = movie;
+    const { movie, loading, movieId } = this.state;
+    const { storyline, imagePath, genre, rating, subtitle, title } = movie;
 
     return !loading ? (
       <div data-testid="movie-details">
@@ -42,7 +42,7 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to={ `/movies/${movieId}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>
     ) : (<Loading />);

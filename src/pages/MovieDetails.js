@@ -10,7 +10,6 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
-      // movieID: null,
     };
     this.showMovieDetails = this.showMovieDetails.bind(this);
   }
@@ -19,13 +18,14 @@ class MovieDetails extends Component {
     this.showMovieDetails();
   }
 
-  showMovieDetails = async () => {
+  showMovieDetails = () => {
     const { match: { params: { id } } } = this.props;
-    const specificMovie = await movieAPI.getMovie(id);
-    this.setState({
-      movie: specificMovie,
-      loading: false,
-      // movieID: id,
+    this.setState({ movie: {}, loading: true }, async () => {
+      const specificMovie = await movieAPI.getMovie(id);
+      this.setState({
+        movie: specificMovie,
+        loading: false,
+      });
     });
   }
 
@@ -42,6 +42,9 @@ class MovieDetails extends Component {
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
+          <p>
+            { `Id: ${id}`}
+          </p>
         </div>
         <div>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
@@ -61,3 +64,5 @@ MovieDetails.propTypes = {
 };
 
 export default MovieDetails;
+
+// Aprimoramento da rota realizada com a colaboração da Ana Ventura;

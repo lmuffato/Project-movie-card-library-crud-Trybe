@@ -12,16 +12,17 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ MovieList } />
+          <Route
+            exact
+            path="/movies/:id/edit"
+            render={ (props) => <EditMovie { ...props } /> }
+          />
           <Route
             path="/movies/:id"
             render={ (props) => <MovieDetails { ...props } /> }
           />
           <Route path="/movies/new" component={ NewMovie } />
-          <Route
-            path="/movies/:id/edit"
-            render={ (props) => <EditMovie { ...props } /> }
-          />
+          <Route exact path="/" component={ MovieList } />
           <Route path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
@@ -30,3 +31,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+// Encontrado bug no arquivo com a ajuda de Orlando Flores!;
+// [ Ordem das rotas nunca mais será confundida ];

@@ -12,6 +12,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path="/movies/new" component={ NewMovie } />
           <Route
             exact
             path="/movies/:id/edit"
@@ -21,7 +22,6 @@ class App extends React.Component {
             path="/movies/:id"
             render={ (props) => <MovieDetails { ...props } /> }
           />
-          <Route path="/movies/new" component={ NewMovie } />
           <Route exact path="/" component={ MovieList } />
           <Route path="*" component={ NotFound } />
         </Switch>

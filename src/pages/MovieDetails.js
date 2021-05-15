@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import movies from '../services/movieData';
 
 class MovieDetails extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class MovieDetails extends Component {
     const { getMovie } = movieAPI;
     const { id } = this.props.match.params;
     const movie = await getMovie(id);
+    console.log(movie);
     this.setState({
       movie: movie,
     });
@@ -29,7 +31,7 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     // if (true) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">

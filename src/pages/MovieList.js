@@ -13,7 +13,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-  this.requestMovies();
+    this.requestMovies();
   }
 
   requestMovies = async () => {
@@ -30,11 +30,10 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
 
     return (
-      <div data-testid="movie-list" className="movie-list" >
-        { movies.length > 0 ?
-        movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) :
-        <Loading />
-        }
+      <div data-testid="movie-list" className="movie-list">
+        { movies.length > 0
+          ? movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+          : <Loading /> }
       </div>
     );
   }

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Rating from './Rating';
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
 
 class MovieCard extends React.Component {
   render() {
     const { movie: { title, subtitle, storyline, rating, imagePath, id } } = this.props;
     return (
-      <div className="movie-card" data-testid="movie-card" >
+      <div className="movie-card" data-testid="movie-card">
         <img
           src={ imagePath }
           alt="capa do filme"
@@ -20,7 +20,7 @@ class MovieCard extends React.Component {
           rating={ rating }
           className="movie-card-rating"
         />
-        <Link to={ `/movies/${ id }` }>VER DETALHES</Link>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }

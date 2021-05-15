@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import MovieList from './pages/MovieList';
 import './App.css';
 import MovieDetails from './pages/MovieDetails'
@@ -11,7 +11,6 @@ import { MovieForm } from './components';
 function App() {
   return (
     <BrowserRouter>
-      <h1> hello world </h1>
       <Switch>
         <Route exact path="/" component={MovieList} />
         <Route path="/movies/new" component={NewMovie} />

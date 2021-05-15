@@ -8,32 +8,31 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      movie: [],
+      movie: {},
       loading: true,
     };
-    this.requestMovie = this.requestMovie.bind(this);
+    this.fetchMovieApi = this.fetchMovieApi.bind(this);
   }
 
   componentDidMount() {
-    this.requestMovie();
+    this.fetchMovieApi();
   }
 
-  async requestMovie() {
-    const { match: { params: { id } } } = this.props;
-    const movieData = await movieAPI.getMovie(id);
+  async fetchMovieApi() {
+    const { getMovie } = movieAPI;
+    const { match } = this.props;
+    const { id } = match.params;
+    const movie = await getMovie(id);
     this.setState({
-      movie: movieData,
+      movie,
       loading: false,
     });
   }
 
   render() {
-    const { loading } = this.state;
-    if (loading) return <Loading />;
-    const { movie } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    const { match: { params: { id } } } = this.props;
-
+    const { movie, loading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+    if (loading) return (<Loading />);
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -42,8 +41,8 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR </Link>
-        <Link to="/">VOLTAR </Link>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
@@ -52,7 +51,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     }),
   }).isRequired,
 };

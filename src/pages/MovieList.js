@@ -12,15 +12,14 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     };
-
-    this.requestMovie = this.requestMovie.bind(this);
+    this.fetchMoviesApi = this.fetchMoviesApi.bind(this);
   }
 
   componentDidMount() {
-    this.requestMovie();
+    this.fetchMoviesApi();
   }
 
-  async requestMovie() {
+  async fetchMoviesApi() {
     const { getMovies } = movieAPI;
     const movies = await getMovies();
     this.setState({
@@ -31,13 +30,11 @@ class MovieList extends Component {
 
   render() {
     const { movies, loading } = this.state;
-    if (loading) {
-      return (<Loading />);
-    }
+    if (loading) return (<Loading />);
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <Link to="/movies/new"> ADICIONAR CARTÃO </Link>
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }

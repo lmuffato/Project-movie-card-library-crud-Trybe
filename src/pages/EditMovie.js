@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import { MovieForm } from '../components';
+// import { Redirect } from 'react-router-dom';
+import { Loading, MovieForm } from '../components';
 // import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -10,8 +10,8 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-    console.log(updatedMovie);
+  handleSubmit() {
+
   }
 
   render() {
@@ -21,9 +21,9 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      // render Loading
+      // Loading
     }
-
+    console.log(Loading);
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />

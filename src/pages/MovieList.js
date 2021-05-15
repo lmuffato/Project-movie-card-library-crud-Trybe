@@ -7,44 +7,38 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-
     this.state = {
       movies: [],
       loading: true,
     };
+    this.takeMoviesFromApi = this.takeMoviesFromApi.bind(this);
   }
 
   componentDidMount() {
     this.takeMoviesFromApi();
   }
 
-  takeMoviesFromApi = () => {
+  async takeMoviesFromApi() {
+    const movieFromApi = await movieAPI.getMovies();
     this.setState({
-      loading: true,
-    }, async () => {
-      const movieFromApi = await movieAPI.getMovies();
-      this.setState({
-        movies: movieFromApi,
-        loading: false,
-      });
+      movies: movieFromApi,
+      loading: false,
     });
   }
 
-  pageToRender = () => {
+  render() {
     const { movies, loading } = this.state;
+
     if (loading) return <Loading />;
+
     return (
       <div>
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-      </div>
-    );
-  };
-
-  render() {
-    return (
-      <div data-testid="movie-list">
-        { this.pageToRender() }
+        <div data-testid="movie-list">
+          {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        </div>
+        <div>
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        </div>
       </div>
     );
   }

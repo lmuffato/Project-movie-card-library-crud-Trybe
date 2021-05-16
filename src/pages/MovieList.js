@@ -12,7 +12,7 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     };
-    this.fetchMovies = this.fetchMovies.bind(this);
+    // this.fetchMovies = this.fetchMovies.bind(this);
   }
 
   componentDidMount() {
@@ -29,8 +29,6 @@ class MovieList extends Component {
 
   render() {
     const { movies, loading } = this.state;
-
-    // Render Loading here if the request is still happening
 
     if (loading === true) return <Loading />;
 

@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.rating {
+  color: red;
+  font-weight: bold;
+}
+
+.storyline { 
+  color: grey;
+  font-size: medium;
+}
+
+.details {
+  text-decoration: none;
+  color: black
+}
+
+.details:hover {
+  color: red;
+  font-weight: bold;
+}

@@ -31,15 +31,18 @@ class MovieDetails extends Component {
     this.setState({ movie: response, loading: false, initial: false });
   }
 
+  delete(id) {
+    movieAPI.deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     const { loading, movie, initial } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
-    const load = <Loading />;
 
     // if (true) return <Loading />;
     if (loading) {
-      return load;
+      return <Loading />;
     }
 
     if (initial) {
@@ -54,12 +57,17 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>
+        <button type="button">
+          <Link to={ `/movies/${id}/edit` }>
           EDITAR
         </Link>
+        </button>
         <Link to="/">
           VOLTAR
         </Link>
+        <button type="button" onClick={ this.delete(id) }>
+          <Link to="/">DELETAR</Link>
+        </button>
       </div>
     );
   }

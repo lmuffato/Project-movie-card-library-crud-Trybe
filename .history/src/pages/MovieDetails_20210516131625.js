@@ -31,9 +31,8 @@ class MovieDetails extends Component {
     const { loading } = this.state;
     if (loading) return <Loading />;
 
-    const { movie } = this.state;
-
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { movie } = this.state;
     const { match: { params: { id } } } = this.props;
 
     return (

@@ -9,6 +9,8 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.removeMovie = this.removeMovie.bind(this);
+
     this.state = {
       movie: {},
       loading: true,
@@ -23,10 +25,20 @@ class MovieDetails extends Component {
     }));
   }
 
+  removeMovie() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id).then(() => this.setState({
+      movie: {},
+    }));
+  }
+
   render() {
     // Change the condition to check the state
-    // if (true) return <Loading />;
     const { movie, loading } = this.state;
+    // if (redirect) {
+    //   return (<Redirect to="/" />);
+    // }
+    // if (true) return <Loading />;
     if (loading) return (<Loading />);
     // console.log(this.props);
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
@@ -40,6 +52,7 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.removeMovie }>DELETAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>
     );

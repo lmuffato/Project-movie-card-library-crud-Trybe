@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -10,49 +10,63 @@ class MovieDetails extends Component {
       movies: [],
       loaded: true,
     };
-  }
-
-
-  async getMovie() {
-    const { match} = this.props
-    const { params: { id } } = match;
-    const getID = await movieAPI.getMovie(id);
-    this.setState({ movies: getID, loaded: false}) 
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
-    this.getMovie()
+    this.getMovie();
   }
 
-  render() { 
-    
+  async getMovie() {
+    const { match } = this.props;
+    const { params: { id } } = match;
+    const getID = await movieAPI.getMovie(id);
+    this.setState({ movies: getID, loaded: false });
+  }
+
+  async deleteMovie() {
+    const { match } = this.props;
+    const { params: { id } } = match;
+    await movieAPI.deleteMovie(id);
+  }
+
+  render() {
     const { movies } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movies
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
     const { loaded } = this.state;
 
     return (
-      loaded ? <Loading/> : (
-      <div data-testid="movie-details">
+      loaded ? <Loading /> : (
+        <div data-testid="movie-details">
 
-        <img src = {`../${imagePath}`} alt = 'Movie Cover'/> 
-        <p> { `Title: ${title}` } </p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+          <img src={ `../${imagePath}` } alt="Movie Cover" />
+          <p>
+            { `Title: ${title}` }
+            {' '}
+          </p>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
 
-        <button type = 'button'>  
-          <Link to = { `/movies/${id}/edit`}> EDITAR </Link>
-        </button>
-        
-        <button type = 'button'>  
-          <Link to = "/" > VOLTAR </Link>
-        </button>
+          <button type="button">
+            <Link to={ `/movies/${id}/edit` }> EDITAR </Link>
+          </button>
 
-      </div>
+          <button type="button">
+            <Link to="/"> VOLTAR </Link>
+          </button>
+
+          <button type="button">
+            <Link to="/" onClick={ this.deleteMovie }> DELETAR </Link>
+          </button>
+
+        </div>
       )
     );
   }
 }
 
 export default MovieDetails;
+
+// Requisito 07: ajuda/dica do André Barroso

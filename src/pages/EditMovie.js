@@ -10,7 +10,12 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
+  async handleSubmit(updatedMovie) {
+    const { updateMovie } = movieAPI;
+    const result = await updateMovie(updatedMovie);
+    this.setState({
+      ...result,
+    });
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import MovieDetails from '../pages/MovieDetails';
 
 class MovieCard extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class MovieCard extends React.Component {
         <p>{ title }</p>
         <p>{ storyline }</p>
         <Link to={ `movies/${id}` }>VER DETALHES</Link>
-
+        {/* <MovieDetails movie={ movie } /> */}
       </div>
     );
   }

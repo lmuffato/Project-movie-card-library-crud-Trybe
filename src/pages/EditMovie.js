@@ -24,16 +24,16 @@ class EditMovie extends Component {
     await updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
-      });
+    });
   }
-  
+
   async fetchMovieUpdated() {
     const { match: { params: { id } } } = this.props;
     const getMovieReturn = await movieAPI.getMovie(id);
     this.setState({
       movie: getMovieReturn,
       loading: false,
-      });
+    });
   }
 
   render() {

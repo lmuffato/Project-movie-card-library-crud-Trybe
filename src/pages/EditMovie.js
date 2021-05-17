@@ -11,7 +11,14 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
+    movieAPI(updatedMovie);
   }
+
+  // async requestMovie() {
+  //   const { match: { params: { id } } } = this.props;
+  //   const getMovi = await movieAPI.getMovie(id);
+  //   this.setState({ movie: getMovi, loading: false });
+  // }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;

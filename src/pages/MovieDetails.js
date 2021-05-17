@@ -48,16 +48,16 @@ class MovieDetails extends Component {
     }
 
     return loading ? <Loading /> : (
-      <section>
-        <div data-testid="movie-details">
-          <img alt="Movie Cover" src={ `../${imagePath}` } />
-          <p>{ `title: ${title}` }</p>
+      <section className="sectionDetails">
+        <div className="detailsDetails" data-testid="movie-details">
+          <img className="detailsImage" alt="Movie Cover" src={ `../${imagePath}` } />
+          <p>{ `Title: ${title}` }</p>
           <p>{ `Subtitle: ${subtitle}` }</p>
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
         </div>
-        <div>
+        <div className="detailsLinks">
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
           <Link to="/" onClick={ this.handleSubmit }>DELETAR</Link>

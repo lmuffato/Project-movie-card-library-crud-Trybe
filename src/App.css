@@ -1,5 +1,5 @@
 body {
-  background-color: whitesmoke;
+  background-color: #EFF7F6;
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -80,4 +80,32 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.sectionDetails {
+  border-style: solid;
+  border-color: rgb(124, 150, 200);
+  border-radius: 20px;
+  width: 42%;
+  padding: 2%;
+}
+
+.detailsImage {
+  border-radius: 25px;
+}
+
+.detailsLinks {
+  padding: 8px 25px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(114, 148, 216);
+  font-size: 25px;
+  font-family: monospace;
+}
+
+.detailsDetails {
+  
+  font-family: monospace;
+  font-size: 25px;
 }

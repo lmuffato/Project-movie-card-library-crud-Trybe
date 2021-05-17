@@ -39,7 +39,9 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-        {this.listMovies()}
+        <section className="movieList">
+          {this.listMovies()}
+        </section>
       </div>
     );
   }

@@ -1,5 +1,80 @@
 body {
-  background-color: whitesmoke;
+  background-image: linear-gradient(#fd974d, #cc6921);
+  height: 100%;
   box-sizing: border-box;
+  border-left: auto;
+  border-right: auto;
+  text-align: center;
 }
 
+.movieCard {
+  background-color: #fa9c57;
+  border: 1px solid #ad6734;
+  border-radius: 5%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  height: 360px;
+  margin: 20px 5px;
+  text-align: justify;
+  transition: 200ms;
+}
+
+.movieCard:hover {
+  background-color: #be580f;
+  height: 370px;
+  margin: 5px 5px;
+  border: solid 2px #883c06
+}
+
+
+.movieCover {
+  width: 200px;
+  transition: 1s;
+}
+
+.movieList {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: #ad6734;
+  padding: 4px; 
+  border-color: #b45613;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #af7d59;
+}
+
+.movieDetails {
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+  width: 800px;
+  align-items: center;
+  border: 1px solid #ad6734;
+  background-color: #fa9c57;
+  padding: 20px;
+  border-radius: 5%;
+  margin: 20px 5px;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navBtn {
+  display: block;
+}

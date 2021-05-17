@@ -16,7 +16,7 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovieUpdated();
+    this.fetchMovie();
   }
 
   async handleSubmit(updatedMovie) {
@@ -27,7 +27,7 @@ class EditMovie extends Component {
     });
   }
 
-  async fetchMovieUpdated() {
+  fetchMovie = async () => {
     const { match: { params: { id } } } = this.props;
     const getMovieReturn = await movieAPI.getMovie(id);
     this.setState({

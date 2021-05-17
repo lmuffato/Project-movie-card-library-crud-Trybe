@@ -10,6 +10,7 @@ class NewMovie extends Component {
     this.state = {
       isDone: false,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = async (newMovie) => {

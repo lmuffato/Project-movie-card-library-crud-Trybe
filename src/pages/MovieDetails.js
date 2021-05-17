@@ -22,24 +22,19 @@ class MovieDetails extends Component {
   }
 
   fetchMovie = async () => {
-    this.setState(
-      { loading: true },
-      async () => {
-        const { id } = this.state;
-        const requestMovie = await movieAPI.getMovie(id);
-        this.setState({
-          movie: requestMovie,
-          loading: false,
-        });
-      },
-    );
+    const { id } = this.state;
+    const requestMovie = await movieAPI.getMovie(id);
+    this.setState({
+      movie: requestMovie,
+      loading: false,
+    });
   }
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
     const { movie, loading, id } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle } = { ...movie };
 
     if (loading) {
       return <Loading />;

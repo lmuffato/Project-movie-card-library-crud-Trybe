@@ -1,55 +1,53 @@
 body {
   background-image: linear-gradient(#fd974d, #cc6921);
-  height: 100%;
-  box-sizing: border-box;
   border-left: auto;
   border-right: auto;
+  box-sizing: border-box;
+  height: 100%;
   text-align: center;
 }
 
 .movieCard {
+  align-items: center;
   background-color: #fa9c57;
   border: 1px solid #ad6734;
   border-radius: 5%;
-  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 220px;
   height: 360px;
+  justify-content: space-between;
   margin: 20px 5px;
+  padding: 15px;
   text-align: justify;
   transition: 200ms;
+  width: 220px;
 }
 
 .movieCard:hover {
   background-color: #be580f;
+  border: solid 2px #883c06;
   height: 370px;
-  margin: 5px 5px;
-  border: solid 2px #883c06
+  margin: 5px;
 }
 
 
 .movieCover {
   width: 200px;
-  transition: 1s;
 }
 
 .movieList {
-  padding: 20px;
-  display: flex;
   align-items: center;
+  display: flex;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 button {
   background-color: #ad6734;
-  padding: 4px; 
   border-color: #b45613;
   border-radius: 4px;
-  margin-top: 10px;
-  margin: 5px;
+  margin: 10px 5px;
+  padding: 4px;
 }
 
 button:hover {
@@ -57,22 +55,16 @@ button:hover {
 }
 
 .movieDetails {
-  display: flex;
-  text-align: justify;
-  flex-direction: column;
-  width: 800px;
   align-items: center;
-  border: 1px solid #ad6734;
   background-color: #fa9c57;
-  padding: 20px;
+  border: 1px solid #ad6734;
   border-radius: 5%;
-  margin: 20px 5px;
-}
-
-#root {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  margin: 20px 5px;
+  padding: 20px;
+  text-align: justify;
+  width: 800px;
 }
 
 .navBtn {

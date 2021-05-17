@@ -28,7 +28,7 @@ class EditMovie extends Component {
   handleSubmit(updatedMovie) {
     const { updateMovie } = movieAPI;
     updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true});
+    this.setState({ shouldRedirect: true });
   }
 
   getMovieToEdit = async () => {

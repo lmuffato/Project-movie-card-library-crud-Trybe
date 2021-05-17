@@ -68,3 +68,6 @@ EditMovie.propTypes = {
 }.isRequired;
 
 export default EditMovie;
+
+// Referência:
+// https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/65

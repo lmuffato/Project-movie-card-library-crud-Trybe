@@ -1,0 +1,15 @@
+button {
+  color: black;
+}
+
+.button-remove:hover {
+  background-color: red;
+}
+
+.button-back:hover {
+  background-color: orange;
+}
+
+.button-edit:hover {
+  background-color: yellow;
+}

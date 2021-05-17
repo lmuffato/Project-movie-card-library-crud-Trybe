@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import * as movieAPI from '../services/movieAPI';
+import PropTypes from 'prop-types';
 import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import '../details.css';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -41,6 +43,7 @@ class MovieDetails extends Component {
 
           <img src={ `../${imagePath}` } alt="Movie Cover" />
           <p>
+            {' '}
             { `Title: ${title}` }
             {' '}
           </p>
@@ -49,15 +52,15 @@ class MovieDetails extends Component {
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
 
-          <button type="button">
+          <button className="button-edit" type="button">
             <Link to={ `/movies/${id}/edit` }> EDITAR </Link>
           </button>
 
-          <button type="button">
+          <button className="button-back" type="button">
             <Link to="/"> VOLTAR </Link>
           </button>
 
-          <button type="button">
+          <button className="button-remove" type="button">
             <Link to="/" onClick={ this.deleteMovie }> DELETAR </Link>
           </button>
 
@@ -66,6 +69,14 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;
 

@@ -1,50 +1,45 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
-import { MovieForm, Loading } from '../components';
+
+import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      status: 'loading',
       movie: {},
-      loading: true,
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.fetchMovie();
+    const { match: { params: { id } } } = this.props;
+    this.fetchMovie(id);
   }
 
-  handleSubmit = async (updatedMovie) => {
-    const { updateMovie } = movieAPI;
-    await updateMovie(updatedMovie);
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
     });
   }
 
-  fetchMovie = async () => {
-    const { match: { params: { id } } } = this.props;
-    const getMovieReturn = await movieAPI.getMovie(id);
+  async fetchMovie(id) {
+    const request = await movieAPI.getMovie(id);
     this.setState({
-      movie: getMovieReturn,
-      loading: false,
+      status: 'loaded',
+      movie: request,
     });
   }
 
   render() {
-    const { loading, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
-
-    if (loading) {
-      return <Loading />;
-    }
+    const { status, shouldRedirect, movie } = this.state;
+    if (shouldRedirect) return (<Redirect to="/" />);
+    if (status === 'loading') return (<Loading />);
 
     return (
       <div data-testid="edit-movie">
@@ -57,8 +52,8 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    }),
+      id: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

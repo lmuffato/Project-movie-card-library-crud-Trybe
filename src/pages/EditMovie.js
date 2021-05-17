@@ -8,9 +8,9 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      movie: [],
       shouldRedirect: false,
-      status: true,
-      movie: '',
+      status: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.movieFetch = this.movieFetch.bind(this);
@@ -27,9 +27,9 @@ class EditMovie extends Component {
 
   async movieFetch() {
     const { match } = this.props;
-    const { id } = match.params;
-    const movie = await movieAPI.getMovie(id);
-    this.setState({ status: false, movie });
+    const { params } = match;
+    const response = await movieAPI.getMovie(params.id);
+    this.setState({ status: false, movie: response });
   }
 
   render() {

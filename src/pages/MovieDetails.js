@@ -7,7 +7,6 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    this.fetchMovie = this.movieFetch.bind(this);
     this.state = {
       movie: [],
       loading: true,
@@ -31,8 +30,11 @@ class MovieDetails extends Component {
     this.setState({ movie: response, loading: false, initial: false });
   }
 
-  delete(id) {
-    movieAPI.deleteMovie(id);
+  async removeTitle() {
+    const { match } = this.props;
+    const { params } = match;
+    const data = await movieAPI.deleteMovie(params.id);
+    return console.log(data);
   }
 
   render() {
@@ -65,7 +67,7 @@ class MovieDetails extends Component {
         <Link to="/">
           VOLTAR
         </Link>
-        <button type="button" onClick={ this.delete(id) }>
+        <button type="button" onClick={ () => this.removeTitle() }>
           <Link to="/">
             DELETAR
           </Link>

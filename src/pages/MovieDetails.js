@@ -18,6 +18,12 @@ class MovieDetails extends Component {
     this.request();
   }
 
+  delete = () => {
+    const { id } = this.state;
+    const { deleteMovie } = movieAPI;
+    return deleteMovie(id);
+  }
+
   request = async () => {
     const { getMovie } = movieAPI;
     const { id } = this.state;
@@ -40,6 +46,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link onClick={ this.delete } to="/">DELETAR</Link>
       </div>
     );
 

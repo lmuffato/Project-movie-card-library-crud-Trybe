@@ -121,7 +121,7 @@ body {
   font-family: monospace;
   font-size: 25px;
   border-style: solid;
-  background-color: rgb(114, 148, 216);;
+  background-color: rgb(114, 148, 216);
   
 }
 
@@ -152,4 +152,11 @@ body {
   border-radius: 10px;
   font-size: 20px;
   width: 25%;
+}
+
+.loadingCarregando {
+  font-family: monospace;
+  font-size: 80px;
+  color: rgb(114, 148, 216);
+  margin:25%
 }

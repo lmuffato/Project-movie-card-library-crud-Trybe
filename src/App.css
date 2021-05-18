@@ -109,3 +109,47 @@ body {
   font-family: monospace;
   font-size: 25px;
 }
+
+.movieForm {
+  margin: 25px;
+  display: flex;
+  padding: 15px;
+  flex-direction:column;
+  border-radius: 15px;
+  width: 45%;
+  justify-content: space-around;
+  font-family: monospace;
+  font-size: 25px;
+  border-style: solid;
+  background-color: rgb(114, 148, 216);;
+  
+}
+
+.movieForm input {
+  font-family: monospace;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.movieForm textarea {
+  font-family: monospace;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 50%;
+  height: 150px;
+}
+
+.movieForm select {
+    font-family: monospace;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 50%;
+}
+
+.movieForm button {
+  font-family: monospace;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 25%;
+}

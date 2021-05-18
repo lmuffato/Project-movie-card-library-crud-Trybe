@@ -4,30 +4,29 @@ body {
   font-size: 16px;
 }
 
-.movie-card-header {
-  align-items: center;
-  background-color: #343a40;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-}
-
-.page-title {
-  color: #f8f9fa;
-  font-size: 28px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.movie-list {
+.movieList {
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;
 }
 
+.Addcard {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgb(114, 148, 216);; 
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: white;
+  display: flex;
+  justify-content: space-around;
+  height: 450px;
+  margin: 5px;
+  width: 300px;
+}
+
 .movie-card {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgb(114, 148, 216);
+  border-width: 2px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -66,12 +65,13 @@ body {
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: rgb(114, 148, 216);
   border-radius: 25px;
   color: white;
   font-size: 16px;
   font-weight: 700;
   padding: 3px 9px;
+  display: flex;
 }
 
 .movie-card-rating {
@@ -80,6 +80,10 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.verDetalhes {
+  color: black;
 }
 
 .sectionDetails {

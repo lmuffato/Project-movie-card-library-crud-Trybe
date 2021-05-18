@@ -5,11 +5,28 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+    this.getMovie = this.getMovie.bind(this);
+  }
+
+  componentDidMount() {
+    getMovie();
+    this.setState = ({
+      loading: false,
+    });
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    const { movie } = this.props;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { loading } = this.state;
+    if (loading) {
+      return <Loading />;
+    }
+    const { eachmovie } = this.props;
+    const { title, storyline, imagePath, genre, rating, subtitle } = eachmovie;
 
     return (
 
@@ -34,5 +51,5 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  movie: PropTypes.string.isRequired,
+  eachmovie: PropTypes.string.isRequired,
 };

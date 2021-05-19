@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import PropTypes from 'prop-types';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    const forTest = {
-      id: 1,
-      title: 'Kingsglaive',
-      subtitle: 'Final Fantasy XV',
-      storyline: 'King Regis, who oversees the land of Lucis.',
-      rating: 4.5,
-      imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
-      bookmarked: true,
-      genre: 'action',
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      movie: {},
     };
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  }
 
-    // const { title, storyline, imagePath, genre, rating, subtitle } = {};
-    const { storyline, imagePath, genre, rating, subtitle } = forTest;
+  componentDidMount() {
+    this.fetchMovieByID();
+  }
+
+  fetchMovieByID = async () => {
+    const { match: { params: { id } } } = this.props;
+    const movie = await movieAPI.getMovie(id);
+    console.log(movie);
+    this.setState({
+      movie,
+      loading: false,
+    });
+  }
+
+  render() {
+    const { loading, movie } = this.state;
+    const { storyline, imagePath, genre, rating, subtitle } = movie;
+
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
@@ -32,5 +43,9 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape().isRequired,
+};
 
 export default MovieDetails;

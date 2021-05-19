@@ -3,3 +3,20 @@ body {
   box-sizing: border-box;
 }
 
+.movieList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.movieCard {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px;
+  height: 400px;
+}
+
+.movieCard > img {
+  width: 300px;
+  height: 200px;
+}

@@ -20,12 +20,11 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.defaultProps = {
-  movie: [],
+  movie: {},
 };
 
 MovieCard.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.object),
-  // movie: propTypes.object,
+  movie: PropTypes.objectOf(PropTypes.object),
 };
 
 export default MovieCard;

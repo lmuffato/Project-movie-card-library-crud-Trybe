@@ -8,29 +8,32 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      eachmovie: '',
       loading: true,
     };
-    this.getMovie = this.getMovie.bind(this);
   }
 
   componentDidMount() {
-    getMovie();
-    this.setState = ({
+    return this.requestMovie();
+  }
+
+  requestMovie = async () => {
+    const { match: { params: { id } } } = this.props;
+    const { getMovie } = movieAPI;
+    const theMovie = await getMovie(id);
+    this.setState({
+      eachmovie: theMovie,
       loading: false,
     });
   }
 
   render() {
-    const { loading } = this.state;
-    if (loading) {
-      return <Loading />;
-    }
-    const { eachmovie } = this.props;
+    const { loading, eachmovie } = this.state;
+    const { match: { params: { id } } } = this.props;
+    const address = `/movies/${id}/edit`;
     const { title, storyline, imagePath, genre, rating, subtitle } = eachmovie;
-
-    return (
-
-      <div data-testid="movie-details">
+    const movieDetail = (
+      <>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{ `Title: ${title}` }</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
@@ -39,10 +42,25 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link
           to="/"
-          onClick={ movieAPI.deleteMovie(movie) }
+          onClick={ movieAPI.deleteMovie(eachmovie) }
         >
           DELETAR
         </Link>
+        <Link
+          to={ address }
+        >
+          EDITAR
+        </Link>
+        <Link
+          to="/"
+        >
+          VOLTAR
+        </Link>
+      </>
+    );
+    return (
+      <div data-testid="movie-details">
+        {loading ? <Loading /> : movieDetail }
       </div>
     );
   }
@@ -51,5 +69,9 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  eachmovie: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
 };

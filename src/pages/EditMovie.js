@@ -8,7 +8,7 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 'loading',
+      loading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,18 +21,15 @@ class EditMovie extends Component {
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { loading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />;
     }
-
-    if (status === 'loading') {
-      return <Loading />;
-    }
+    const form = (<MovieForm movie={ movie } onSubmit={ this.handleSubmit } />);
 
     return (
       <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        {loading ? <Loading /> : form}
       </div>
     );
   }

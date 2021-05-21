@@ -10,11 +10,13 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <div>
-      <Route path="/"><MovieList /></Route>
-      <Route path="/movies/:id"><MovieDetails /></Route>
-      <Route path="/movies/new"><NewMovie /></Route>
-      <Route path="/movies/:id/edit"><EditMovie /></Route>
-      <Route><NotFound /></Route>
+      <Router>
+        <Route path="/"><MovieList /></Route>
+        <Route path="/movies/:id"><MovieDetails /></Route>
+        <Route path="/movies/new"><NewMovie /></Route>
+        <Route path="/movies/:id/edit"><EditMovie /></Route>
+        <Route><NotFound /></Route>
+      </Router>
     </div>
   );
 }

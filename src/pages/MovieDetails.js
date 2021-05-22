@@ -11,6 +11,7 @@ class MovieDetails extends Component {
       eachmovie: '',
       loading: true,
     };
+    this.requestMovie = this.requestMovie.bind(this);
   }
 
   componentDidMount() {
@@ -21,17 +22,19 @@ class MovieDetails extends Component {
     const { match: { params: { id } } } = this.props;
     const { getMovie } = movieAPI;
     const theMovie = await getMovie(id);
-    this.setState({
+    return this.setState({
       eachmovie: theMovie,
       loading: false,
     });
   }
 
+  // visto no código do Murilo a falta do "() => "
+  // quem impedia o botão delete de funcionar
+  // https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/85/files
   render() {
     const { loading, eachmovie } = this.state;
-    const { match: { params: { id } } } = this.props;
-    const address = `/movies/${id}/edit`;
     const { title, storyline, imagePath, genre, rating, subtitle } = eachmovie;
+    const { match: { params: { id } } } = this.props;
     const movieDetail = (
       <>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -42,12 +45,12 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link
           to="/"
-          onClick={ movieAPI.deleteMovie(eachmovie) }
+          onClick={ () => movieAPI.deleteMovie(`${id}`) }
         >
           DELETAR
         </Link>
         <Link
-          to={ address }
+          to={ `/movies/${id}/edit` }
         >
           EDITAR
         </Link>

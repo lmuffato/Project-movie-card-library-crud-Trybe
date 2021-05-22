@@ -20,7 +20,6 @@ class MovieDetails extends Component {
   fetchMovieByID = async () => {
     const { match: { params: { id } } } = this.props;
     const movie = await movieAPI.getMovie(id);
-    console.log(movie);
     this.setState({
       movie,
       loading: false,
@@ -28,7 +27,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { loading, movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     const obj = {

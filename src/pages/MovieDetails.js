@@ -9,7 +9,14 @@ class MovieDetails extends Component {
     super();
     this.state = {
       loading: true,
-      movie: {},
+      movie: { id: '',
+        title: '',
+        storyline: '',
+        imagePath: '',
+        genre: '',
+        rating: '',
+        subtitle: '',
+      },
     };
   }
 

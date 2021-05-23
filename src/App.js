@@ -28,7 +28,6 @@ function App() {
       <Route exact path="/" render={ (props) => <MovieList { ...props } /> } />
       <Route exact path="/:any" component={ NotFound } />
     </BrowserRouter>
-    // <div>Movie Card Library CRUD</div>
   );
 }
 

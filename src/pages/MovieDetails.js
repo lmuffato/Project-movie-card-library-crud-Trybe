@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     const { match: { params: { id } } } = this.props;
     const { getMovie } = movieAPI;
     const theMovie = await getMovie(id);
-    return this.setState({
+    this.setState({
       eachmovie: theMovie,
       loading: false,
     });
@@ -33,8 +33,8 @@ class MovieDetails extends Component {
   // https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/85/files
   render() {
     const { loading, eachmovie } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = eachmovie;
-    const { match: { params: { id } } } = this.props;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = eachmovie;
+    // const { match: { params: { id } } } = this.props;
     const movieDetail = (
       <>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -63,7 +63,7 @@ class MovieDetails extends Component {
     );
     return (
       <div data-testid="movie-details">
-        {loading ? <Loading /> : movieDetail }
+        { loading ? <Loading /> : movieDetail }
       </div>
     );
   }

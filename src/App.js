@@ -18,7 +18,11 @@ export default function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Switch>
-        <Route exact path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route
+          exact
+          path="/movies/:id/edit"
+          render={ (props) => <EditMovie { ...props } /> }
+        />
         <Route
           exact
           path="/movies/:id"

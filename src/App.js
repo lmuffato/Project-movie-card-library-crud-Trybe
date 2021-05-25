@@ -13,6 +13,8 @@ import NotFound from './pages/NotFound';
 
 // referência para component NotFound visto no repositório
 // do João Nascimento - https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pull/65
+// troca da ordem das rotas indicada pelo Wanderson Sales
+// em uma call para passar os requisitos 1 e 6 que tinham quebrado
 export default function App() {
   return (
     <BrowserRouter>

@@ -18,6 +18,8 @@ export default function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Switch>
+        <Route exact path="/" component={ MovieList } />
+        <Route exact path="/movies/new" component={ NewMovie } />
         <Route
           exact
           path="/movies/:id/edit"
@@ -28,8 +30,6 @@ export default function App() {
           path="/movies/:id"
           render={ (props) => <MovieDetails { ...props } /> }
         />
-        <Route exact path="/movies/new" component={ NewMovie } />
-        <Route exact path="/" component={ MovieList } />
         <Route component={ NotFound } />
       </Switch>
     </BrowserRouter>

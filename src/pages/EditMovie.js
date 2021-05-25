@@ -22,12 +22,10 @@ class EditMovie extends Component {
 
   getTheMovie = async () => {
     const { match: { params: { id } } } = this.props;
-    console.log(id);
     this.setState(
       { loading: true },
       async () => {
         const response = await movieAPI.getMovie(id);
-        console.log(response);
         this.setState({
           loading: false,
           movie: response,

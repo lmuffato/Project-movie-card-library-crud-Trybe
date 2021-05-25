@@ -5,22 +5,19 @@ body {
 
 .movie-list {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .movie-card {
   border: 1px solid black;
-  margin: 10px;
   height: 500px;
+  margin: 10px;
   text-align: center;
   width: 400px;
 }
 
 .movie-card img{
-  width:400px;
   height: 250px;
+  width:400px;
 }
-
-
-

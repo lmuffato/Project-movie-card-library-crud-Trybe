@@ -14,9 +14,9 @@ class MovieCard extends React.Component {
           <h5>{subtitle}</h5>
           <p>{storyline}</p>
           <Link
-            to="/movies/:id"
-            params={ {
-              list: id,
+            to={ {
+              pathname: `/movies/${id}`,
+              state: { id },
             } }
           >
             VER DETALHES

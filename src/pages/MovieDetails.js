@@ -1,15 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isLoaded: true,
+      movieId: '',
+    };
+  }
+
+  DidUpdate(id) {
+    console.log('component', id);
+    this.apiMovie(id);
+  }
+
+  async apiMovie(id) {
+    const selectedMovie = await movieAPI.getMovie(id);
+    this.setState({
+      isLoaded: false,
+      movieId: selectedMovie,
+    });
+    console.log('function', selectedMovie);
+  }
+
   render() {
+    const { location: { state: { id } } } = this.props;
+    const { movieId, isLoaded } = this.state;
+    this.DidUpdate(id);
+    console.log('render', this.state);
     // Change the condition to check the state
     // if (true) return <Loading />;
+    if (isLoaded) {
+      return <Loading />;
+    }
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    const { title, storyline, imagePath, genre, rating, subtitle } = movieId;
 
     return (
       <div data-testid="movie-details">
@@ -19,25 +50,33 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <div>
+          <Link
+            to={ {
+              pathname: `/movies/${id}/edit`,
+              state: { id },
+            } }
+          >
+            EDITAR
+          </Link>
+          <br />
+          <Link to="/">VOLTAR</Link>
+        </div>
       </div>
     );
   }
 }
 
 MovieDetails.propTypes = {
-  title: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  rating: PropTypes.oneOfType(
-    PropTypes.string,
-    PropTypes.number,
-  ).isRequired,
   id: PropTypes.oneOfType(
     PropTypes.string,
     PropTypes.number,
   ).isRequired,
+  location: {
+    state: {
+      id: PropTypes.string,
+    },
+  }.isRequired,
 };
 
 export default MovieDetails;

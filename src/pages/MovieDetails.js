@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -22,5 +23,21 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  rating: PropTypes.oneOfType(
+    PropTypes.string,
+    PropTypes.number,
+  ).isRequired,
+  id: PropTypes.oneOfType(
+    PropTypes.string,
+    PropTypes.number,
+  ).isRequired,
+};
 
 export default MovieDetails;

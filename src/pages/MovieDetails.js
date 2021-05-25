@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -16,18 +16,16 @@ class MovieDetails extends Component {
   }
 
   getMovieData = async () => {
-    const { location: { state } } = this.props;
+    const { match: { params: { id } } } = this.props;
     let { movie } = this.state;
-    movie = await movieAPI.getMovie(state);
-    console.log(movie);
+    movie = await movieAPI.getMovie(id);
     this.setState({ movie });
-    return movie;
   }
 
   fetchData = () => {
     const { movie } = this.state;
     if (movie !== ('' || undefined)) {
-      const { imagePath, subtitle, storyline, genre, rating } = movie;
+      const { imagePath, subtitle, storyline, genre, rating, id } = movie;
       return (
         <div data-testid="movie-details">
           <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -35,6 +33,11 @@ class MovieDetails extends Component {
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
+          <button type="button">
+            <Link to={ `${id}/edit` }>
+              Editar
+            </Link>
+          </button>
         </div>
       );
     }

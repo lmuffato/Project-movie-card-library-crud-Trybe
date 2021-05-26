@@ -36,9 +36,11 @@ class MovieList extends Component {
             />)) : <Loading />}
         </div>
         <div>
-          <Link to="/movies/new">
-            <button type="button"> New Movie </button>
-          </Link>
+          <button type="button">
+            <Link to="/movies/new">
+              ADICIONAR CARTÃO
+            </Link>
+          </button>
         </div>
       </>
     );

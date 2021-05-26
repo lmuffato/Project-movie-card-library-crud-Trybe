@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 
 import { MovieForm } from '../components';
@@ -37,6 +37,11 @@ class EditMovie extends Component {
     });
   }
 
+  deleteMovie = () => {
+    const { match: { params: id } } = this.props;
+    return movieAPI.deleteMovie(id.id);
+  }
+
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
@@ -51,6 +56,7 @@ class EditMovie extends Component {
       <div data-testid="edit-movie">
         <h1>Editar Filme</h1>
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }

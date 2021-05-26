@@ -29,10 +29,10 @@ class NewMovie extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div data-testid="new-movie">
+      <div className="form-style-2" data-testid="new-movie">
         <h1>Adicionar novo filme</h1>
         <MovieForm onSubmit={ this.handleSubmit } />
-        <div>
+        <div className="button-delete">
           <button type="button"><Link to="/">VOLTAR</Link></button>
         </div>
       </div>

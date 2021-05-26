@@ -23,7 +23,7 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 10px;
+  padding: 48px 25px;
 }
 
 .movie-card {
@@ -39,7 +39,7 @@ body {
 }
 
 
-.movie-card-image {
+.movie-card-image, .movie-details-img {
   width: 100%;
 }
 
@@ -48,20 +48,20 @@ body {
   padding: 20px;
 }
 
-.movie-card-title {
+.movie-card-title, .movie-details-title {
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
-.movie-card-subtitle {
+.movie-card-subtitle, .movie-details-subtitle {
   color: #6c757d;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
 }
 
-.movie-card-storyline {
+.movie-card-storyline, .movie-details-storyline, .movie-details-genre {
   font-size: 14px;
   text-align: justify;
 }
@@ -83,4 +83,83 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 12px 20px;
+}
+
+.loading {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.movie-details {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  margin: 5px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.movie-details-rating {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 20px;
+}
+
+.details-rating, .button-delete {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: rgb(177, 150, 0);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 20px;
+}
+
+.movie-details-body {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.input-text {
+  align-items: center;
+  display: flex;
+  height: auto;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.input-select {
+  align-items: center;
+  display: flex;
+  height: auto;
+  margin: 10px;
+  justify-content: center;
+}
+
+form {
+  width: 650px;
+}
+
+input {
+  width: 500px;
+}
+
+textarea {
+  height: 100px;
+  width: 500px;
+}
+
+.form-style {
+  display: flex;
+  justify-content: center;
+}
+
+.form-style-2 {
+  text-align: center;
 }

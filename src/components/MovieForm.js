@@ -22,7 +22,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_title">
+        <label className="input-text" htmlFor="movie_title">
           <input
             placeholder="Insira o título"
             id="movie_title"
@@ -42,7 +42,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">
+        <label className="input-text" htmlFor="movie_subtitle">
           <input
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
@@ -61,7 +61,7 @@ class MovieForm extends React.Component {
 
     return (
       <div className="row">
-        <label htmlFor="movie_image">
+        <label className="input-text" htmlFor="movie_image">
           <input
             placeholder="Insira o caminho da imagem"
             id="movie_image"
@@ -80,7 +80,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_storyline">
+        <label className="input-text" htmlFor="movie_storyline">
           <textarea
             id="movie_storyline"
             value={ storyline }
@@ -96,8 +96,7 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
     return (
       <div>
-        <label htmlFor="movie_genre">
-          Gênero
+        <label className="input-text" htmlFor="movie_genre">
           <select
             id="movie_genre"
             value={ genre }
@@ -108,6 +107,7 @@ class MovieForm extends React.Component {
             <option value="thriller">Suspense</option>
             <option value="fantasy">Fantasia</option>
           </select>
+          Gênero
         </label>
       </div>
     );
@@ -117,7 +117,7 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
     return (
       <div>
-        <label htmlFor="movie_rating">
+        <label className="input-text" htmlFor="movie_rating">
           <input
             placeholder="Dê a avaliação do filme"
             id="movie_rating"
@@ -149,7 +149,7 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form-style">
         <form>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}

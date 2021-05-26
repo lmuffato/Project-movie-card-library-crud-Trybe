@@ -43,24 +43,35 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle } = movieId;
 
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <div>
-          <Link
-            to={ {
-              pathname: `/movies/${id}/edit`,
-              state: { id },
-            } }
-          >
-            EDITAR
-          </Link>
-          <br />
-          <Link to="/">VOLTAR</Link>
+      <div className="movie-details-body">
+        <div className="movie-details" data-testid="movie-details">
+          <img
+            className="movie-details-img"
+            alt="Movie Cover"
+            src={ `../${imagePath}` }
+          />
+          <div className="movie-card-body">
+            <p className="movie-details-title">{ `Title: ${title}` }</p>
+            <p className="movie-details-subtitle">{ `Subtitle: ${subtitle}` }</p>
+            <p className="movie-details-storyline">{ `Storyline: ${storyline}` }</p>
+            <p className="movie-details-genre">{ `Genre: ${genre}` }</p>
+          </div>
+          <p className="details-rating">{ `Rating: ${rating}` }</p>
+          <div className="movie-details-rating">
+            <button type="button">
+              <Link
+                to={ {
+                  pathname: `/movies/${id}/edit`,
+                  state: { id },
+                } }
+              >
+                EDITAR
+              </Link>
+            </button>
+            <button type="button">
+              <Link to="/">VOLTAR</Link>
+            </button>
+          </div>
         </div>
       </div>
     );

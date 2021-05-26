@@ -53,10 +53,17 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
+      <div className="form-style-2" data-testid="edit-movie">
         <h1>Editar Filme</h1>
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+        <div className="button-delete">
+          <button type="button">
+            <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+          </button>
+          <button type="button">
+            <Link to="/">VOLTAR</Link>
+          </button>
+        </div>
       </div>
     );
   }

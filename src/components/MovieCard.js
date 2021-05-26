@@ -1,10 +1,11 @@
 import React from 'react';
+import MovieDetails from './pages/MovieDetails';
 
 class MovieCard extends React.Component {
   render() {
     return (
       <div data-testid="movie-card">
-        Movie Card
+        <h1>{this.props.}</h1>
       </div>
     );
   }

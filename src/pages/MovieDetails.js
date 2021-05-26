@@ -26,14 +26,14 @@ class MovieDetails extends Component {
       isLoaded: false,
       movieId: selectedMovie,
     });
-    console.log('function', selectedMovie);
+    console.log('function', movieAPI.getMovie(id));
   }
 
   render() {
     const { match: { params: { id } } } = this.props;
     const { movieId, isLoaded } = this.state;
     this.DidUpdate(id);
-    console.log('render', this.state);
+    console.log('render', id);
     // Change the condition to check the state
     // if (true) return <Loading />;
     if (isLoaded) {

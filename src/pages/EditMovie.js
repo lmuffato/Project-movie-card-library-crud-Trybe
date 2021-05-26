@@ -30,7 +30,7 @@ class EditMovie extends Component {
 
   apiMovie = async () => {
     const { match: { params: id } } = this.props;
-    const selMovie = await movieAPI.getMovie(id);
+    const selMovie = await movieAPI.getMovie(id.id);
     this.setState({
       status: '',
       movie: selMovie,

@@ -29,7 +29,7 @@ export const getMovies = () => (
 );
 
 export const getMovie = (movieId) => {
-  const movie = readMovies().find((mov) => mov.id === parseInt(movieId, 10));
+  const movie = readMovies().find((mov) => mov.id === parseInt(movieId.id, 10));
   return new Promise((resolve) => {
     simulateRequest(movie)(resolve);
   });

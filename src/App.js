@@ -2,11 +2,11 @@ import React from 'react';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import MovieDetails from './components/MovieDetails';
-import MovieList from './components/MovieList';
-import NewMovie from './components/NewMovie';
-import EditMovie from './components/EditMovie';
-import NotFound from './components/NotFound';
+import MovieDetails from './pages/MovieDetails';
+import MovieList from './pages/MovieList';
+import NewMovie from './pages/NewMovie';
+import EditMovie from './pages/EditMovie';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (

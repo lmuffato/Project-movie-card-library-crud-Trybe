@@ -23,22 +23,32 @@ class MovieDetails extends Component {
     this.setState({ movie });
   }
 
+  deleteMovie = (id) => {
+    movieAPI.deleteMovie(id);
+  }
+
   fetchData = () => {
     const { movie } = this.state;
     if (movie !== ('' || undefined)) {
-      const { imagePath, subtitle, storyline, genre, rating, id } = movie;
+      const { title, imagePath, subtitle, storyline, genre, rating, id } = movie;
       return (
         <div data-testid="movie-details">
           <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <p>{ `Title: ${title}` }</p>
           <p>{ `Subtitle: ${subtitle}` }</p>
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
           <button type="button">
             <Link to={ `${id}/edit` }>
-              Editar
+              EDITAR
             </Link>
           </button>
+          <button type="button" onClick={ this.deleteMovie(id) }>
+            <Link to="/">DELETAR</Link>
+          </button>
+          <br />
+          <Link to="/"> VOLTAR </Link>
         </div>
       );
     }

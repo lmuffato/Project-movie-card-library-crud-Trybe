@@ -17,16 +17,20 @@ class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    const selMovie = await movieAPI.updateMovie(updatedMovie);
+    const selMovie = await movieAPI.updateMovie(updatedMovie.id);
+    console.log(updatedMovie);
+    console.log(selMovie);
     this.setState({
-      status: '',
-      movie: selMovie,
+      status: selMovie,
+      movie: updatedMovie,
+      shouldRedirect: false,
     });
+    console.log(this.state);
   }
 
   render() {
-    const { location: { state: id } } = this.props;
-    this.handleSubmit(id);
+    const { match: { params: movieId } } = this.props;
+    this.handleSubmit(movieId);
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect
@@ -45,11 +49,11 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  location: {
-    state: {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
       id: PropTypes.string,
-    },
-  }.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default EditMovie;

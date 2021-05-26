@@ -30,7 +30,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { location: { state: { id } } } = this.props;
+    const { match: { params: { id } } } = this.props;
     const { movieId, isLoaded } = this.state;
     this.DidUpdate(id);
     console.log('render', this.state);
@@ -68,15 +68,11 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  id: PropTypes.oneOfType(
-    PropTypes.string,
-    PropTypes.number,
-  ).isRequired,
-  location: {
-    state: {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
       id: PropTypes.string,
-    },
-  }.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default MovieDetails;

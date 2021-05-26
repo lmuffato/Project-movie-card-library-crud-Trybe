@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
@@ -12,21 +12,27 @@ class MovieDetails extends Component {
     this.state = {
       movies: {},
       loading: true,
+      status: false,
     };
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     this.fetchMovie();
   }
 
+  async handleDelete() {
+    const { match: { params: { id } } } = this.props;
+    await movieAPI.deleteMovie(id);
+    this.setState({ status: true });
+  }
+
   async fetchMovie() {
     // console.log(this.props);
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
+    const { match: { params: { id } } } = this.props;
     const filme = await movieAPI.getMovie(id);
-    console.log(filme);
+    // console.log(filme);
     this.setState({
       movies: filme,
       loading: false,
@@ -34,13 +40,13 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movies, loading } = this.state;
+    const { movies, loading, status } = this.state;
+
     if (loading === true) return <Loading />;
+    if (status) return <Redirect to="/" />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movies;
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
+    const { match: { params: { id } } } = this.props;
 
     return (
       <div data-testid="movie-details">
@@ -56,6 +62,8 @@ class MovieDetails extends Component {
         <Link to="/">VOLTAR</Link>
         <br />
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <br />
+        <Link to="/" onClick={ this.handleDelete }>DELETAR</Link>
       </div>
     );
   }

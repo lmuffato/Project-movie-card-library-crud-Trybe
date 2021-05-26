@@ -87,8 +87,8 @@ body {
 
 .loading {
   align-content: center;
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .movie-details {
@@ -113,8 +113,8 @@ body {
 
 .details-rating, .button-delete {
   background-color: rgba(0, 0, 0, 0.03);
-  color: rgb(177, 150, 0);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  color: rgb(177, 150, 0);
   display: flex;
   justify-content: space-around;
   padding: 12px 20px;
@@ -130,16 +130,16 @@ body {
   align-items: center;
   display: flex;
   height: auto;
-  margin: 10px;
   justify-content: space-around;
+  margin: 10px;
 }
 
 .input-select {
   align-items: center;
   display: flex;
   height: auto;
-  margin: 10px;
   justify-content: center;
+  margin: 10px;
 }
 
 form {

@@ -19,6 +19,8 @@ class MovieCard extends React.Component {
 
 export default MovieCard;
 
+// solução encontrado com base no código de LUCAS MUFFATO
+// e consulta ao material do trybe course na aula de Proptypes.
 MovieCard.propTypes = {
   movie: Proptypes.shape({
     title: Proptypes.string,

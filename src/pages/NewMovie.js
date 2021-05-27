@@ -29,11 +29,11 @@ class NewMovie extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div className="form-style-2" data-testid="new-movie">
+      <div data-testid="new-movie">
         <h1>Adicionar novo filme</h1>
         <MovieForm onSubmit={ this.handleSubmit } />
-        <div className="button-delete">
-          <button type="button"><Link to="/">VOLTAR</Link></button>
+        <div>
+          <Link to="/">VOLTAR</Link>
         </div>
       </div>
     );

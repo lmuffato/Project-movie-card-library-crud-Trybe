@@ -43,7 +43,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle } = movieId;
 
     return (
-      <div className="movie-details-body">
+      <div className="movie-details-body" data-testid="movie-details">
         <div className="movie-details" data-testid="movie-details">
           <img
             className="movie-details-img"
@@ -58,19 +58,15 @@ class MovieDetails extends Component {
           </div>
           <p className="details-rating">{ `Rating: ${rating}` }</p>
           <div className="movie-details-rating">
-            <button type="button">
-              <Link
-                to={ {
-                  pathname: `/movies/${id}/edit`,
-                  state: { id },
-                } }
-              >
-                EDITAR
-              </Link>
-            </button>
-            <button type="button">
-              <Link to="/">VOLTAR </Link>
-            </button>
+            <Link
+              to={ {
+                pathname: `/movies/${id}/edit`,
+                state: { id },
+              } }
+            >
+              EDITAR
+            </Link>
+            <Link to="/">VOLTAR </Link>
           </div>
         </div>
       </div>

@@ -45,9 +45,7 @@ class MovieList extends Component {
             Movie Cards - CRUD
             <br />
           </div>
-          <button type="button">
-            <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-          </button>
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </header>
         <div className="movie-list" data-testid="movie-list">
           {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}

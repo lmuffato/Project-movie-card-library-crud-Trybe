@@ -13,16 +13,18 @@ class MovieCard extends React.Component {
           <h4 className="movie-card-title">{title}</h4>
           <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
-          <button type="button">
-            <Link
-              to={ {
-                pathname: `/movies/${id}`,
-                state: { id },
-              } }
-            >
-              VER DETALHES
-            </Link>
-          </button>
+          <div className="movie-card-detail">
+            <button type="button">
+              <Link
+                to={ {
+                  pathname: `/movies/${id}`,
+                  state: { id },
+                } }
+              >
+                VER DETALHES
+              </Link>
+            </button>
+          </div>
         </div>
         <div className="movie-card-rating">
           Avaliação

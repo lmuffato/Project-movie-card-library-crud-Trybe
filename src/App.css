@@ -45,8 +45,8 @@ body {
 
 .movie-card-body {
   flex: 1 1 auto;
-  position: relative;
   padding: 20px;
+  position: relative;
 }
 
 .movie-card-title, .movie-details-title {
@@ -166,7 +166,7 @@ textarea {
 }
 
 .movie-card-detail {
-  display: flex;
   bottom: 5px;
+  display: flex;
   position: absolute;
 }

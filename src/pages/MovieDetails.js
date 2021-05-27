@@ -31,7 +31,6 @@ class MovieDetails extends Component {
     const { movie, loading } = this.state;
     const { id, imagePath, title, subtitle, storyline, genre, rating } = movie;
     if (loading) return <Loading />;
- 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />

@@ -69,7 +69,7 @@ class MovieDetails extends Component {
               </Link>
             </button>
             <button type="button">
-              <Link to="/">VOLTAR</Link>
+              <Link to="/">VOLTAR </Link>
             </button>
           </div>
         </div>

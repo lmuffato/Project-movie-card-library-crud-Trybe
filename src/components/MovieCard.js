@@ -20,8 +20,9 @@ class MovieCard extends React.Component {
 export default MovieCard;
 
 MovieCard.propTypes = {
-  movie: Proptypes.array,
-  title: Proptypes.string,
-  subtitle: Proptypes.string,
-  storyline: Proptypes.string,
-};
+  movie: Proptypes.shape({
+    title: Proptypes.string,
+    subtitle: Proptypes.string,
+    storyline: Proptypes.string,
+  }),
+}.isRiquered;

@@ -32,7 +32,7 @@ class MovieDetails extends Component {
   render() {
     const { match: { params: { id } } } = this.props;
     const { movieId, isLoaded } = this.state;
-    this.DidUpdate(id);
+    // this.DidUpdate(id);
     console.log('render', id);
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -43,7 +43,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle } = movieId;
 
     return (
-      <div className="movie-details-body" data-testid="movie-details">
+      <div className="movie-details-body">
         <div className="movie-details" data-testid="movie-details">
           <img
             className="movie-details-img"

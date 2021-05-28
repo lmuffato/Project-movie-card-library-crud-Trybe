@@ -53,10 +53,10 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
+      <div className="form-style-2" data-testid="edit-movie">
         <h1>Editar Filme</h1>
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-        <div>
+        <div className="button-delete">
           <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
@@ -68,7 +68,11 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.oneOfType(
+        PropTypes.string,
+        PropTypes.array,
+        PropTypes.number,
+      ),
     }),
   }).isRequired,
 };

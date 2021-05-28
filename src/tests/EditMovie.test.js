@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import App from '../App';
 import { movieAPI, readMovies } from './helpers';
 
-jest.mock('../services/movieAPI');
+jest.mock('../services/movieAPI.js');
 
 const renderPath = (path) => {
   const history = createBrowserHistory();

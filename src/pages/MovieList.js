@@ -10,7 +10,6 @@ class MovieList extends Component {
     super();
 
     this.state = {
-      error: null,
       movies: [],
       isLoaded: true,
     };
@@ -22,7 +21,6 @@ class MovieList extends Component {
 
   async api() {
     const resolve = await movieAPI.getMovies();
-    console.log(resolve);
     this.setState({
       isLoaded: false,
       movies: resolve,
@@ -30,9 +28,7 @@ class MovieList extends Component {
   }
 
   render() {
-    console.log('didMount', this.state);
     const { isLoaded, movies } = this.state;
-    console.log('render', movies);
     // Render Loading here if the request is still happening
     if (isLoaded) {
       return <Loading />;

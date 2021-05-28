@@ -10,7 +10,7 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 'loading',
+      status: true,
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +22,7 @@ class EditMovie extends Component {
 
   async handleSubmit(updatedMovie) {
     const upDateMovie = await movieAPI.updateMovie(updatedMovie);
+    console.log(updatedMovie);
     this.setState({
       shouldRedirect: true,
     });
@@ -32,7 +33,7 @@ class EditMovie extends Component {
     const { match: { params: id } } = this.props;
     const selMovie = await movieAPI.getMovie(id.id);
     this.setState({
-      status: '',
+      status: false,
       movie: selMovie,
     });
   }
@@ -48,7 +49,7 @@ class EditMovie extends Component {
       return <Redirect to="/" />;
     }
 
-    if (status === 'loading') {
+    if (status) {
       return <Loading />;
     }
 

@@ -15,8 +15,9 @@ class MovieDetails extends Component {
     };
   }
 
-  DidUpdate(id) {
-    console.log('component', id);
+  componentDidMount() {
+    console.log('component');
+    const { match: { params: { id } } } = this.props;
     this.apiMovie(id);
   }
 

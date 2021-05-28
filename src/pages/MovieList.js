@@ -36,6 +36,7 @@ class MovieList extends Component {
   render() {
     const { movies, loading } = this.state;
     const loadingElement = <Loading />;
+    console.log('movies', movies);
 
     // Render Loading here if the request is still happening
 

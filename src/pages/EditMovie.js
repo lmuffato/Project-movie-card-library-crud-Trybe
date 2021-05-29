@@ -19,8 +19,8 @@ class EditMovie extends Component {
     this.fetchMovie();
   }
 
-  handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie);
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
   }
 
   async fetchMovie() {

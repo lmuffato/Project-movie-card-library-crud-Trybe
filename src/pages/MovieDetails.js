@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -6,9 +8,9 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
-    state = {
+    this.state = {
       movie: {},
-      loading: false,
+      loading: true,
     };
 
     this.fetchMovie = this.fetchMovie.bind(this);
@@ -19,21 +21,23 @@ class MovieDetails extends Component {
   }
 
   async fetchMovie() {
-    this.setState({ loading: true });
-    const result = await movieAPI.getMovie();
-    this.setState({ movie: result });
-    this.setState({ loading: false });
+    const { match: { params: { id } } } = this.props;
+    const result = await movieAPI.getMovie(id);
+    this.setState({
+      movie: result,
+      loading: false,
+    });
   }
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie, loading } = this.state;
-    console.log(movie);
+    const { loading } = this.state;
 
     if (loading) { return <Loading />; }
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    const { movie: { id, title, storyline, imagePath,
+      genre, rating, subtitle } } = this.state;
 
     return (
       <div data-testid="movie-details">
@@ -43,9 +47,20 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <Link to={ `./${id}/edit` }>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link onClick={ async () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;

@@ -21,3 +21,11 @@ function App() {
 }
 
 export default App;
+
+/* Agradecimentos:
+  Gostaria de agradecer o meu amigo Leonardo Mallmann(Turma 10 - Trybo A) pela aula que me deu e por me
+  guiar do primeiro ao último requisito deste projeto, sem o auxilio dele eu não teria adquirodo
+  o conhecimento para concluir cada etapa.
+
+  https://github.com/mallmann02
+*/

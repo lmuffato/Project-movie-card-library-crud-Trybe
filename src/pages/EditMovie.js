@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -43,7 +43,6 @@ class EditMovie extends Component {
 
   render() {
     const { loading, shouldRedirect, movie } = this.state;
-    const { match: { params: { id } } } = this.props;
     if (shouldRedirect) return <Redirect to="/" />;
 
     if (loading) return <Loading />;
@@ -51,7 +50,6 @@ class EditMovie extends Component {
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-        <Link onClick={ async () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
       </div>
     );
   }

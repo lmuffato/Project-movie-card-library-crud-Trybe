@@ -12,6 +12,7 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      loading: false,
     };
   }
 
@@ -20,21 +21,21 @@ class MovieList extends Component {
   }
 
   async fetchMovies() {
+    this.setState({ loading: true });
     const moviesList = await movieAPI.getMovies();
-    this.setState({
-      movies: moviesList,
-    });
+    this.setState({ movies: moviesList });
+    this.setState({ loading: false });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, loading } = this.state;
 
     // Render Loading here if the request is still happening
+    if (loading) { return <Loading />; }
 
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <Loading />
       </div>
     );
   }

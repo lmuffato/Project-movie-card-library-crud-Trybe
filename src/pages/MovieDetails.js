@@ -21,11 +21,11 @@ class MovieDetails extends Component {
   }
 
   async fetchMovie() {
+    const { match } = this.props;
+    const { id } = match.params;
     this.setState(
       { loading: true },
       async () => {
-        const { match } = this.props;
-        const { id } = match.params;
         const requestMovie = await getMovie(id);
 
         this.setState({
@@ -44,14 +44,18 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
+        <div>
+          <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <p>{ `Title: ${title}` }</p>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
+        </div>
+        <div>
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
       </div>
     );
   }

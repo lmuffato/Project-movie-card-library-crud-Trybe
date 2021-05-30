@@ -1,0 +1,6 @@
+.movie-list {
+  display: flex;
+  margin: auto;
+  padding-top: 5%;
+  width: 80%;
+}

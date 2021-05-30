@@ -1,0 +1,6 @@
+.movie-card {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  flex-flow: row wrap;
+}

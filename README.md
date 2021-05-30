@@ -332,7 +332,7 @@ Todos os `MovieCard`s devem possuir em seu conteúdo, pelo menos, o título, a s
   - Sinopse;
   - Gênero;
   - Avaliação;
-  - um link com o texto "EDITAR" apontando para a rota `/movies/:id/edit` e um link apontando para a rota raiz (`/`) com o texto "VOLTAR".
+  - um link com o texto "EDITAR" apontando para a rota e um link apontando para a rota raiz (`/`) com o texto "VOLTAR".
 
 Os campos devem existir no cartão conforme ilustrado na imagem abaixo.
 

@@ -17,6 +17,10 @@ class MovieDetails extends Component {
   componentDidMount() {
     const { match } = this.props;
     const { id } = match.params;
+    if (id === undefined) {
+      return;
+    }
+    console.log(id);
     this.fetchApi(id);
   }
 

@@ -3,6 +3,14 @@ import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     movie: {},
+  //   };
+  // }
+
   render() {
     const { movie } = this.props;
     return (

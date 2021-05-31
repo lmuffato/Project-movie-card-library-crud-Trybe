@@ -6,6 +6,9 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <div className="title-content">
+        <h1 className="main-title">MOVIE CARDS LIBRARY</h1>
+      </div>
       <Switch>
         <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />

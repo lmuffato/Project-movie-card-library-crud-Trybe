@@ -22,6 +22,7 @@ class EditMovie extends Component {
     this.fetchMovie();
   }
 
+  // Trecho do código realizado com apoio do Iago Ferreira
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
     this.setState({

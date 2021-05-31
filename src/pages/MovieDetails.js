@@ -17,10 +17,20 @@ class MovieDetails extends Component {
     };
 
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.handleDeleteMovie = this.handleDeleteMovie.bind(this);
   }
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  // trecho do código embasado na solução de Eduardo Costa
+  async handleDeleteMovie() {
+    const { match: { params: { id } } } = this.props;
+    await movieAPI.deleteMovie(id);
+    this.setState({
+      loading: true,
+    });
   }
 
   async fetchMovie() {
@@ -52,6 +62,7 @@ class MovieDetails extends Component {
         {/* Trecho do código inspirado na solução encontrado por Eduardo Costa */}
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.handleDeleteMovie }>DELETAR</Link>
       </div>
     );
   }

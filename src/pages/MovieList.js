@@ -26,7 +26,7 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    if (!movies) {
+    if (movies.length <= 0) {
       return <Loading />;
     }
 

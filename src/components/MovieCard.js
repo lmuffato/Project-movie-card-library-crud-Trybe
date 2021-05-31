@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-    const { title, subtitle, storyline, /* rating, */ imagePath, id } = movie;
+    const { title, subtitle, storyline, imagePath, id } = movie;
     return (
       <div data-testid="movie-card" className="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />

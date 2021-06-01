@@ -6,7 +6,6 @@ import { Loading } from '../components';
 const { getMovie } = movieAPI;
 
 export default class MovieDetails extends Component {
-
   constructor() {
     super();
 
@@ -53,3 +52,7 @@ export default class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.object,
+}.isRequired;

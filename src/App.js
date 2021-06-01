@@ -28,3 +28,7 @@ export default App;
 
 // Código da rota NotFound baseada em:
 // https://ultimatecourses.com/blog/react-router-not-found-component
+
+// Requisitos realizados com a ajuda dos vídeos:
+// https://trybecourse.slack.com/files/U01B5LANGE7/F01LU9DB7NU/zoom_0.mp4
+// https://www.youtube.com/watch?v=e3hL0eMcFW4

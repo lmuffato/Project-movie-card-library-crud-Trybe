@@ -3,6 +3,7 @@ import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
+
 const { getMovies } = movieAPI;
 
 class MovieList extends Component {

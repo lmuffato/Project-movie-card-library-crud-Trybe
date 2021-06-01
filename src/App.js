@@ -1,21 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';// Renomear a BrowserRouter para Router , para nao ter confusão com com a proxima importação Route
-import MovieList from './pages/MovieList';
-import MovieDetails from './pages/MovieDetails';
-import NewMovie from './pages/NewMovie';
-import EditMovie from './pages/EditMovie';
-import NotFound from './pages/NotFound';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';// Renomear a BrowserRouter para Router , para nao ter confusão com com a proxima importação Route
+import { MovieDetails, MovieList, EditMovie, NewMovie, NotFound } from './pages';
 
 function App() {
   return (
     <Router>
-      <div>Movie Card Library CRUD</div>
-      <Route exact path="/" component={ MovieList } />
-      <Route exact path="/movies/:id" component={ MovieDetails } />
-      <Route exact path="/movies/new" component={ NewMovie } />
-      <Route exact path="/movies/:id/edit" component={ EditMovie } />
-      <Route path="/*" component={ NotFound } />
-    </Router>// Routh path="/*" o asterisco significa que para todos os caminhos ele dará notfound já que os outros caminhos tem o exact para funcionar
+      <div className="App">
+        <Link to="/movies/new"> ADICIONAR CARTÃO </Link>
+        <Switch>
+          <Route exact path="/" component={ MovieList } />
+          <Route path="/movies/new" component={ NewMovie } />
+          <Route
+            path="/movies/:id/edit"
+            render={ (props) => <EditMovie { ...props } /> }
+          />
+          <Route path="/movies/:id" render={ (props) => <MovieDetails { ...props } /> } />
+          <Route component={ NotFound } />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

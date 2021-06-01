@@ -4,8 +4,8 @@ import { Redirect } from 'react-router';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
+import movies from '../services/movieData';
 
-const { getMovie } = movieAPI;
 export default class EditMovie extends Component {
   constructor(props) {
     super(props);
@@ -18,9 +18,17 @@ export default class EditMovie extends Component {
 
   // --- solução encontrada por 'Paulo Eliezer' e adaptada a este projeto
 
+  componentDidMount() {
+    this.fillForm();
+  }
+
+  componentDidUpdate() {
+    console.log(movies);
+  }
+
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
-    this.setState({
+    await this.setState({
       shouldRedirect: true,
     });
   }
@@ -30,7 +38,7 @@ export default class EditMovie extends Component {
     const { params } = match;
     const { id } = params;
     this.setState({
-      movie: getMovie(id),
+      movie: movieAPI.getMovie(id),
       status: undefined,
     });
   }
@@ -57,4 +65,4 @@ export default class EditMovie extends Component {
 
 EditMovie.propTypes = {
   match: PropTypes.object,
-}.isRequered;
+}.isRequired;

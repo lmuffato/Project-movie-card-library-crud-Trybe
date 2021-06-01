@@ -14,6 +14,7 @@ class MovieDetails extends Component {
     };
   }
 
+  // funcionamento do match https://reactrouter.com/web/api/match, que foi usado para recuperar o id do movie;
   fetchAPI = () => {
     const { match: { params: { id } } } = this.props;
     this.setState({ loading: true }, async () => {

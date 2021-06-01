@@ -12,6 +12,7 @@ export default class EditMovie extends Component {
     this.state = {
       shouldRedirect: false,
       status: 'loading',
+      movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,8 +28,8 @@ export default class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
-    await this.setState({
+    const movie = await movieAPI.updateMovie(updatedMovie);
+    this.setState({
       shouldRedirect: true,
     });
   }
@@ -37,8 +38,9 @@ export default class EditMovie extends Component {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
+    console.log(id);
     this.setState({
-      movie: movieAPI.getMovie(id),
+      movie: await movieAPI.getMovie(id),
       status: undefined,
     });
   }
@@ -51,7 +53,7 @@ export default class EditMovie extends Component {
       return <Redirect to="/" />;
     }
 
-    if (status === 'down') {
+    if (status === 'loading') {
       return <Loading />;
     }
 

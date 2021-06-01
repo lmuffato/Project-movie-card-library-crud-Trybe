@@ -32,11 +32,11 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
+    const { loading } = this.state;
+    if (loading) return <Loading />;
     const { match: { params: { id } } } = this.props;
     const { movie: { title, storyline, imagePath, genre,
       rating, subtitle } } = this.state;
-    const { loading } = this.state;
-    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
@@ -48,6 +48,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link onClick={ async () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
       </div>
     );
   }

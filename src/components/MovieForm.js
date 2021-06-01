@@ -1,16 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Loading from './Loading';
+
+import { getMovies } from '../services/movieAPI';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.disableLoading = this.disableLoading.bind(this);
+    this.state = { ...props.movie, loading: true };
+  }
+
+  async componentDidMount() {
+    const { idMovie } = this.props;
+    if (idMovie === '') {
+      return this.disableLoading();
+    }
+    const requestMovies = await getMovies()
+      .then((response) => this.filterMovies(response));
+    return requestMovies;
   }
 
   handleSubmit() {
     const { onSubmit } = this.props;
     onSubmit(this.state);
+  }
+
+  disableLoading() {
+    this.setState({ loading: false });
+  }
+
+  filterMovies(arrayMovies) {
+    const { idMovie } = this.props;
+    if (idMovie) {
+      const [choosenMovie] = arrayMovies.filter((movie) => movie.id === Number(idMovie));
+      this.setState({
+        id: choosenMovie.id,
+        title: choosenMovie.title,
+        subtitle: choosenMovie.subtitle,
+        imagePath: choosenMovie.imagePath,
+        storyline: choosenMovie.storyline,
+        genre: choosenMovie.genre,
+        rating: choosenMovie.rating,
+        loading: false,
+      });
+    }
+    this.setState({ loading: false });
   }
 
   updateMovie(field, newValue) {
@@ -19,7 +57,6 @@ class MovieForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-
     return (
       <div>
         <label htmlFor="movie_title">
@@ -139,7 +176,7 @@ class MovieForm extends React.Component {
       <div>
         <button
           type="button"
-          onClick={ this.handleSubmit }
+          onClick={ () => this.handleSubmit(this.state) }
         >
           Submit
         </button>
@@ -147,27 +184,63 @@ class MovieForm extends React.Component {
     );
   }
 
+  renderAll() {
+    return (
+      <form>
+        {this.renderTitleInput()}
+        {this.renderSubtitleInput()}
+        {this.renderImagePathInput()}
+        {this.renderStorylineInput()}
+        {this.renderGenreSelection()}
+        {this.renderRatingInput()}
+        {this.renderSubmitButton()}
+      </form>
+    );
+  }
+
   render() {
+    const { loading } = this.state;
     return (
       <div>
-        <form>
-          {this.renderTitleInput()}
-          {this.renderSubtitleInput()}
-          {this.renderImagePathInput()}
-          {this.renderStorylineInput()}
-          {this.renderGenreSelection()}
-          {this.renderRatingInput()}
-          {this.renderSubmitButton()}
-        </form>
+        { loading && <Loading />}
+        { !loading && this.renderAll() }
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
 }
 
 MovieForm.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }),
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+  }),
+  onSubmit: PropTypes.func,
+  idMovie: PropTypes.string,
+};
 
+MovieForm.defaultProps = {
+  match: undefined,
+  movie: {
+    title: '',
+    subtitle: '',
+    imagePath: '',
+    storyline: '',
+    genre: '',
+    rating: 0,
+    idMovie: '',
+  },
+  onSubmit: (() => {}),
+  idMovie: '',
 };
 
 export default MovieForm;

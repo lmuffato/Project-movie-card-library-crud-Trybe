@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+
 import MovieForm from '../components/MovieForm';
-import * as movieAPI from '../services/movieAPI';
+import { createMovie } from '../services/movieAPI';
 
 class NewMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      redirect: false,
+    };
   }
 
-  handleSubmit(newMovie) {
-    // consultei repositorio para uma ajuda ,
-    // https://github.com/tryber/sd-010-b-project-movie-card-library-crud/blob/jessica-schulze--project-movie-card-library-crud/src/pages/NewMovie.js
-    const { history } = this.props;
-    movieAPI.createMovie(newMovie);
-    history.push('/');
+  async handleSubmit(newMovie) {
+    await createMovie(newMovie).then(() => {
+      this.setState({ redirect: true });
+    });
   }
 
   render() {
+    const { redirect } = this.state;
+
+    if (redirect) {
+      // Redirect
+      return (<Redirect to="/" />);
+    }
+
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } />
@@ -25,9 +34,4 @@ class NewMovie extends Component {
     );
   }
 }
-
-NewMovie.propTypes = {
-  history: PropTypes.shape(),
-}.isRequired;
-
 export default NewMovie;

@@ -28,7 +28,7 @@ export default class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    const movie = await movieAPI.updateMovie(updatedMovie);
+    await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
     });
@@ -40,7 +40,7 @@ export default class EditMovie extends Component {
     const { id } = params;
     console.log(id);
     this.setState({
-      movie: await movieAPI.getMovie(id),
+      movie: await movieAPI.getMovie(id), // Código alterado com ajuda de 'Lucas Pedroso'...
       status: undefined,
     });
   }

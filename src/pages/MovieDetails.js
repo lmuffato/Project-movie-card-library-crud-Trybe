@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -14,6 +14,7 @@ class MovieDetails extends Component {
     };
   }
 
+  // funcionamento do match https://reactrouter.com/web/api/match, que foi usado para recuperar o id do movie;
   fetchAPI = () => {
     const { match: { params: { id } } } = this.props;
     this.setState({ loading: true }, async () => {
@@ -28,6 +29,7 @@ class MovieDetails extends Component {
   componentDidMount = () => {
     this.fetchAPI();
   };
+
   render() {
     const { match: { params: { id } } } = this.props;
     const { loading } = this.state;
@@ -41,8 +43,6 @@ class MovieDetails extends Component {
       rating,
       subtitle,
     } } = this.state;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
 
     return (
       <div data-testid="movie-details">

@@ -1,3 +1,7 @@
+.footer-class a:hover {
+  color: #d04b38;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,4 +14,80 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.btn {
+  margin-right: 10px;
+}
+
+.text-muted {
+  padding: 5px 0 5px 0;
+}
+
+.mb-3 {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+.card-title {
+  line-height: 1em;
+}
+
+.cart-text {
+  line-height: 1.2em;
+}
+
+.card {
+  margin-bottom: 2em;
+  padding: 10px;
+}
+
+#movie_storyline{
+  resize: none;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.loading-page{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}
+
+.display-2{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.footer-class{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 200;
+  text-align: center;
+}
+
+.copyright {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#link-github{
+  color: black;
+  font-size: 60px;
+  /* text-decoration: none; */
+}
+
+.github {
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }

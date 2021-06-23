@@ -40,9 +40,16 @@ class MovieList extends Component {
     if (loading) return <Loading />;
     // console.log(movies);
     return (
-      <div data-testid="movie-list">
+      <div data-testid="movie-list" className="container">
         { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <Link to="/movies/new">
+          <button
+            type="button"
+            className="btn btn-success"
+          >
+            ADICIONAR CARTÃO
+          </button>
+        </Link>
       </div>
     );
   }
@@ -51,9 +58,9 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
 
     return (
-      <div>
+      <>
         { this.modifiedRender()}
-      </div>
+      </>
     );
   }
 }

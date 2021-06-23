@@ -21,17 +21,17 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_title">
+      <div className="input-group">
+        <label className="form-label" htmlFor="movie_title">
+          <h6>Título</h6>
           <input
             placeholder="Insira o título"
             id="movie_title"
             type="text"
-            className="validate"
+            className="validate form-control"
             value={ title }
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
-          Título
         </label>
       </div>
     );
@@ -41,16 +41,17 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
+      <div className="input-group">
         <label htmlFor="movie_subtitle">
+          <h6>Subtítulo</h6>
           <input
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
             type="text"
             value={ subtitle }
             onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
+            className="form-control"
           />
-          Subtítulo
         </label>
       </div>
     );
@@ -60,16 +61,17 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
-        <label htmlFor="movie_image">
+      <div className="row input-group">
+        <label htmlFor="movie_image" id="label-src">
+          <h6>Imagem</h6>
           <input
             placeholder="Insira o caminho da imagem"
             id="movie_image"
             type="text"
             value={ imagePath }
             onChange={ (event) => this.updateMovie('imagePath', event.target.value) }
+            className="form-control"
           />
-          Imagem
         </label>
       </div>
     );
@@ -79,14 +81,15 @@ class MovieForm extends React.Component {
     const { storyline } = this.state;
 
     return (
-      <div>
+      <div className="input-group">
         <label htmlFor="movie_storyline">
+          <h6>Sinopse</h6>
           <textarea
             id="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
+            className="form-control"
           />
-          Sinopse
         </label>
       </div>
     );
@@ -95,13 +98,14 @@ class MovieForm extends React.Component {
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div>
-        <label htmlFor="movie_genre">
-          Gênero
+      <div className="input-group">
+        <label htmlFor="movie_genre" className="form-label">
+          <h6>Gênero</h6>
           <select
             id="movie_genre"
             value={ genre }
             onChange={ (event) => this.updateMovie('genre', event.target.value) }
+            className="form-select form-select-default mb-4"
           >
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
@@ -118,6 +122,7 @@ class MovieForm extends React.Component {
     return (
       <div>
         <label htmlFor="movie_rating">
+          <h6>Avaliação</h6>
           <input
             placeholder="Dê a avaliação do filme"
             id="movie_rating"
@@ -127,8 +132,8 @@ class MovieForm extends React.Component {
             max={ 5 }
             value={ rating }
             onChange={ (event) => this.updateMovie('rating', event.target.value) }
+            className=""
           />
-          Avaliação
         </label>
       </div>
     );
@@ -140,6 +145,7 @@ class MovieForm extends React.Component {
         <button
           type="button"
           onClick={ this.handleSubmit }
+          className="btn btn-success"
         >
           Submit
         </button>
@@ -149,17 +155,15 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          {this.renderTitleInput()}
-          {this.renderSubtitleInput()}
-          {this.renderImagePathInput()}
-          {this.renderStorylineInput()}
-          {this.renderGenreSelection()}
-          {this.renderRatingInput()}
-          {this.renderSubmitButton()}
-        </form>
-      </div>
+      <form className="row g-3">
+        {this.renderTitleInput()}
+        {this.renderSubtitleInput()}
+        {this.renderImagePathInput()}
+        {this.renderStorylineInput()}
+        {this.renderGenreSelection()}
+        {this.renderRatingInput()}
+        {this.renderSubmitButton()}
+      </form>
     );
   }
 }

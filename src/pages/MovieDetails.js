@@ -43,21 +43,61 @@ class MovieDetails extends Component {
   modifiedRender = () => {
     const { movies, loading } = this.state;
     const { imagePath, subtitle, storyline, genre, rating, title } = movies;
+    // console.log(imagePath);
     const { match: { params: { id } } } = this.props;
     if (loading) return <Loading />;
     return (
-      <section>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <div id="teste">
-          <spam>{ `movieAPI: ${movieAPI}; Loading: ${Loading} ; Title:${title}` }</spam>
+      <section className="card mb-3" maxwidth="500px">
+        <img
+          src={ imagePath }
+          alt={ `Capa do filme ${title}` }
+          // width="80%"
+          height="500px"
+          className="card-img-top"
+        />
+        <figcaption
+          className="figure-caption text-end"
+        >
+          { `Capa do filme ${title}` }
+        </figcaption>
+        <div>
+          <h5 className="card-title">{ `Title: ${title}`}</h5>
+          <h5 className="card-title d-inline">
+            Subtitle:
+          </h5>
+          <p className="card-text d-inline">
+            {' '}
+            { subtitle }
+          </p>
+          <br />
+          <h5 className="card-title d-inline">Storyline:</h5>
+          <p className="card-text d-inline">
+            {' '}
+            { storyline}
+          </p>
+          <br />
+          <h5 className="card-title d-inline">Genre:</h5>
+          <p className="card-text d-inline">
+            {' '}
+            {genre}
+          </p>
+          <br />
+          <h5 className="card-title d-inline">Rating:</h5>
+          <p className="card-text d-inline">
+            { ' ' }
+            {rating}
+          </p>
+          <br />
+          <Link to={ `/movies/${id}/edit` } className="btn btn-outline-secondary">
+            EDITAR
+          </Link>
+          <Link to="/" className="btn btn-outline-secondary">
+            VOLTAR
+          </Link>
+          <Link to="/" onClick={ this.deleteMovieLocal } className="btn btn-danger">
+            DELETAR
+          </Link>
         </div>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ this.deleteMovieLocal }>DELETAR</Link>
       </section>
     );
   }

@@ -20,9 +20,7 @@ class MovieCard extends React.Component {
         </div>
         <div className="movie-card-rating" data-testid="rating">
           <span className="rating">{rating}</span>
-          <div>
-            <Link className="verDetalhes" to={ idLink }>VER DETALHES</Link>
-          </div>
+          <Link className="verDetalhes" to={ idLink }>Ver detalhes</Link>
         </div>
       </div>
     );

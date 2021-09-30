@@ -47,7 +47,7 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
+      <div className="editPage" data-testid="edit-movie">
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
       </div>
     );

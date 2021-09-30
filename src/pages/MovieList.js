@@ -4,6 +4,7 @@ import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 class MovieList extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class MovieList extends Component {
               <Link to="/movies/new">ADICIONAR CARTÃO</Link>
             </div>
           </div>
+          <Footer />
         </div>
       ));
   }

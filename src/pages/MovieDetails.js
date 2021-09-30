@@ -56,11 +56,11 @@ class MovieDetails extends Component {
           <p>{ `Storyline: ${storyline}` }</p>
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
-        </div>
-        <div className="detailsLinks">
-          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-          <Link to="/">VOLTAR</Link>
-          <Link to="/" onClick={ this.handleSubmit }>DELETAR</Link>
+          <div className="detailsLinks">
+            <Link className="link" to={ `/movies/${id}/edit` }>Editar</Link>
+            <Link className="link" to="/">Voltar</Link>
+            <Link className="link" to="/" onClick={ this.handleSubmit }>Deletar</Link>
+          </div>
         </div>
       </section>
     );
